@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.DS_Store
+.env*
+!.env.example
+test-results/
+
+# Local recovery packet and downloadable build archive
+recovery/
+s-nadlan-restored.zip
