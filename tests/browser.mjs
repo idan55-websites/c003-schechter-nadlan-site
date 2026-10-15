@@ -10,7 +10,7 @@ try {
  await page.goto('http://localhost:5173/');
  await page.locator('.hero-image.scene-active').waitFor();await page.evaluate(()=>document.fonts.ready);
  assert.equal(await page.locator('html').getAttribute('dir'),'rtl');
- await page.evaluate(()=>Promise.all(document.getAnimations().map(a=>a.finished)));
+ await page.evaluate(()=>Promise.all(document.getAnimations().filter(a=>a.effect.getTiming().iterations!==Infinity).map(a=>a.finished)));
  await page.screenshot({path:'test-results/home-desktop.png',fullPage:true});
  await page.keyboard.press('Tab');await page.keyboard.press('Enter');
  assert.equal(await page.evaluate(()=>document.activeElement.id),'main');
@@ -98,18 +98,18 @@ try {
  }
  await page.setViewportSize({width:390,height:844});await page.goto('http://localhost:5173/');
  await page.getByRole('button',{name:'פתיחת תפריט'}).click();
- assert.equal(await page.locator('.main-nav').isVisible(),true);
+ assert.equal(await page.getByRole('dialog',{name:'תפריט האתר'}).isVisible(),true);
  assert.equal(await page.locator('main').getAttribute('inert'),'');
  await page.keyboard.press('Escape');
- assert.equal(await page.evaluate(()=>document.activeElement.className),'menu-toggle');
+ await expect(page.getByRole('button',{name:'פתיחת תפריט',exact:true})).toBeFocused();
  await page.getByRole('button',{name:'פתיחת תפריט'}).click();
- await page.locator('.main-nav').getByRole('link',{name:'פרויקטים',exact:true}).click();
+ await page.locator('.mobile-menu-links').getByRole('link',{name:'פרויקטים',exact:true}).click();
  assert.equal(await page.getByRole('button',{name:'פתיחת תפריט'}).getAttribute('aria-expanded'),'false');
  await page.goto('http://localhost:5173/');await page.evaluate(()=>document.fonts.ready);
- await page.evaluate(()=>Promise.all(document.getAnimations().map(a=>a.finished)));
+ await page.evaluate(()=>Promise.all(document.getAnimations().filter(a=>a.effect.getTiming().iterations!==Infinity).map(a=>a.finished)));
  await page.screenshot({path:'test-results/home-mobile.png',fullPage:true});
  await page.goto('http://localhost:5173/#/projects');
- await page.evaluate(()=>Promise.all(document.getAnimations().map(a=>a.finished)));
+ await page.evaluate(()=>Promise.all(document.getAnimations().filter(a=>a.effect.getTiming().iterations!==Infinity).map(a=>a.finished)));
  await page.screenshot({path:'test-results/projects-mobile.png',fullPage:true});
  assert.deepEqual(errors,[]);
  for(const route of ['project/2','media','about']){

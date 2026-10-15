@@ -70,3 +70,11 @@ Repository: https://github.com/idan55-websites/c003-schechter-nadlan-site
 The GitHub Pages workflow builds and publishes the site when `main` changes. The preview URL is https://idan55-websites.github.io/c003-schechter-nadlan-site/ and English is at `#/en/`. Public asset URLs respect Vite’s base path, so the same source works on this repository URL and on a root domain. The preview retains `noindex,nofollow`.
 
 Local recovery references and the ZIP archive are intentionally excluded from Git.
+
+## Mobile navigation and effects
+
+The mobile navigation renders as a full-viewport dialog outside the blurred header, avoiding the fixed-position clipping caused by `backdrop-filter` on mobile browsers. It supports touch targets, keyboard focus trapping, Escape and close controls, scrolling on short screens, scroll restoration, and closing when following the current link or resizing to desktop.
+
+Mobile effects include a slow animated hero photograph and light wash, a scroll cue, staggered section reveals, image reveals, and touch feedback. Animations pause when the hero leaves view. Dynamic catalog filters register newly rendered cards for reveals. System and in-site reduced-motion preferences disable these effects.
+
+Run `npx playwright install chromium webkit` and `npm run test:mobile` to verify Chromium and WebKit touch behavior, menu hit targets, viewport coverage, scroll handling, navigation, effects and reduced-motion settings in both languages.
