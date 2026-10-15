@@ -62,3 +62,11 @@ The catalog opens on completed projects and offers construction, future and arch
 The office address follows Alex’s supplied business card. The existing general inbox continues to receive email drafts; Alex’s direct email, Belgian telephone and office fax are also displayed. Contact forms in both languages open an email draft and explain the final send step.
 
 Run `npm test` for the Hebrew workflow and `npm run test:bilingual` for both languages, all project routes, stage browsing, media attribution, language switching, address aliases, English forms and keyboard controls, and English responsive layouts. The static production build remains in `dist/`; this local update does not deploy or change the domain.
+
+## GitHub repository and client preview
+
+Repository: https://github.com/idan55-websites/c003-schechter-nadlan-site
+
+The GitHub Pages workflow builds and publishes the site when `main` changes. The preview URL is https://idan55-websites.github.io/c003-schechter-nadlan-site/ and English is at `#/en/`. Public asset URLs respect Vite’s base path, so the same source works on this repository URL and on a root domain. The preview retains `noindex,nofollow`.
+
+Local recovery references and the ZIP archive are intentionally excluded from Git.
