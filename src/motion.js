@@ -11,7 +11,7 @@ export function useMotion(route){
   const enabled=()=>!reduced.matches&&!document.body.classList.contains('reduce-motion');
   function register(){
    if(!enabled())return;
-   const nodes=[...main.querySelectorAll(selector)];
+   const nodes=[...main.querySelectorAll(selector)].filter(el=>!el.closest('.cinematic-home'));
    nodes.forEach((el,i)=>{
     if(registered.has(el))return;
     registered.add(el);el.classList.add('reveal');
@@ -26,7 +26,7 @@ export function useMotion(route){
    revealObserver=new IntersectionObserver(entries=>{for(const {target,isIntersecting} of entries)if(isIntersecting){target.classList.add('revealed');revealObserver.unobserve(target)}},{threshold:touch.matches ? .01 : .08,rootMargin:touch.matches?'0px 0px -36px 0px':'0px'});
    registered.forEach(el=>{if(!el.classList.contains('revealed'))revealObserver.observe(el)});
    register();
-   const hero=main.querySelector('.hero');
+   const hero=main.querySelector('.hero:not(.cinematic-home .hero)');
    if(hero){heroObserver=new IntersectionObserver(([entry])=>hero.classList.toggle('hero-in-view',entry.isIntersecting));heroObserver.observe(hero)}
   }
   function update(){
@@ -34,7 +34,7 @@ export function useMotion(route){
     const y=window.scrollY;
     document.documentElement.style.setProperty('--scroll-progress',`${y/Math.max(1,document.documentElement.scrollHeight-innerHeight)*100}%`);
     document.querySelector('.site-header')?.classList.toggle('scrolled',y>80);
-    if(enabled())main.querySelector('.hero')?.style.setProperty('--parallax',`${Math.min(y*(touch.matches ? .09 : .2),touch.matches?60:160)}px`);
+    if(enabled())main.querySelector('.hero:not(.cinematic-home .hero)')?.style.setProperty('--parallax',`${Math.min(y*(touch.matches ? .09 : .2),touch.matches?60:160)}px`);
    });
   }
   setup();update();

@@ -11,13 +11,13 @@ for(const [name,engine]of [['chromium',chromium],['webkit',webkit]]){
    const route=english?'en/':'';
    await page.goto(`${base}#/${route}`);await page.locator('h1').waitFor();
    await expect(page.locator('html')).toHaveClass(/motion-enabled/);
-   const hero=page.locator('.hero-image.scene-active');await expect(hero).toHaveCSS('animation-name','mobile-hero-drift');
-   const before=await hero.evaluate(el=>getComputedStyle(el).transform);await page.waitForTimeout(450);assert.notEqual(await hero.evaluate(el=>getComputedStyle(el).transform),before,'Hero should move on touch screens');
-   const reveal=page.locator('.values-heading');await expect(reveal).toHaveClass(/reveal/);assert(!(await reveal.getAttribute('class')).includes('revealed'));
-   await reveal.scrollIntoViewIfNeeded();await expect(reveal).toHaveClass(/revealed/);await expect(reveal).toHaveCSS('opacity','1');
+   await page.locator('.cinematic-active').waitFor();
+   const hero=page.locator('.hero-scenes');const before=await hero.evaluate(el=>getComputedStyle(el).transform);
+   await page.evaluate(()=>window.scrollTo({top:150,behavior:'instant'}));await page.waitForTimeout(150);assert.notEqual(await hero.evaluate(el=>getComputedStyle(el).transform),before,'Hero should respond to touch scrolling');
+   await page.locator('.values-heading').scrollIntoViewIfNeeded();
    const scrollBefore=await page.evaluate(()=>scrollY);assert(scrollBefore>500);
    const toggle=page.getByRole('button',{name:english?'Open menu':'פתיחת תפריט',exact:true});await toggle.click();
-   const dialog=page.getByRole('dialog',{name:english?'Site menu':'תפריט האתר'});await expect(dialog).toBeVisible();await expect(page.locator('header')).toHaveAttribute('inert','');await expect(page.locator('body')).toHaveCSS('position','fixed');
+   const dialog=page.getByRole('dialog',{name:english?'Site menu':'תפריט האתר'});await expect(dialog).toBeVisible();await expect(page.locator('.site-header')).toHaveAttribute('inert','');await expect(page.locator('body')).toHaveCSS('position','fixed');
    await expect.poll(async()=>Math.round((await dialog.boundingBox()).y)).toBe(0);const bounds=await dialog.boundingBox();assert(bounds.height>=840,'Menu must cover the viewport, not be clipped to the header');
    for(const link of await dialog.locator('.mobile-menu-links a').all()){
     await link.scrollIntoViewIfNeeded();assert(await link.evaluate(el=>{const r=el.getBoundingClientRect();const hit=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2);return el.contains(hit)}),'Every menu item must receive taps');
@@ -34,8 +34,8 @@ for(const [name,engine]of [['chromium',chromium],['webkit',webkit]]){
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
    }
   }
-  await page.goto(`${base}#/en/`);await page.getByRole('button',{name:'Accessibility options',exact:true}).click();await page.getByRole('checkbox',{name:'Reduce motion',exact:true}).check();await expect(page.locator('html')).not.toHaveClass(/motion-enabled/);await expect(page.locator('.hero-image.scene-active')).toHaveCSS('animation-name','none');await page.getByRole('button',{name:'Reset preferences',exact:true}).click();await expect(page.locator('html')).toHaveClass(/motion-enabled/);await page.keyboard.press('Escape');
-  await page.emulateMedia({reducedMotion:'reduce'});await expect(page.locator('html')).not.toHaveClass(/motion-enabled/);await expect(page.locator('.hero-image.scene-active')).toHaveCSS('animation-name','none');
+  await page.goto(`${base}#/en/`);await page.getByRole('button',{name:'Accessibility options',exact:true}).click();await page.getByRole('checkbox',{name:'Reduce motion',exact:true}).check();await expect(page.locator('html')).not.toHaveClass(/motion-enabled/);await expect(page.locator('.cinematic-home')).not.toHaveClass(/cinematic-active/);await page.getByRole('button',{name:'Reset preferences',exact:true}).click();await expect(page.locator('html')).toHaveClass(/motion-enabled/);await page.keyboard.press('Escape');
+  await page.emulateMedia({reducedMotion:'reduce'});await expect(page.locator('html')).not.toHaveClass(/motion-enabled/);await expect(page.locator('.cinematic-home')).not.toHaveClass(/cinematic-active/);
   assert.deepEqual(errors,[]);console.log(`PASS ${name}: touch menu coverage and hit targets, scroll locking/restoration, same-page close, navigation, resize, both languages, hero motion, scroll reveals, filtered cards and reduced-motion preferences.`);
  }finally{await browser.close()}
 }

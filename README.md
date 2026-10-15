@@ -75,6 +75,16 @@ Local recovery references and the ZIP archive are intentionally excluded from Gi
 
 The mobile navigation renders as a full-viewport dialog outside the blurred header, avoiding the fixed-position clipping caused by `backdrop-filter` on mobile browsers. It supports touch targets, keyboard focus trapping, Escape and close controls, scrolling on short screens, scroll restoration, and closing when following the current link or resizing to desktop.
 
-Mobile effects include a slow animated hero photograph and light wash, a scroll cue, staggered section reveals, image reveals, and touch feedback. Animations pause when the hero leaves view. Dynamic catalog filters register newly rendered cards for reveals. System and in-site reduced-motion preferences disable these effects.
+The homepage now uses the coordinated scroll narrative described below. Secondary pages retain lightweight entrance effects and touch feedback. Dynamic catalog filters register newly rendered cards for reveals. System and in-site reduced-motion preferences disable motion.
 
 Run `npx playwright install chromium webkit` and `npm run test:mobile` to verify Chromium and WebKit touch behavior, menu hit targets, viewport coverage, scroll handling, navigation, effects and reduced-motion settings in both languages.
+
+## Cinematic homepage
+
+Both homepage languages now use a connected scroll narrative built with GSAP ScrollTrigger and native CSS sticky positioning. The opening skyline recedes into the architectural sequence: a contained Galil Yam photograph expands to the viewport, followed by a reversible masked transition to the Family photograph. Chapter controls provide direct navigation and an always-available shortcut to the portfolio. All project names, addresses and media remain grounded in the existing client materials.
+
+Portfolio masks, company headline word emphasis, photograph parallax, values rules and the photographic contact closing are scrubbed by native scroll position. There is no wheel interception, smooth-scroll library, WebGL or autoplay video. The main sequence spans 320svh on desktop and 230svh on mobile, corresponding to 220svh and 130svh of sticky travel. Reduced motion removes the sticky layout and shows every photograph and caption in normal document flow. Changing accessibility settings, orientation, route or screen size cleans up the old timelines before rebuilding them.
+
+The animation library is split into a separately cached bundle. Fixed image containers reserve their layout before loading; photographs retain their source attribution. The existing project catalog, galleries, forms, language switching, mobile menu and static GitHub Pages deployment continue to work.
+
+Run `npm run test:cinematic` after installing Chromium and WebKit. The suite checks both languages at 375, 390, 430, 768, 1024 and 1440 pixels, including forward/backward scrubbing, pin release, chapter controls, tappable project links, menu use within a scene, contact navigation, orientation and live changes to reduced-motion preferences. `BROWSER=webkit` or `BROWSER=chromium` selects one engine. `SITE_URL` can target the production preview.
