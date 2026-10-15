@@ -142,3 +142,90 @@ html[dir=ltr] .cinematic-home .about-copy .cinematic-reading{font-size:clamp(38p
 @media(max-height:600px) and (min-width:761px){.cinematic-active .architecture-opening{top:95px}.cinematic-active .architecture-opening h2{font-size:54px}.cinematic-active .architecture-caption{bottom:105px}.cinematic-active .architecture-caption h2{font-size:48px}.architecture-caption>p:not(.cinematic-kicker){margin-top:10px}.architecture-caption small{margin-top:12px}}
 
 @media(max-width:760px) and (max-height:700px){.cinematic-active .architecture-opening{top:90px}.cinematic-active .architecture-opening h2{font-size:38px}.cinematic-active .architecture-opening .cinematic-kicker{margin-bottom:10px}.cinematic-active .architecture-opening>p:last-child{margin-top:12px;font-size:11px}.cinematic-active .architecture-caption{bottom:155px}.cinematic-active .architecture-caption h2{font-size:36px}.cinematic-active .architecture-caption>p:not(.cinematic-kicker){font-size:11px;margin-top:12px}.architecture-caption small{margin-top:16px}.cinematic-active .architecture-controls{bottom:45px;height:75px}}
+
+/* Touch art direction: motion starts before the first swipe, including iPad. */
+@media (pointer:coarse), (max-width:760px){
+ .cinematic-active .hero-copy{animation:none}
+ .cinematic-active .hero-copy>:is(.eyebrow,h1,p,.button){animation:touch-copy-enter .95s cubic-bezier(.16,1,.3,1) both}
+ .cinematic-active .hero-copy>h1{animation-delay:.12s}
+ .cinematic-active .hero-copy>p{animation-delay:.24s}
+ .cinematic-active .hero-copy>.button{animation-delay:.36s}
+ .cinematic-active .hero-image.scene-active{animation:touch-architecture-drift 12s ease-in-out infinite alternate!important;animation-play-state:paused!important}
+ .cinematic-active.hero-visible .hero-image.scene-active{animation-play-state:running!important}
+ .cinematic-active .scroll-circle svg{animation:touch-scroll-cue 2s ease-in-out infinite!important;animation-play-state:paused!important}
+ .cinematic-active.hero-visible .scroll-circle svg{animation-play-state:running!important}
+}
+@keyframes touch-copy-enter{from{opacity:0;transform:translate3d(0,24px,0)}to{opacity:1;transform:translate3d(0,0,0)}}
+@keyframes touch-architecture-drift{from{transform:scale(1.03) translate3d(-.5%,0,0)}to{transform:scale(1.14) translate3d(1%,-1%,0)}}
+@keyframes touch-scroll-cue{0%,100%{transform:translateY(-3px)}50%{transform:translateY(5px)}}
+@media(max-width:760px){
+ .cinematic-home .hero{height:100svh;min-height:540px}
+ .cinematic-home .hero-inner{padding:110px 7% 166px}
+ .cinematic-home .hero-grid{inset:78px 7% 145px}
+ .cinematic-home .hero h1{font-size:clamp(58px,17vw,76px);line-height:1.06;letter-spacing:-1.8px}
+ .cinematic-home .hero-copy>.eyebrow{margin-bottom:22px}
+ .cinematic-home .hero-copy>p{font-size:13px;line-height:1.85;margin:22px 0 25px}
+ .cinematic-home .hero-copy>.button{min-height:50px;font-size:12px}
+ .cinematic-home .hero-bottom{bottom:max(76px,calc(env(safe-area-inset-bottom) + 64px));inset-inline:7%;padding-top:14px;gap:10px}
+ .cinematic-home .hero-bottom>a{font-size:10px;gap:8px}
+ .cinematic-home .scene-controls{gap:10px}
+ .cinematic-home .scene-controls button{min-height:44px}
+ .cinematic-home .intro-strip{height:64px;font-size:9px;gap:12px;padding:16px 6%}
+ .cinematic-active .architecture-sequence{height:250svh}
+ .cinematic-active .architecture-opening{top:100px;inset-inline:7%}
+ .cinematic-active .architecture-opening h2{font-size:clamp(36px,10.2vw,44px)}
+ .cinematic-active .architecture-opening>p:last-child{font-size:12px;max-width:260px}
+ .cinematic-active .architecture-frame{background:#102432}
+ .cinematic-active .architecture-image{position:absolute;top:60px;height:62%;width:100%;object-position:center!important}
+ .cinematic-active .architecture-shade,
+ html[dir=ltr] .cinematic-active .architecture-shade{background:linear-gradient(0deg,#102432 0%,#102432 18%,#102432ed 35%,#10243233 55%,transparent 72%)}
+ .cinematic-active .architecture-caption{bottom:120px;inset-inline:7%;max-width:none}
+ .cinematic-active .architecture-caption .cinematic-kicker{margin-bottom:12px;font-size:10px;letter-spacing:.2px}
+ .cinematic-active .architecture-caption h2{font-size:clamp(32px,9vw,39px);line-height:1.08;letter-spacing:-.7px}
+ .cinematic-active .architecture-caption>p:not(.cinematic-kicker){font-size:12px;line-height:1.7;max-width:320px;margin-top:14px}
+ .cinematic-active .architecture-caption .cinematic-link{margin-top:10px;font-size:12px;min-height:44px;padding-block:9px;gap:18px}
+ .cinematic-active .architecture-caption small{font-size:9px;margin-top:12px}
+ .cinematic-active .architecture-controls{bottom:60px;inset-inline:7%;height:48px;gap:0;flex-wrap:nowrap}
+ .cinematic-active .architecture-controls>a{font-size:0;gap:0;width:44px;justify-content:center}
+ .cinematic-active .architecture-controls>a svg{width:18px;height:18px}
+ .cinematic-active .architecture-chapters{flex:1;justify-content:space-between;gap:8px;margin-inline-end:18px}
+ .cinematic-active .architecture-chapters button{min-height:48px;font-size:10px;gap:6px}
+ .cinematic-home .selected{padding:64px 7%}
+ .cinematic-home .selected .featured-grid{grid-template-columns:1fr;gap:34px}
+ .cinematic-home .selected .project-card .card-image{height:auto;aspect-ratio:4/5}
+ .cinematic-home .selected .project-card .card-image>img{object-position:center!important}
+ .cinematic-home .selected .card-info{padding:18px 0 22px}
+ .cinematic-home .selected .card-info h3{font-size:30px}
+ .cinematic-home .selected .card-info p{font-size:12px;min-height:0}
+ .cinematic-home .selected .card-info>span{font-size:12px;margin-top:16px}
+ .cinematic-home .selected .card-location{font-size:11px}
+ .cinematic-home .about-photo{min-height:0;height:64svh;max-height:520px}
+ .cinematic-home .about-copy{padding:48px 7%}
+ .cinematic-home .about-copy .cinematic-reading{font-size:39px}
+ .cinematic-home .cinematic-closing{min-height:680px;padding:90px 7% 110px}
+ .cinematic-home .closing-content h2{font-size:clamp(43px,11.7vw,53px)}
+ html[dir=ltr] .cinematic-home .hero h1{font-size:clamp(47px,12.5vw,59px);letter-spacing:-1.7px;line-height:1.08}
+ html[dir=ltr] .cinematic-active .architecture-opening h2{font-size:clamp(34px,9.4vw,40px)}
+ html[dir=ltr] .cinematic-active .architecture-caption h2{font-size:clamp(30px,8.2vw,36px)}
+ html[dir=ltr] .cinematic-home .closing-content h2{font-size:clamp(40px,10.8vw,48px)}
+}
+@media(max-width:760px) and (max-height:700px){
+ .cinematic-home .hero-inner{padding-top:100px;padding-bottom:155px}
+ .cinematic-home .hero h1{font-size:clamp(54px,15vw,65px)}
+ .cinematic-home .hero-copy>.eyebrow{margin-bottom:15px}
+ .cinematic-home .hero-copy>p{margin:16px 0 20px;font-size:12px}
+ .cinematic-active .architecture-opening{top:95px}
+ .cinematic-active .architecture-opening h2{font-size:36px}
+ .cinematic-active .architecture-caption{bottom:113px}
+ .cinematic-active .architecture-caption h2{font-size:32px}
+ .cinematic-active .architecture-caption>p:not(.cinematic-kicker){font-size:11px;margin-top:10px}
+ .cinematic-active .architecture-caption small{margin-top:8px}
+ .cinematic-active .architecture-controls{bottom:56px}
+}
+@media(prefers-reduced-motion:reduce){.cinematic-home .hero-copy>*{animation:none!important}}
+.reduce-motion .cinematic-home .hero-copy>*{animation:none!important}
+@media(pointer:coarse) and (min-width:761px){
+ .cinematic-home .hero-bottom{bottom:max(80px,calc(env(safe-area-inset-bottom) + 64px))}
+ .cinematic-active .architecture-controls{bottom:60px;height:72px}
+ .cinematic-active .architecture-caption{bottom:max(180px,17svh)}
+}

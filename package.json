@@ -10,7 +10,8 @@
     "test": "node tests/browser.mjs",
     "test:bilingual": "node tests/bilingual.mjs",
     "test:mobile": "node tests/mobile.mjs",
-    "test:cinematic": "node tests/cinematic.mjs"
+    "test:cinematic": "node tests/cinematic.mjs",
+    "test:touch": "node tests/touch-motion.mjs"
   },
   "dependencies": {
     "gsap": "^3.15.0",

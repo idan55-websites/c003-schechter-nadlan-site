@@ -11,6 +11,8 @@ export function useCinematicHome(rootRef,english=false){
   const syncHeader=()=>document.querySelector('.site-header')?.classList.toggle('scrolled',window.scrollY>80);
   ScrollTrigger.addEventListener('refresh',syncHeader);
   const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+  const heroVisibility=new IntersectionObserver(([entry])=>root.classList.toggle('hero-visible',entry.isIntersecting),{threshold:.05});
+  const openingHero=root.querySelector('.hero');if(openingHero)heroVisibility.observe(openingHero);
   let media,lastEnabled,refreshFrame,disposed=false;
   const enabled=()=>!reduced.matches&&!document.body.classList.contains('reduce-motion');
   function resetAccessibility(){root.querySelectorAll('[data-scene-copy]').forEach(el=>{el.inert=false;el.removeAttribute('aria-hidden')});}
@@ -66,6 +68,16 @@ export function useCinematicHome(rootRef,english=false){
     root.querySelectorAll('.value-item').forEach(el=>{
      gsap.fromTo(el,{ '--value-rule':0},{'--value-rule':1,ease:'none',scrollTrigger:{trigger:el,start:'top 90%',end:'top 50%',scrub:true}});
     });
+    // Touch visitors need visible choreography beyond the short pinned story.
+    // Keep the desktop composition and timing exactly as before.
+    if(mobile||matchMedia('(pointer: coarse)').matches){
+     root.querySelectorAll('.section-heading,.values-heading,.urban-home>div,.media-teaser>div').forEach(el=>{
+      gsap.fromTo(el,{y:36,opacity:.2},{y:0,opacity:1,ease:'none',scrollTrigger:{trigger:el,start:'top 96%',end:'top 66%',scrub:true}});
+     });
+     root.querySelectorAll('.value-item').forEach(el=>{
+      gsap.fromTo(el,{y:32,opacity:.25},{y:0,opacity:1,ease:'none',scrollTrigger:{trigger:el,start:'top 96%',end:'top 65%',scrub:true}});
+     });
+    }
     const closing=$('.cinematic-closing')[0];
     if(closing){
      const closeTimeline=gsap.timeline({scrollTrigger:{trigger:closing,start:'top 95%',end:'top 15%',scrub:true}});
@@ -82,6 +94,6 @@ export function useCinematicHome(rootRef,english=false){
   const refresh=()=>{if(!disposed&&enabled())ScrollTrigger.refresh()};
   document.fonts?.ready.then(refresh);
   window.addEventListener('pageshow',refresh);
-  return()=>{ScrollTrigger.removeEventListener('refresh',syncHeader);disposed=true;cancelAnimationFrame(refreshFrame);preferences.disconnect();reduced.removeEventListener('change',setup);window.removeEventListener('pageshow',refresh);media?.revert();root.classList.remove('cinematic-active');resetAccessibility()};
+  return()=>{ScrollTrigger.removeEventListener('refresh',syncHeader);disposed=true;cancelAnimationFrame(refreshFrame);preferences.disconnect();heroVisibility.disconnect();reduced.removeEventListener('change',setup);window.removeEventListener('pageshow',refresh);media?.revert();root.classList.remove('cinematic-active','hero-visible');resetAccessibility()};
  },[english]);
 }
