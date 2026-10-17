@@ -229,3 +229,32 @@ html[dir=ltr] .cinematic-home .about-copy .cinematic-reading{font-size:clamp(38p
  .cinematic-active .architecture-controls{bottom:60px;height:72px}
  .cinematic-active .architecture-caption{bottom:max(180px,17svh)}
 }
+
+/* Family is a portrait photograph: frame it whole instead of blowing it up to a landscape stage. */
+.architecture-backdrop{display:none}
+@media(min-width:761px){
+ .architecture-frame--family{display:flex;flex-direction:column}
+ .architecture-frame--family .architecture-image{width:auto;max-width:100%;aspect-ratio:9/16;margin-inline:auto}
+ .cinematic-active .architecture-frame--family{display:block;background:#0b1c2d}
+ .cinematic-active .architecture-frame--family .architecture-backdrop{display:block;position:absolute;inset:-60px;width:calc(100% + 120px);height:calc(100% + 120px);object-fit:cover;filter:blur(30px) saturate(.75) brightness(.5);will-change:transform}
+ .cinematic-active .architecture-frame--family .architecture-image{position:absolute;z-index:2;top:max(118px,13svh);inset-inline-end:9%;width:auto;height:calc(100svh - max(118px,13svh) - max(150px,17svh));max-width:none;aspect-ratio:9/16;object-position:center;outline:1px solid #cfb89070;outline-offset:16px;box-shadow:0 50px 100px #050f1999}
+ .cinematic-active .architecture-frame--family .architecture-shade{z-index:1}
+ .cinematic-active .architecture-caption--family{z-index:3;max-width:min(650px,48%)}
+}
+
+/* Masked line reveals and shared choreography. */
+.split-line{display:block;overflow:hidden;padding-bottom:.12em;margin-bottom:-.12em}
+.split-inner{display:block;will-change:transform}
+.cinematic-active .selected .card-image{overflow:hidden}
+.cinematic-active .selected .card-image>img{transition:none!important}
+.cinematic-active .about-photo{will-change:clip-path}
+.cinematic-active .urban-icon{will-change:transform}
+
+/* Phones: fix the narrow third card and give the story stage a centred opening frame. */
+@media(max-width:760px){
+ .cinematic-home .selected .featured-grid .project-card .card-image{width:100%;height:auto;aspect-ratio:4/5}
+ .cinematic-home .selected .featured-grid .project-card:last-child .card-image{aspect-ratio:5/4}
+ .cinematic-active .architecture-image{top:78px;left:0}
+ .cinematic-active .architecture-frame--family .architecture-image{object-position:center 30%!important}
+ .cinematic-home .about-photo{height:58svh}
+}
