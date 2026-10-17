@@ -258,3 +258,17 @@ html[dir=ltr] .cinematic-home .about-copy .cinematic-reading{font-size:clamp(38p
  .cinematic-active .architecture-frame--family .architecture-image{object-position:center 30%!important}
  .cinematic-home .about-photo{height:58svh}
 }
+
+/* Touch performance: no live blur behind the fixed header, no per-word layers. */
+@media (pointer:coarse), (max-width:760px){
+ .site-header{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+ .cinematic-word,.split-inner,.closing-line>span,.cinematic-home .selected .card-image,.cinematic-home .hero-inner,.architecture-caption,.closing-image img,.cinematic-home .about-photo>img{will-change:auto}
+}
+/* Phones: readable small type. */
+@media(max-width:760px){
+ .cinematic-kicker,.cinematic-active .architecture-caption .cinematic-kicker{font-size:11px;letter-spacing:.6px}
+ .architecture-caption small,.cinematic-active .architecture-caption small,.closing-credit{font-size:10px}
+ .cinematic-active .architecture-chapters button{font-size:11px}
+ .cinematic-home .intro-strip{font-size:10px}
+}
+@media (pointer:coarse), (max-width:760px){.site-header.home-header.scrolled{background:#142a38}}

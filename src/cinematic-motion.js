@@ -78,36 +78,51 @@ export function useCinematicHome(rootRef,english=false){
      gsap.fromTo(inners,{yPercent:118},{yPercent:0,duration:1.2,ease:'power4.out',stagger:.13,scrollTrigger:onEnter(heading,'top 90%')});
     });
     root.querySelectorAll('.selected .eyebrow,.values-heading .eyebrow,.urban-home .eyebrow,.media-teaser .eyebrow,.about-copy .eyebrow,.heading-aside>*,.about-copy>p,.about-copy>.text-link,.urban-home>div:nth-child(2)>*,.media-teaser>div:last-child>*').forEach(el=>{
-     gsap.fromTo(el,{y:mobile?26:34,opacity:0},{y:0,opacity:1,duration:1,ease:'power3.out',delay:el.matches('.eyebrow')?0:.15,scrollTrigger:onEnter(el,'top 92%')});
+     gsap.fromTo(el,{y:mobile?40:34,opacity:0},{y:0,opacity:1,duration:1,ease:'power3.out',delay:el.matches('.eyebrow')?0:.15,scrollTrigger:onEnter(el,'top 92%')});
     });
     gsap.fromTo($('.intro-strip>*'),{y:14,opacity:0},{y:0,opacity:1,duration:.8,stagger:.08,ease:'power3.out',scrollTrigger:onEnter($('.intro-strip')[0],'top 98%')});
+    // Phones get compositor-only reveals (transform/opacity): animating clip-path repaints every frame on iOS.
+    const touch=mobile||matchMedia('(pointer: coarse)').matches;
     root.querySelectorAll('.selected .project-card').forEach(card=>{
      const frame=card.querySelector('.card-image'),img=frame.querySelector('img');
-     gsap.timeline({scrollTrigger:onEnter(card,'top 84%')})
-      .fromTo(frame,{clipPath:'inset(100% 0% 0% 0%)'},{clipPath:'inset(0% 0% 0% 0%)',duration:1.35,ease:'expo.inOut'})
-      .fromTo(img,{scale:1.4},{scale:1.12,duration:1.7,ease:'expo.out'},.2)
-      .fromTo(frame.querySelectorAll('.card-location,.card-image-label'),{opacity:0,y:10},{opacity:1,y:0,duration:.6,stagger:.1,ease:'power2.out'},.95)
-      .fromTo(card.querySelector('.card-info').children,{opacity:0,y:22},{opacity:1,y:0,duration:.8,stagger:.08,ease:'power3.out'},.55);
-     if(img)gsap.fromTo(img,{yPercent:-5},{yPercent:5,ease:'none',scrollTrigger:{trigger:frame,start:'top bottom',end:'bottom top',scrub:true}});
+     const reveal=gsap.timeline({scrollTrigger:onEnter(card,touch?'top 90%':'top 84%')});
+     if(touch)reveal.fromTo(frame,{y:90,opacity:0,scale:.92},{y:0,opacity:1,scale:1,duration:1.1,ease:'power3.out'})
+      .fromTo(img,{scale:1.35},{scale:1,duration:1.6,ease:'expo.out'},0);
+     else reveal.fromTo(frame,{clipPath:'inset(100% 0% 0% 0%)'},{clipPath:'inset(0% 0% 0% 0%)',duration:1.35,ease:'expo.inOut'})
+      .fromTo(img,{scale:1.4},{scale:1.12,duration:1.7,ease:'expo.out'},.2);
+     reveal.fromTo(frame.querySelectorAll('.card-location,.card-image-label'),{opacity:0,y:10},{opacity:1,y:0,duration:.6,stagger:.1,ease:'power2.out'},touch?.6:.95)
+      .fromTo(card.querySelector('.card-info').children,{opacity:0,y:26},{opacity:1,y:0,duration:.8,stagger:.08,ease:'power3.out'},touch?.35:.55);
+     if(img&&!touch)gsap.fromTo(img,{yPercent:-5},{yPercent:5,ease:'none',scrollTrigger:{trigger:frame,start:'top bottom',end:'bottom top',scrub:true}});
     });
     const brand=$('.about-home')[0];
     if(brand){
-     gsap.fromTo(brand.querySelector('.about-photo'),{clipPath:english?'inset(0% 100% 0% 0%)':'inset(0% 0% 0% 100%)'},{clipPath:'inset(0% 0% 0% 0%)',duration:1.5,ease:'expo.inOut',scrollTrigger:onEnter(brand,'top 78%')});
-     gsap.fromTo(brand.querySelectorAll('.photo-label,.photo-outline'),{opacity:0,y:16},{opacity:1,y:0,duration:.9,delay:.9,stagger:.12,ease:'power3.out',scrollTrigger:onEnter(brand,'top 78%')});
-     gsap.fromTo(brand.querySelector('.about-photo img'),{scale:1.2,yPercent:4},{scale:1.04,yPercent:-4,ease:'none',scrollTrigger:{trigger:brand,start:'top bottom',end:'bottom top',scrub:true}});
+     const photo=brand.querySelector('.about-photo');
+     if(touch){
+      gsap.timeline({scrollTrigger:onEnter(photo,'top 88%')})
+       .fromTo(photo,{opacity:0,y:70},{opacity:1,y:0,duration:1.1,ease:'power3.out'})
+       .fromTo(photo.querySelector('img'),{scale:1.3},{scale:1,duration:1.8,ease:'expo.out'},0)
+       .fromTo(photo.querySelectorAll('.photo-label,.photo-outline'),{opacity:0,y:16},{opacity:1,y:0,duration:.8,stagger:.12,ease:'power3.out'},.6);
+     }else{
+      gsap.fromTo(photo,{clipPath:english?'inset(0% 100% 0% 0%)':'inset(0% 0% 0% 100%)'},{clipPath:'inset(0% 0% 0% 0%)',duration:1.5,ease:'expo.inOut',scrollTrigger:onEnter(brand,'top 78%')});
+      gsap.fromTo(photo.querySelectorAll('.photo-label,.photo-outline'),{opacity:0,y:16},{opacity:1,y:0,duration:.9,delay:.9,stagger:.12,ease:'power3.out',scrollTrigger:onEnter(brand,'top 78%')});
+      gsap.fromTo(photo.querySelector('img'),{scale:1.2,yPercent:4},{scale:1.04,yPercent:-4,ease:'none',scrollTrigger:{trigger:brand,start:'top bottom',end:'bottom top',scrub:true}});
+     }
      gsap.fromTo($('.cinematic-word'),{opacity:.14,y:'.18em'},{opacity:1,y:0,stagger:.11,ease:'none',scrollTrigger:{trigger:$('.cinematic-reading')[0],start:'top 86%',end:mobile?'bottom 52%':'bottom 45%',scrub:true}});
      const signature=brand.querySelector('.signature');
-     if(signature)gsap.fromTo(signature,{xPercent:english?-28:28,opacity:0},{xPercent:0,opacity:.28,ease:'none',scrollTrigger:{trigger:signature,start:'top bottom',end:'bottom 60%',scrub:true}});
+     if(signature)gsap.fromTo(signature,{xPercent:english?-28:28,opacity:0},touch?{xPercent:0,opacity:.28,duration:1.4,ease:'power3.out',scrollTrigger:onEnter(signature,'top 95%')}:{xPercent:0,opacity:.28,ease:'none',scrollTrigger:{trigger:signature,start:'top bottom',end:'bottom 60%',scrub:true}});
     }
     root.querySelectorAll('.value-item').forEach(el=>{
-     gsap.fromTo(el,{ '--value-rule':0},{'--value-rule':1,ease:'none',scrollTrigger:{trigger:el,start:'top 90%',end:'top 50%',scrub:true}});
-     gsap.timeline({scrollTrigger:onEnter(el,'top 85%')})
-      .fromTo(el.querySelector('.value-number'),{yPercent:60,opacity:0},{yPercent:0,opacity:1,duration:1,ease:'power4.out'})
-      .fromTo(el.querySelectorAll(':scope>small,:scope>h3,:scope>p'),{y:24,opacity:0},{y:0,opacity:1,duration:.85,stagger:.09,ease:'power3.out'},.12)
+     const reveal=gsap.timeline({scrollTrigger:onEnter(el,'top 88%')});
+     if(touch)reveal.fromTo(el,{'--value-rule':0},{'--value-rule':1,duration:1,ease:'power2.inOut'},0);
+     else gsap.fromTo(el,{'--value-rule':0},{'--value-rule':1,ease:'none',scrollTrigger:{trigger:el,start:'top 90%',end:'top 50%',scrub:true}});
+     reveal.fromTo(el.querySelector('.value-number'),{yPercent:70,opacity:0},{yPercent:0,opacity:1,duration:1,ease:'power4.out'},0)
+      .fromTo(el.querySelectorAll(':scope>small,:scope>h3,:scope>p'),{y:28,opacity:0},{y:0,opacity:1,duration:.85,stagger:.09,ease:'power3.out'},.12)
       .fromTo(el.querySelector(':scope>svg'),{rotate:english?-90:90,opacity:0},{rotate:0,opacity:1,duration:1,ease:'power3.out'},.2);
     });
-    gsap.fromTo($('.values-word'),{yPercent:-30},{yPercent:30,ease:'none',scrollTrigger:{trigger:$('.values-section')[0],start:'top bottom',end:'bottom top',scrub:true}});
-    gsap.fromTo($('.urban-icon'),{yPercent:30,rotate:-8},{yPercent:-25,rotate:4,ease:'none',scrollTrigger:{trigger:$('.urban-home')[0],start:'top bottom',end:'bottom top',scrub:true}});
+    if(!touch){
+     gsap.fromTo($('.values-word'),{yPercent:-30},{yPercent:30,ease:'none',scrollTrigger:{trigger:$('.values-section')[0],start:'top bottom',end:'bottom top',scrub:true}});
+     gsap.fromTo($('.urban-icon'),{yPercent:30,rotate:-8},{yPercent:-25,rotate:4,ease:'none',scrollTrigger:{trigger:$('.urban-home')[0],start:'top bottom',end:'bottom top',scrub:true}});
+    }
     const closing=$('.cinematic-closing')[0];
     if(closing){
      const closeTimeline=gsap.timeline({scrollTrigger:{trigger:closing,start:'top 95%',end:'top 15%',scrub:true}});
