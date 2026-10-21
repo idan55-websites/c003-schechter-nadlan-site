@@ -68,8 +68,12 @@ try {
  await page.goto('http://localhost:5173/#/media');
  assert.equal(await page.locator('.press-list>li').count(),3);
  await page.goto('http://localhost:5173/#/about');
- await page.locator('.company-archive summary').click();
- await expect(page.locator('.company-chart img').first()).toBeVisible();
+ await expect(page.locator('.company-disciplines article')).toHaveCount(3);
+ // The outdated org chart, the unrelated KRIPORT logo and the YouTube film were removed at the client's request.
+ assert.equal(await page.locator('.company-archive,img[src*="kriport"],img[src*="company-structure"]').count(),0);
+ await page.goto('http://localhost:5173/#/media');
+ assert.equal(await page.locator('iframe,a[href*="youtube"]').count(),0);
+ await page.goto('http://localhost:5173/#/about');
  await page.goto('http://localhost:5173/');
  await page.getByRole('button',{name:'אפשרויות נגישות',exact:true}).click();
  await page.getByRole('checkbox',{name:'הפחתת תנועה',exact:true}).check();
@@ -117,5 +121,5 @@ try {
   await page.screenshot({path:`test-results/${route.replace('/','-')}-mobile.png`,fullPage:true});
  }
  assert.deepEqual(errors,[]);
- console.log(`PASS: ${projectData.length} projects, recovered images, search, galleries, keyboard tabs, project inquiries, media, company artwork, form error announcements, accessibility controls, mobile menu, and 60 responsive page/width checks. No JavaScript errors.`);
+ console.log(`PASS: ${projectData.length} projects, recovered images, search, galleries, keyboard tabs, project inquiries, media, company section, form error announcements, accessibility controls, mobile menu, and 60 responsive page/width checks. No JavaScript errors.`);
 }finally{await browser.close()}

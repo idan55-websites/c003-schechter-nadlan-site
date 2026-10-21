@@ -40,7 +40,7 @@ Project association follows the titles in the supplied mockups. No generated pro
 
 Small catalog crops exclude the old inventory-status badges. Their resolution is limited by the mockups. The garden image labeled Galil Yam is associated only with that project; the הראשונים image is associated with the original named project, not automatically with the separate recovered הראשונים 9 record.
 
-`project-background.webp` is the supplied `content/default project bg.jpg`, explicitly labeled as atmosphere wherever displayed. `schechter-construction.webp` is the supplied branded `Desktop/pic_01.jpg`, not an identified project photograph. `company-structure.webp` is the latest JPG in `content/אודות/jpg/`; the chart is labeled archival. The original KRIPORT logo accompanies the archive, not the site's main brand. `social-cover.jpg` retains the client's original `face_meta.jpg`.
+`project-background.webp` is the supplied `content/default project bg.jpg`, explicitly labeled as atmosphere wherever displayed. `schechter-construction.webp` is the supplied branded `Desktop/pic_01.jpg`, not an identified project photograph. `social-cover.jpg` retains the client's original `face_meta.jpg`.
 
 The self-contained `schechter-brand.svg` wraps the recovered logo with a luminance-to-alpha SVG filter, preserving the original mark while allowing it to render cleanly on light and dark backgrounds.
 
