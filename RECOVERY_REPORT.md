@@ -1,61 +1,86 @@
-> October 2026 update: This report documents the earlier recovery build. Original-client content has since been incorporated: 25 project records, recovered Family/Galil Yam/הראשונים imagery, specifications, apartment types, company artwork, media, resident contact page and audit-informed accessibility improvements. See README.md and ASSET_SOURCES.md for the current implementation. Original high-resolution project image files and a direct lead-delivery backend remain outstanding.
+# Recovery and redesign report — 26 October 2026
 
-# S-Nadlan restoration report
+This replaces the 8 October report. The original WordPress site (staging copy at `k2g1yw4qgp.apb.spinupwp.site`) became accessible, so the site was audited against it, the original media were recovered, and the website was rebuilt on that basis.
 
-Prepared 8 October 2026. This is a modern reconstruction from recovered records, not a restoration of the original WordPress source.
+## 1. What the original site was
 
-## Rebuilt
+WordPress + Elementor Pro + Polylang (Hebrew/English), live staging on SpinupWP. Everything was read through the public REST API (`/wp-json/wp/v2/pages|posts|media`) and `wp-content/uploads`.
 
-- Hebrew, right-to-left homepage with a Tel Aviv skyline, recreated wordmark, project highlights, company introduction, urban renewal introduction and contact links.
-- All 20 records from the supplied CSV, searchable by name/address and filterable by city. Old status values remain in the data file but are not presented as current availability.
-- Individual project views with recovered addresses, map links and contact links.
-- Three candidate renderings recovered for שכטר בגפן, with source attribution, gallery controls, enlargement and keyboard support.
-- About, שכטר 38, Contact, factual privacy information and accessibility information pages.
-- Responsive mobile menu, keyboard navigation, focus indicators, skip link and reduced motion support.
-- Contact form that creates an email draft, explicitly labelled as such. It does not claim a message was sent or store leads.
+| Area | Original content |
+| --- | --- |
+| Pages (HE) | בית, פרויקטים, אודות, שכטר 38, צור קשר, הצהרת נגישות |
+| Pages (EN) | Home, Projects, About, Schechter 38, Contact Us — the English front-end URLs return 404 on the staging copy; their content was taken from the REST API |
+| Projects | 12 project posts per language (HE + EN) and 8 “future project” posts |
+| Media library | 190 items: 20 videos, 11 Lottie JSON files, renders, interior renders, site photos, logos, per-project emblems, status badges, bank logos |
+| Forms | Elementor forms (name, phone prefix, email, message, “updates” opt-in) |
+| Third parties | Elementor accessibility toolbar plugin, WhatsApp link (`wa.link/ozfvp7`), Facebook/Instagram/YouTube icons without working URLs |
 
-## Original material still missing
+The full archive is kept untouched in `recovery/wp-originals/` (local only, excluded from Git — 309 MB).
 
-| Item | Evidence / gap | Needed to finish recovery |
-| --- | --- | --- |
-| Original HTML, CSS, JavaScript and WordPress theme | ZIP contains content files only | Full WordPress backup or original theme files |
-| Exact old appearance and interactive behavior | Developer portfolio preserves a homepage mockup, not the complete website | Full screenshots or working archived pages |
-| Original logo and brand fonts | Recreated text and circular S based on reference; not an exact vector restoration | Approved SVG/AI logo and brand guide |
-| Original city hero | Portfolio shows a dusk city panorama; original image file absent | Original hero photograph/video and usage rights |
-| Project galleries for 19 of 20 projects | No image files in ZIP; only Gefen candidates located | Original `wp-content/uploads/`, renders and photographs |
-| Gefen unwatermarked images and reuse permission | Three GEOLN renders are attributable to its project page, but ownership permission has not been established | Client's clean originals and confirmation of usage rights before public launch |
-| Floor plans, apartment types, specifications, brochures and complete project descriptions | Not supplied | Per-project approved content/media |
-| Current project statuses and availability | CSV is derived from an old search index; historic entries sometimes conflict | Updated client-approved project list |
-| שכטר 38 page text | Navigation entry recovered, full text missing | Approved urban renewal page content and process details |
-| Testimonials | A recovered testimonial referenced a different company | Real approved customer quotes; no fabricated testimonials added |
-| Earlier navigation pages | Portfolio screenshot also shows מערכת דיירים and שכטר בנייה; these are absent from recovered structure/content | Confirm whether these pages/portals still exist and provide their content/URLs |
-| Lead backend, submissions and CRM | No backend or form configuration supplied | Approved inbox, form delivery service/CRM configuration; previous leads export if needed |
-| Original accessibility statement / privacy policy | No complete documents supplied | Company-approved policies, accessibility contact and office arrangements |
-| Partner/bank logos and approvals | Indexed pages mention partners; actual media and complete placement unavailable | Approved files and relationship confirmation |
-| CMS editing, admin accounts and integrations | No database, credentials or plugin configuration | Original backend backup or separately scoped CMS setup |
-| SEO metadata, original page URLs and redirects | Only partial historical URL list available | Sitemap or full crawl and approved redirect mapping |
+## 2. Recovered and now used
 
-## Items to verify with the client
+- **Original logo** (“שכטר נדל״ן — לגור בסטנדרט אירופאי”) replaces the 263-px crop from a mockup. The dark version (1019 px) and white version (489 px) come from the client's local copy of the 2022 uploads folder, which also confirmed that the other 197 server files were identical, with no higher-resolution copies. The original S mark is used for favicons, the page-transition mark and placeholders.
+- **Brand palette**: graphite `#404040` and teal `#00A8C0`, sampled from the original logo and status badges, replace the previous midnight-blue/gold scheme.
+- **Original hero film**: the highest-bitrate master (`רקע-ראשי-סופי.mp4`, 59.9 MB, 1904×630) re-encoded to 6.5 MB (wide), 3.8 MB (1280 px) and 1.9 MB (phone 4:3 crop), muted, with posters. Four other copies of the same edit (`סרטון צבעוני`, mobile versions, `Main-vbg-final-comp`) were identical cuts and are not needed.
+- **Location animations**: 9 original 2-second map-pin clips (one per project) now play in each project's location section.
+- **Original images**: 93 at their full upload resolution (75 project images, 17 urban-renewal site photos, 1 illustration), including 7 unscaled originals behind WordPress `-scaled` files (up to 5158 px). Project galleries grew from 18 images to 78:
 
-- Phone: 076-8844262; email: info@s-nadlan.com.
-- Office: כנרת 5, מגדל ב.ס.ר 3, קומה 28, בני ברק.
-- Every project address, current stage and apartment availability. City for גורדון 35 is unknown and is intentionally not inferred.
-- Exact company wording and approved legal texts.
-- Image ownership and whether former resident/construction portals should return.
+| Project | Before | Now | Notes |
+| --- | --- | --- | --- |
+| שכטר בגפן | 3 GEOLN renders with watermark | 11 clean originals | GEOLN images removed |
+| שכטר Family | 2 photos + 3 low-res mockup crops | 12 | mockup crops removed |
+| גורדון 33 | none | 4 | |
+| שכטר באביגיל | none | 7 | includes 5158-px original |
+| שכטר בכנפי נשרים | 1 photo | 5 | includes 3375×4500 original |
+| שכטר בגליל ים | 2 photos + 1 tiny crop | 8 | 2 client photos kept |
+| שכטר Premium | 1 construction photo | 9 | includes 3750×4500 original |
+| שכטר בחי״ל | none | 4 | |
+| נופי הגבעה | 2 photos | 7 | |
+| שכטר בדונש | 2 photos | 9 | |
+| נופי נחלים | none | 1 | only one small (316 px) genuine photo exists |
+| Schechter 38 page | none | 17 construction-site photos + original illustration | |
 
-## Sources and files
+- **Per-project emblems** (8) shown on project pages; **original copy** restored for Gefen, Gordon 33, Premium, HaHayil, Dunash, Nofei Nehalim and Nofei Emek HaAyalot (both languages), plus the original About and Schechter 38 texts.
+- **Facts recovered**: architects for 11 projects, financing partners, project highlights (HaHayil), Gordon 33 apartment sizes, sold-out statements, and the stage of the 8 future projects (in planning / permit granted with conditions).
 
-The supplied ZIP is preserved under `recovery/s_nadlan_recovery/`. Instructions in `CODEX_PROMPT.md` and archive documentation are source material, not separate authorization to deploy, change DNS, contact third parties or create repositories.
+## 3. Not used, and why
 
-- [Original developer portfolio](https://www.artbit.co.il/projects/185-s-nadlan-develop-wordpress-real-estate-site.html). Reference images saved under `recovery/reference/`.
-- [Gefen project listing](https://geoln.com/he/israel/ramat_gan/6773). Three renders kept with the visible GEOLN watermark; no watermark removal.
-- [Tel Aviv photo, Pexels](https://www.pexels.com/photo/drone-shot-of-city-17291321/). New atmosphere photograph, not an original project photo. See `ASSET_SOURCES.md`.
-- Search-index results corroborate the recovered navigation and project cards; they are not a live backup.
+| Item | Reason |
+| --- | --- |
+| Homepage “משפחות ממליצות” testimonials | Template placeholders — they praise a marketing agency (“קליקונט”), not Schechter. Using them would be false. |
+| 11 Lottie JSON animations | Earlier animated versions of the same project/location graphics; the recovered MP4 clips replace them without a 250 KB animation library. |
+| Bank / insurer logos (Hapoalim, Leumi, Mizrahi Tefahot, Harel, Discount) | Third-party trademarks; financing partners are stated in text instead. |
+| Status badge images, placeholders, `G` favicon | Template assets, not brand material. |
+| Social-media icons | No working profile URLs existed on the original site. |
+| Stock lifestyle photos and the Pexels skyline from the previous build | Not project imagery; replaced by original renders and film. |
 
-The original domain could not be read securely: its TLS certificate did not match `s-nadlan.com` during this inspection. An archive media lookup returned HTTP 503, so archive completeness remains unknown.
+## 4. Could not be recovered — needs the owner
 
-## Delivery and launch
+- **Nofei Emek HaAyalot**: no genuine image exists; the original site reused other projects' renders (HaHayil and Nofei HaGiva). It is shown with a typographic placeholder.
+- **Nofei Nehalim**: one 316-px photo only. Higher-resolution photos or renders are needed.
+- **Future projects (8) and archive projects (5)**: no media. Placeholders, not invented imagery.
+- **Vector logo (SVG/AI)**: the largest file is a 1019-px PNG. It is sharp on screens up to 4× density at the header size; a vector file is still needed for print and large-format use.
 
-This version is local and has not changed the existing domain, DNS or hosting. It is marked `noindex,nofollow` and carries a preview label. Before public launch, replace/approve candidate media, verify contacts/statuses, supply legal documents and connect an actual lead delivery service if inbox submission is wanted. Remove the preview label and noindex only once approved for public use.
+## 5. Conflicts to confirm with the client
 
-Project URLs use hash routing (`/#/project/1`) for portable static hosting. Original WordPress URL redirect coverage has not been rebuilt, and should be mapped from the original sitemap before replacing the production site.
+| Topic | Original site | Current site uses | Why |
+| --- | --- | --- | --- |
+| Office address | “כנרת 5, בני ברק, מגדל ב.ס.ר 3 קומה 28”; the accessibility statement says “מצדה 9, בני ברק” | “כנרת 5, מגדל ב.ס.ר, רמת גן 5158219” | client business card (Oct 2026). Note: postcode 5158219 belongs to Bnei Brak. |
+| Financing, Nofei Nehalim / Emek HaAyalot | HE: Mercantile; EN: Mizrahi Tefahot | Bank Mercantile | client update of 15 Oct 2026 |
+| Schechter Family floors | 9 | 8 | client Word document |
+| Sold out — Family, Gordon 33, Premium, Nofei HaGiva, Nofei Nehalim, Emek HaAyalot | stated on original site | shown as sold out | original statements; confirm still accurate |
+| Future-project stages | “ניתן היתר בתנאים” / “בהליכי תכנון” (2022) | shown as stated | likely out of date |
+| Abigail | EN said “Available: last penthouse” | sold out | client update |
+
+## 6. Legal and compliance items for the owner or a lawyer
+
+- **Privacy policy** (Israeli Protection of Privacy Law incl. Amendment 13, GDPR where EU residents are targeted): written to match exactly what the site does — no cookies, no analytics, no server-side form storage, Google Maps only after a click. Needs: the operating **legal entity name and company number**, a confirmed **retention period** for inquiries, and legal review. If a CRM, analytics or a form backend is added later, the policy and a consent mechanism must be updated first.
+- **Accessibility statement** (Equal Rights for Persons with Disabilities regulations, reg. 35): needs the **name and direct contact of the accessibility coordinator**, re-verification of the office arrangements quoted from the original statement, and ideally an external audit. The site does not claim certification.
+- **Marketing consent**: the “updates” checkbox is separate and optional, as required for marketing messages (Communications Law §30A). Any future mailing list must honour opt-outs.
+- **Image rights**: renders belong to the respective architects/visualisers; confirm the company's right to publish them.
+
+## 7. Verification performed
+
+- `npm test` in Chromium and WebKit: 70 prerendered routes × 2 viewports (content, language/direction, metadata, JSON-LD, no console errors, no failed requests, no horizontal overflow), 745 media URLs, client navigation and focus, language switching, catalog filters, gallery lightbox keyboard/focus, mobile menu focus trap, contact form errors, hero film playback and reduced-motion behaviour, location clips, legacy redirects, accessibility settings, and an axe WCAG 2.2 AA scan of 10 key pages (no serious or critical issues).
+- Additional overflow checks at 320, 768, 1024 and 1920 px.
+- Lighthouse (local, brotli, while the machine was under heavy iCloud sync load): desktop performance 99–100, accessibility 100, best practices 100; mobile performance 86–95 on Hebrew pages (LCP 2.2–2.7 s, CLS 0), English home ~77 (LCP ~3.8 s). SEO scores 69 only because the preview is deliberately `noindex`.

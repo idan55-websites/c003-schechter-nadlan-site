@@ -1,0 +1,24 @@
+
+> s-nadlan-restored@1.0.0 build
+> vite build && vite build --ssr src/entry-server.jsx --outDir dist-ssr && node scripts/prerender.mjs
+
+vite v6.4.4 building for production...
+transforming...
+✓ 47 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.99 kB │ gzip:  0.47 kB
+dist/assets/style-yPpsnMC8.css   47.58 kB │ gzip: 11.36 kB
+dist/assets/scenes-R5Ww2wJ-.js    4.13 kB │ gzip:  1.56 kB
+dist/assets/motion-C8IefbVz.js  114.87 kB │ gzip: 45.46 kB
+dist/assets/index-DIP8rY7z.js   178.85 kB │ gzip: 53.85 kB
+dist/assets/react-DPB3tLhC.js   222.41 kB │ gzip: 69.04 kB
+✓ built in 6.78s
+vite v6.4.4 building SSR bundle for production...
+transforming...
+✓ 19 modules transformed.
+rendering chunks...
+dist-ssr/assets/scenes-BU4nr5J8.js    6.12 kB
+dist-ssr/entry-server.js            217.28 kB
+✓ built in 1.88s
+prerendered 70 routes, 50 redirects, indexing off

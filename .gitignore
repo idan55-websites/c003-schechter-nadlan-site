@@ -1,10 +1,11 @@
 node_modules/
 dist/
+dist-ssr/
 .DS_Store
 .env*
 !.env.example
 test-results/
 
-# Local recovery packet and downloadable build archive
+# Local recovery packet, original WordPress media archive and downloadable build archive
 recovery/
 s-nadlan-restored.zip

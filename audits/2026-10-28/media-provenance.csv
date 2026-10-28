@@ -1,0 +1,118 @@
+asset,type,archived_source,sha256,matching_files_relative_to_Downloads_2022,sampled_webp_bytes_match,all_image_variants_exist,referencing_html_pages
+gefen-facade,image,media/942.jpg,e63fc1031f6b58f12a3ed6da12512df261bdfb46ddf435c9d2ad4e9b2a30c6a6,01/×××××a-×××¥-×¡××¤××a-.jpg,True,True,71
+gefen-northeast,image,media/684.jpg,8e3b993066046b3d8d1a11d43e783c6265d01788941c58aa731d31a188587a55,01/Cam1-north-east.jpg,True,True,2
+gefen-street,image,media/685.jpg,f5d1409b0d0a6112eec71c47e6490b2fbfa8c837af230439ec03027f0abca10f,01/cam05POST.jpg,True,True,2
+gefen-living,image,media/676.jpg,c341dda22e6f56e75883b26fe7baaf49f0289316b1cce1be2fa3fb9b38ea11e5,01/גפן1.jpg,True,True,2
+gefen-duplex-1,image,media/682.jpg,a942cf05d21c70b6b4f6436cc92c209dac8a313dc8cc55f18c4d2512416cae80,01/Duplex01_32.jpg,True,True,4
+gefen-duplex-2,image,media/681.jpg,58aa139769e2e3606b473f4a0eb1b07fe1e7f0a49e382040f84cfd01afa928b5,01/Duplex01_33.jpg,True,True,2
+gefen-duplex-3,image,media/680.jpg,1b4640289d2697a8c7b18a81d6816ff6528f375fe712d1a64ccf652da8b5006d,01/Duplex02_37.jpg,True,True,2
+gefen-duplex-4,image,media/679.jpg,f895e9994b3e21ebaff6b22980f739e3bcaa55617a2f6daae3aa4b4c09607aa3,01/Duplex02_38.jpg,True,True,2
+gefen-duplex-5,image,media/683.jpg,1c1b8ee7c01be7fafd8da43848b3e76e2199209fd85bfa0fffe6a4b11664cf17,01/duplex_03_28.jpg,True,True,2
+gefen-typical-a,image,media/678.jpg,6e0861910e47bdac33182937597862f5d5014600ee1131de4a151d2fc8f9349c,01/TYPICAL_A_PR_022.jpg,True,True,2
+gefen-typical-b,image,media/677.jpg,6fc600dfd89566e0e3e02feb2c28db193ffcee082ffb0881ad4308a3eaf75ca8,01/TYPICAL_B_PR_022.jpg,True,True,2
+family-day,image,media/957.jpg,ba75dd09a33499259eb8c54f5d45084559f0c460473a40ba0bdfa679f3160956,01/HM_-_day_-_print-××©×¨-××©×.jpg,True,True,71
+family-night,image,media/958.jpg,36fb871b08a598c7b46f88dee63878d79c1e88789ce4b858358f60af712e6e36,01/HM_-_night_-_print××©×¨-××©×.jpg,True,True,2
+family-site-1,image,media/710.jpg,f2813da53f921c13c04effdcb7b2aa7f41cdf598e531ed763dd0eb3950e5fc87,01/השר-משה-1.jpg,True,True,2
+family-site-2,image,media/711.jpg,a280e004da52e12a3dbe4aa032ee710551b46dd73fbfc3d0cdf890bc470ba8fa,01/השר-משה-2.jpg,True,True,2
+family-street,image,media/713.jpg,9111a2926a16046c9e8e584ed73b70de4c23a5ff410ad775939177c647df2862,01/השר-משה-4.jpg,True,True,2
+family-aerial,image,media/712.jpg,d035df50192a1dccb946dd653cdd67e80bd1177e8feda0e6deb8a1c6c48ad395,01/השר-משה-3.jpg,True,True,2
+family-courtyard,image,media/714.jpg,32568b73a03bd686fa9c2b34f256523aff70a6fa0929e5195afe951ffc9488a8,01/השר-משה-23-חצר.jpg,True,True,2
+family-kitchen,image,media/715.jpg,fb31a549712bb780aeb58374ca7253cc3507d8e91a723bc28b8daa15ccd21117,01/השר-משה-מטבח-סלון.jpg,True,True,4
+family-balcony-1,image,media/716.jpg,fc6a3844c99ce37361dd2dae6a7ba6e4b3de46445f0ac3d730a19459d9d234fc,01/השר-משה-מרפסת.jpg,True,True,2
+family-balcony-2,image,media/717.jpg,62cb069e187337d5aad3459069b449c5143b5bb46373ab5e165a7848950a4ee9,01/השר-משה-מרפסת-1.jpg,True,True,2
+family-living-1,image,media/708.jpg,17feefd0d915d1db8f285ebd7eafb4b3ff445b87dd35d3c23b32f9d44db7a602,01/השר-משה.jpg,True,True,2
+family-living-2,image,media/709.jpg,225a1ff88ff96af17b1fdac52d195d9ee023fdd014416d6c077f8e332ea83fc8,01/השר-משה2.jpg,True,True,2
+gordon-facade,image,media/931.jpg,23048fa14c16fe997b8296177b063342eca9287957ee036bc37f7d7f8745c1d5,01/×××¨×××-33.jpg,True,True,6
+gordon-penthouse,image,media/935o.jpg,0b2e2c23f755dcade8ea41fd8b9634d69f64801a622730b14616210da2d8813a,01/גורדון-penthouse-2.jpg-33-_.jpg,True,True,2
+gordon-lobby,image,media/932.jpg,29d761e308f7ee943437941a12e08eccacb1b344ded7b3868e233fc9c3c9df7b,01/×××¨×××-33-lobby-2.jpg,True,True,2
+gordon-view,image,media/933.jpg,7df7f5fd73acea891d50ad0729b691cb683129c792aa99b20db0266c3c96ee76,01/×××¨×××-33-××©×a××.jpg,True,True,2
+abigail-night,image,media/937.jpg,03566dd2d9d0559ecd9066ee383db4f9ca6aea181c1813b9d38870c17c24de6a,01/c1_night_Final.jpg,True,True,8
+abigail-day,image,media/939.jpg,c0ca5f8fff3745eb2ca75db7b3c2ef94c5e6f1b970ea1854e0f41830735d659d,01/c1_.jpg,True,True,2
+abigail-living-wide,image,media/688o.jpg,0f033a7dc2d85cdb3d84384cbab2e7ef4c9aafaae8475367fadda16c3eb9db5f,01/app2-06אביגיל.jpg,True,True,4
+abigail-living,image,media/940.jpg,81c9ec1e4c7066621811b75fc98c22bee11ebe558eaa6aa4bd17ba541e0312ee,01/app2-02××××××.jpg,True,True,4
+abigail-interior-1,image,media/691.jpg,947e3a0e4361b105d5810f4c2488551d088bcfe603fb6f80ba313fcc5e4c71b3,01/אביגיל-1.jpg,True,True,2
+abigail-interior-2,image,media/690.jpg,3baebe8bcbaeeb70e97269458e1a278f54fbef5659694edde031032444f6518c,01/אביגיל6.jpg,True,True,2
+abigail-interior-3,image,media/689.jpg,c897f970f86ee18e9303fba894b94712f12d0261b545d5c766690ea4f5aa7e7b,01/אביגיל5.jpg,True,True,2
+knafei-facade,image,media/968o.jpg,92664658b8d479218e8248a0bcf0287514abdca1c9cc16ee713ddaaa8499c093,01/Kenfey_-_V1_-_2_-_Print-כנפש.jpg,True,True,8
+knafei-garden,image,media/673o.jpg,9f4d441a4d5370fae7520eb90856bd83efdf431248f10712786531ecd79ef435,01/view-3-gardenכנפש.jpg,True,True,2
+knafei-site,image,media/534.jpg,5bdae5d330d43a4eba61adeccdc0ae5ef0fbae17422674cce0bd5ff52ff0dc66,01/כנפי-נשרים-1.jpg,True,True,2
+knafei-living,image,media/535.jpg,0ef7a033875630737c975edd5f93fc80de0a78e4ffda07ac0ffd8b46390c3fcf,01/כנפש1.jpg,True,True,2
+knafei-balcony,image,media/536.jpg,0f9f230f57ce605a090c433e056b82bd8b483c8e475cc8c1fb1e2e181f670dd7,01/כנפש-2.jpg,True,True,2
+galil-yam-facade,image,media/960.jpg,2d150ac77eaad8ef2a6a73c7a63ad57bfb5bd8551d9e280aeca3632cc1d70c89,01/view_1_-_without_people_-_print.jpg,True,True,71
+galil-yam-garden,image,media/962.jpg,1c6566725a82bd876311078a300fd62a84a29017d3d10c9a159617e00e134cfe,01/view_3-without_people_-_print.jpg,True,True,2
+galil-yam-garden-people,image,media/963.jpg,371db76e40abd22c49b0e94741587b2f444af93c73beb005fd4c07226392629d,01/view_3-_people_-_print.jpg,True,True,2
+galil-yam-evening,image,media/961.jpg,daf5ac51279c1e0ae8c89d3c0e09f22a527588bbeca0d446956ed813c92b74ec,01/view_5_-people_-_print.jpg,True,True,2
+galil-yam-terraces,image,media/964.jpg,8d0c5dd76033e161321560cf1bec3d77d8942c9ff38a9efe6e5047be7e001513,01/view_2_-_no_pool_-_print-1.jpg,True,True,4
+galil-yam-courtyard,image,media/965.jpg,eacdb8434ced9b2dd54bc008f09050de0db4cf7006b167e74657ab9e34b3dad2,01/××××-××.jpg,True,True,2
+galil-yam-site-1,image,prev:galil-yam-site-1.webp,ded51462a20be554ca905428641ed718997b35abf2a7e052897fe42c1dc1cad7,,True,True,2
+galil-yam-site-2,image,prev:galil-yam-site-2.webp,2624a18b81f0dbd6f84a9e254769060949008e43b1c3799e4371f0165fd94146,,True,True,2
+premium-facade,image,media/697o.jpg,673994c925564f273f5f6bf4ca634a4a23ecf2e13cfc47e12f91e75f916115f0,01/Tarad-10-V1-Print.jpg,True,True,10
+premium-garden,image,media/947o.jpg,0bc4742e23df456c7f441900e3b0a517fedc4f7ff1636b7b647c471ed36917ab,01/Tarad-10-Gan-Print×a×¨×¢×.jpg,True,True,2
+premium-penthouse,image,media/946.jpg,7eed139e9f6d574f11936113642fad89591c091f04da4fe4e891588e6a229e42,01/Tarad-10-Penthouse-Print×a×¨×¢×.jpg,True,True,2
+premium-typical,image,media/945.jpg,9ef207147eb9889fb1dc3a5613c475c32fb8b394567693f6c76afaab1b108d3f,01/Tarad-10-Tipuisit-Print×a×¨×¢×.jpg,True,True,2
+premium-lobby,image,media/951.jpg,c8df7db0efe9e36834f001955c2b4b9fda625010e8cd1d8edb49bda477b67f2c,01/תרעד-5.jpg,True,True,2
+premium-street,image,media/949.jpg,0bee7978a4961e9be0fa81b22b0c36554485e6bf088740bcf10aa6db7eeb1a76,01/תרעד-7.jpg,True,True,2
+premium-aerial-1,image,media/950.jpg,9d852cb2661cfa7659b339d4cff0c769586d9e5a0c4efe23d3c069c0c063e9dd,01/תרעד-6.jpg,True,True,2
+premium-aerial-2,image,media/954.jpg,d969718e16ec23908f3e94a171b02fef78b02488372e3ee83ed646c696dc74e5,01/תרעד2.jpg,True,True,2
+premium-site,image,media/948.jpg,96f27eae4edbb152d1f9494746616fdd663e9f05d7e816772362660eb74cf1f2,01/תרעד-10.jpg,True,True,2
+hahayil-facade,image,media/665.jpg,b8160d1d86a7a560a8c1c0ecbd77b2818721326f2c76589c896559e6d1ea07fb,01/v3-1.jpg | 01/v3.jpg,True,True,8
+hahayil-street,image,media/667.jpg,2e324364c66ba984acf15b960ce6783f89585aa841101f52497fdcc6a4d4f72a,01/view-1-12.jpg,True,True,2
+hahayil-living-1,image,media/668.jpg,8d553cde8be26947359bc4217734819420650d8baf9b46884ab87469b6097e4a,01/החיל1.jpg,True,True,2
+hahayil-living-2,image,media/669.jpg,455f1678414080d14e93407ad3fecca6d96124f9c1fd203a69b18c70646de068,01/החיל2.jpg,True,True,2
+hagiva-tower,image,media/720.jpg,685facc0e10f8855648f725582993fc7419b9e4a148873a4448c8ab36c98fae1,01/גבעת-אבהבה3-1.jpg | 01/גבעת-אבהבה3.jpg,True,True,8
+hagiva-aerial,image,media/723.jpg,7df4097a29dfba490b8c8872cae47aa746e9809ae36c3cba5429672c7d94d3f3,01/גבעת-אבהבה1.jpg,True,True,2
+hagiva-salon,image,media/722o.jpg,0daa51b9ce6ffb1ae5df9a02e2bb5f81c1c389c0a013fe90bd92fad11feea178,01/salon_tipoosh_zavit2_2גבעת-אהבה.jpg,True,True,4
+hagiva-living,image,media/725.jpg,ad850a62b1b0043988a24e47616a1122805d541233aa8837b9bef880e8c9d034,01/גבעת-אהבה-4.jpg,True,True,2
+hagiva-penthouse,image,media/721.jpg,c871433d98b2b15fc03f063b95ae77602483a0e3e738d666b7cf80b1fdd23907,01/penthouse-כנפש.jpg,True,True,2
+hagiva-site-1,image,media/726.jpg,9a3f80e51b55c3a3e4067b71c894b366527d3256a16307ca2c5e39dfc7b0865c,01/גבעת-אהבה-רחובות.jpg,True,True,2
+hagiva-site-2,image,media/727.jpg,f38d2e649ec9269e4770ee32e15f9d59d215fcd307ef7497830a9a9f683618cc,01/עותק-של-גבעת-אהבה-רחובות.jpg2_.jpg,True,True,2
+dunash-facade,image,media/650.jpg,a4285a195147ea35cd227eb0f02bbbb2cbfcbf929bc7524b79620d3f9b9023b9,01/דונש1.jpg,True,True,8
+dunash-street,image,media/654.jpg,b94db705d0dca7d0348760f7f346f88eee0dd9dcbb0cb6d4c29a5a8a19d2492c,01/דונש3.jpg,True,True,2
+dunash-aerial,image,media/656.jpg,a7c08753847dd9384ff4a0fbcb0f3fdf1c6e841ec14a510ad9a1e0a4a9af29bf,01/דונש5.jpg,True,True,2
+dunash-aerial-2,image,media/652.jpg,26e3c1d950c5fe2ac66018d634b1723b9685c985ba66e880f752b9ce9583230f,01/דונש2.jpg,True,True,2
+dunash-site-1,image,media/651.jpg,f3d426643c0aa22966e59752264da8cac35c5a1d568ac92610ad1e14cb2986cb,01/PHOTO-דונש.jpg,True,True,2
+dunash-site-2,image,media/653.jpg,febfb4b218ef31167c7b5941ccdd0ab8540fd53dab3efc35832c4919b9e0e878,01/דונש2-1.jpg,True,True,2
+dunash-living,image,media/655.jpg,ac056a7c44cbeb654bde5d7b49cbad48b8843031a6b76c7d7a89899a4a248030,01/דונש4.jpg,True,True,2
+dunash-interior-1,image,media/657.jpg,fa88337efee26e2e75d9bc30d79e02d99e13366f9be992eabdbde23239c708c9,01/דונש6.jpg,True,True,2
+dunash-interior-2,image,media/658.jpg,4183abce89becb1c2051ee3fa2dd481ce15dde8cd817426fa760851d05e50c11,01/דונש7.jpg,True,True,2
+nehalim-site,image,media/2951.jpeg,0552f27f1d76fdcde6e93abdccc87a4ddf26b807016142e33449b0523bd0d613,01/Copy-of-נוף-נחלים.jpeg,True,True,8
+rishonim-render,image,prev:rishonim-render.webp,576287635702b69dea87b34dd1dd1467619610de2bdb81e8123132b38e1ae4ea,,True,True,4
+urban-site-01,image,media/2953.jpg,d8e184d562db3d14f95e1b803ced20649722513d7e418d1b29b290e230b979d0,02/8fed0fc4-82a6-4e40-adde-501e00d9f671.jpg,True,True,4
+urban-site-02,image,media/2954.jpg,c969db95c12c0de5f2c73687ffac37404d65404933b2a670b17e97662ddab36d,02/55daf23a-d68f-4ae8-95f0-6482742e19c1.jpg,True,True,2
+urban-site-03,image,media/2955.jpg,8667796e0bbc8872afa12ee1bf3cefaf6b76a0ffc8dd9b5fe9f1bad4993c2283,02/69cfa9ef-caf0-4842-847e-e0e8e770446c.jpg,True,True,4
+urban-site-04,image,media/2956.jpg,583ec35d3481e93d82393f2409bdbabaa05175692259f536ea7595ce7a83c8db,02/76e613f6-3b9e-4426-8192-c5569e551cc8.jpg,True,True,2
+urban-site-05,image,media/2957.jpg,c8807b7c2ff2f861424f484f8075b9aaac83e48fb1b545e18377ddb48c9510ca,02/77a21fd5-59e2-4448-85bb-5676fecb751b.jpg,True,True,4
+urban-site-06,image,media/2958.jpg,a7a22b2f126059fcc78f70e883789ef9ef5d23190646562fc0dbefe360cd3516,02/78d62de8-f348-49c7-9552-215ca7b6f34d.jpg,True,True,2
+urban-site-07,image,media/2959.jpg,954fc49250f087ec17c9952d5e94b03175f7ba2bfa9b40f0b89bd47bea597a73,02/84a98ac8-fb1e-400f-90e3-288210ea2b0e.jpg,True,True,4
+urban-site-08,image,media/2960.jpg,156b21f9642eba2d8c7790f53353de916731c6be58f2831ed88d0f201d3e975e,02/483caa90-2e1f-4620-bbb7-f9fc91d6f8e3.jpg,True,True,2
+urban-site-09,image,media/2961.jpg,2a6e388728178c1182985c04a84d81ecc9d94a53bd1879f213939088708c48f5,02/3707cd72-183d-4d97-9239-f9a20286996f.jpg,True,True,4
+urban-site-10,image,media/2962.jpg,9297ce37a6200bb077a305ee284cd5704d93b272a1e01347f6dcc48c28105a0d,02/4162a10b-bc01-417c-865a-bf1dcd18517f.jpg,True,True,2
+urban-site-11,image,media/2963.jpg,7f36d755dc155a9b080c6e66b3811a9ce6002b673fa5bd2495e405312b59f15a,02/a6536436-a58b-409c-bdaa-9a44faad3c05.jpg,True,True,4
+urban-site-12,image,media/2964.jpg,58872a893a17eee64e15c5017e19261351fcbff2cbaa18f58cdb8ae1ceb60089,02/af118c9c-5a9b-459e-b982-650d50309574.jpg,True,True,2
+urban-site-13,image,media/2965.jpg,cd37e9b0257a03bf306306a6e98e930395b196cda0d768aca999284b2edb702e,02/b8326e01-92db-45e8-a7c1-a252bdae5a88.jpg,True,True,4
+urban-site-14,image,media/2966.jpg,0074fd9c52b1be954ea5dc51130f40c4a499b1959a518ddd82cac12bd45a0103,02/ba1d9bc4-c240-41a5-99db-4ecaf1b16e23.jpg,True,True,2
+urban-site-15,image,media/2967.jpg,99ca11be944362e5b33fdfe505d363d3dcb3e3515c3e7f074811c9e61e669671,02/d9eb49a5-4751-4f1b-81e4-e688041e2ba0.jpg,True,True,4
+urban-site-16,image,media/2969.jpeg,64d2ca15c0a57188eaf1c8e26329335c867c2596464607e6a4fead0f2cbe103e,02/WhatsApp-Image-2017-07-10-at-23.02.54.jpeg,True,True,2
+urban-site-17,image,media/2968.jpg,0611c857c2729773d4b374710f20dbf9c4e6a99afe3ba8ed56dee35353272e61,02/de7fd474-1a6e-45d1-b0de-77736fbba841.jpg,True,True,2
+urban-cover,image,media/73.png,20b64b4f28710e4756bf4fa463eb0f66ace9b4b5be7d65d3c1b99de7ce5ee998,01/invalid-name@3x.png,True,True,2
+emblem-dunash,brand,media/2870.png,321082e6dde0dce816c580602157114ccdb70a5f0ac097c9475c9201b282bce1,01/××××-×××-×©-1.png | 01/××××-×××-×©.png,,,not counted
+emblem-family,brand,media/2871.png,b86fe23e30459b627157a8b696db4c9bea367d893936a977cda23a61107f6c90,01/××××-××©×¨-××©×.png,,,not counted
+emblem-nehalim,brand,media/2872.png,2cead277af182a01dcd4664d632a222cdbce2d09f32b3bffd420f6a091998fd4,01/×-××¤×-×-××××.png,,,not counted
+emblem-knafei,brand,media/2873.png,e2c9c5727d876d29820668d559e069f9afa5825842353e57474c682e59c550fd,01/××××-××-×¤×-×-×©×¨××.png,,,not counted
+emblem-premium,brand,media/2874.png,89c7c58d15c4d5549b88a212268ff88f2caafaf8ad0464ce8bb6cb7a68b5dd09,01/××××-×a×¨×¢×-10-××¨××©××-××.png,,,not counted
+emblem-hahayil,brand,media/2866.png,79ff791db4ba77087e33e94a773e91289f626a3b522c96d5644ec0869f6d821a,01/×××××.png,,,not counted
+emblem-abigail,brand,media/3010.png,0b386ab9aa07b3b494c0a0e9f58eef0ff3a30ed2912d7bdf619943958b11ab84,01/שכטר-באביגיל-2.png,,,not counted
+emblem-galil-yam,brand,media/3011.png,c02d8bcd14f62960956e71f8900f9f83c1973bf1bf7fdacba7c2b9ce89ad2a5d,01/שכטר-בגליל-ים-2.png,,,not counted
+location-gefen,video,media/2981.mp4,7975cd423aea53b128f096c44fc9743f98fe32075dc6449ca48d43270cdf1dce,01/××¤×.mp4,,,not counted
+location-family,video,media/2985.mp4,ad3631bd25ed70187c5df86b9d0d1806b43bdb0a0e64ebfedc6015faea00b2ca,01/family.mp4,,,not counted
+location-gordon,video,media/2744.mp4,f9adf9a66579109f3db1aa05f4ca8e705aa201f0260240f9e8945ff4270f4fae,01/×××¨×××-33.mp4 | 01/גורדון-333-1.mp4,,,not counted
+location-abigail,video,media/2982.mp4,897f111070dcc77e91869081288e0a1c9caf411f9ab63b8c4867e685b58c644c,01/××××××.mp4,,,not counted
+location-knafei,video,media/2986.mp4,342fd6b923cf34c9967bacdd1ca274837eb8bffe26cd3e75176a0dc022c12268,01/××-×¤×-×-×©×¨××.mp4,,,not counted
+location-premium,video,media/2983.mp4,fce6c7e84ea20d7c9bd2c4c95a0f758c7afcbe45dedc9ada37141a97ca4f9ef6,01/×¤×¨×××××.mp4,,,not counted
+location-hahayil,video,media/2980.mp4,dfa429319e84ec886a264bd5819024b3287770d9aea1492e3fb3bb5fec98e742,01/×××.mp4,,,not counted
+location-hagiva,video,media/2979.mp4,b851459c2a5c6f559a9357db4150fe3b5aa3599f8e9bddf877cf3d090430ad91,01/×-××¤×-××××¢×.mp4,,,not counted
+location-dunash,video,media/2984.mp4,3d909d6344b462dd933d2c417b98752e307f255383347ef3642ed895aee4a2c4,01/×××-×©.mp4,,,not counted
+film,video,media/3953.mp4,fc46a0a76cc5975baeb725f88b12c086597fd4b8b62a49cdd4dc671ef02ba2f3,04/רקע-ראשי-סופי.mp4,,,not counted
+logo-dark,brand,local-2022/logo-dark-1019.png,92976aa60c4e2f6e14a5877fd0f78d341d50234118317cb9db189e104f514336,01/לוגו.png,,,not counted
+logo-light,brand,local-2022/logo-light-489.png,24c77cb73c77ecce2446c0b869a2f56b484b6ef4826c53091810572477bf7e27,01/w@3x.png,,,not counted
+s-mark,brand,media/3658.png,d7e37900df05fd28b28ff3a6d198b6eedbeb2013de4f6a9fb7192d33f69ca193,04/group@3x.png,,,not counted

@@ -1,0 +1,20 @@
+
+> s-nadlan-restored@1.0.0 test
+> node tests/site.mjs
+
+✓ 70 prerendered routes: content, language, metadata, no errors, no overflow
+    745 media URLs
+✓ every image and video source referenced by pages exists
+✓ client navigation: transition, title, focus, back button
+✓ language switch keeps the current page
+✓ catalog: stage tabs, city filter and search
+✓ project gallery lightbox: keyboard, swipe target, focus return
+✓ mobile menu: open, focus trap, Escape, navigation
+✓ contact form: error summary, field errors, preselected project, draft confirmation
+✓ hero film streams and plays; paused and not loaded under reduced motion
+✓ location clip plays once on the project page
+✓ legacy URLs redirect (previous hash preview and WordPress paths)
+✓ accessibility settings persist and apply
+✓ axe WCAG 2.2 AA scan: no serious or critical violations
+
+All checks passed

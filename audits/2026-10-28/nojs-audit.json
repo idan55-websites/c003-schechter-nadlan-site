@@ -1,0 +1,14 @@
+{
+  "javaScriptEnabled": false,
+  "finalUrl": "http://127.0.0.1:4173/contact/?name=Audit+Test&phone=0500000000&email=audit%40example.invalid&project=&message=Synthetic+verification+only&consent=on",
+  "navigationRequests": [
+    {
+      "url": "http://127.0.0.1:4173/contact/",
+      "method": "GET"
+    },
+    {
+      "url": "http://127.0.0.1:4173/contact/?name=Audit+Test&phone=0500000000&email=audit%40example.invalid&project=&message=Synthetic+verification+only&consent=on",
+      "method": "GET"
+    }
+  ]
+}

@@ -1,0 +1,568 @@
+{
+  "local": {
+    "beforeMap": {
+      "externalRequests": [],
+      "cookies": [],
+      "storage": {
+        "a11y": "{\"motion\":false,\"contrast\":false,\"links\":false,\"text\":false}"
+      },
+      "formCheckboxes": [
+        {
+          "name": "consent",
+          "checked": false
+        },
+        {
+          "name": "updates",
+          "checked": false
+        }
+      ]
+    },
+    "cspProbe": {
+      "inlineExecuted": false,
+      "inlineViolations": [
+        {
+          "directive": "script-src-elem",
+          "blocked": "inline"
+        }
+      ],
+      "sameOriginPageScriptProbe": {
+        "probe": {
+          "evalError": "EvalError",
+          "functionError": "EvalError"
+        },
+        "violations": [
+          {
+            "directive": "script-src",
+            "blocked": "eval"
+          },
+          {
+            "directive": "script-src",
+            "blocked": "eval"
+          }
+        ]
+      },
+      "method": "Inline script element and an allowed same-origin script containing eval/new Function. DevTools evaluation results are excluded because they bypass page CSP."
+    },
+    "afterMap": {
+      "externalOrigins": [
+        "https://maps.google.com",
+        "https://www.google.com",
+        "https://maps.gstatic.com",
+        "https://maps.googleapis.com",
+        "https://fonts.googleapis.com",
+        "https://fonts.gstatic.com",
+        "https://places.googleapis.com"
+      ],
+      "iframeCount": 1,
+      "cookies": [],
+      "cspViolations": [
+        {
+          "directive": "script-src-elem",
+          "blocked": "inline"
+        }
+      ]
+    },
+    "axe": [
+      {
+        "route": "/projects/",
+        "violations": [],
+        "incompleteRules": [
+          "color-contrast"
+        ]
+      },
+      {
+        "route": "/",
+        "violations": [],
+        "incompleteRules": [
+          "aria-prohibited-attr",
+          "color-contrast",
+          "video-caption"
+        ]
+      },
+      {
+        "route": "/projects/schechter-gefen/",
+        "violations": [],
+        "incompleteRules": [
+          "color-contrast",
+          "video-caption"
+        ]
+      },
+      {
+        "route": "/projects/nofei-nehalim/",
+        "violations": [],
+        "incompleteRules": [
+          "color-contrast"
+        ]
+      },
+      {
+        "route": "/about/",
+        "violations": [],
+        "incompleteRules": [
+          "color-contrast"
+        ]
+      },
+      {
+        "route": "/projects/schechter-family/",
+        "violations": [],
+        "incompleteRules": [
+          "color-contrast",
+          "video-caption"
+        ]
+      },
+      {
+        "route": "/urban-renewal/",
+        "violations": [],
+        "incompleteRules": [
+          "color-contrast"
+        ]
+      },
+      {
+        "route": "/press/",
+        "violations": [],
+        "incompleteRules": [
+          "color-contrast"
+        ]
+      },
+      {
+        "route": "/residents/",
+        "violations": [],
+        "incompleteRules": [
+          "color-contrast"
+        ]
+      },
+      {
+        "route": "/contact/",
+        "violations": [],
+        "incompleteRules": [
+          "color-contrast"
+        ]
+      },
+      {
+        "route": "/accessibility/",
+        "violations": [],
+        "incompleteRules": [
+          "color-contrast"
+        ]
+      },
+      {
+        "route": "/privacy/",
+        "violations": [],
+        "incompleteRules": [
+          "color-contrast"
+        ]
+      },
+      {
+        "route": "/sitemap/",
+        "violations": [],
+        "incompleteRules": [
+          "color-contrast"
+        ]
+      },
+      {
+        "route": "/en/",
+        "violations": [],
+        "incompleteRules": [
+          "aria-prohibited-attr",
+          "color-contrast",
+          "video-caption"
+        ]
+      },
+      {
+        "route": "/en/contact/",
+        "violations": [],
+        "incompleteRules": [
+          "color-contrast"
+        ]
+      },
+      {
+        "route": "/en/accessibility/",
+        "violations": [],
+        "incompleteRules": [
+          "color-contrast"
+        ]
+      },
+      {
+        "route": "/en/privacy/",
+        "violations": [],
+        "incompleteRules": [
+          "color-contrast"
+        ]
+      }
+    ],
+    "reflow": [
+      {
+        "route": "/",
+        "viewport": 320,
+        "width": 320,
+        "overflow": 0
+      },
+      {
+        "route": "/contact/",
+        "viewport": 320,
+        "width": 320,
+        "overflow": 0
+      },
+      {
+        "route": "/projects/",
+        "viewport": 320,
+        "width": 320,
+        "overflow": 0
+      },
+      {
+        "route": "/projects/schechter-gefen/",
+        "viewport": 320,
+        "width": 320,
+        "overflow": 0
+      },
+      {
+        "route": "/accessibility/",
+        "viewport": 320,
+        "width": 320,
+        "overflow": 0
+      },
+      {
+        "route": "/privacy/",
+        "viewport": 320,
+        "width": 320,
+        "overflow": 0
+      },
+      {
+        "route": "/en/contact/",
+        "viewport": 320,
+        "width": 320,
+        "overflow": 0
+      }
+    ]
+  },
+  "remote": [
+    {
+      "label": "production",
+      "url": "https://s-nadlan.com/",
+      "status": 200,
+      "headers": {
+        "content-encoding": "br",
+        "content-type": "text/html; charset=UTF-8",
+        "date": "Wed, 28 Oct 2026 11:10:33 GMT",
+        "fastcgi-cache": "EXPIRED",
+        "link": "<https://s-nadlan.com/wp-json/>; rel=\"https://api.w.org/\", <https://s-nadlan.com/wp-json/wp/v2/pages/120>; rel=\"alternate\"; title=\"JSON\"; type=\"application/json\", <https://s-nadlan.com/>; rel=shortlink",
+        "referrer-policy": "strict-origin-when-cross-origin",
+        "server": "nginx",
+        "set-cookie": "pll_language=he; expires=Thu, 28 Oct 2027 11:10:32 GMT; Max-Age=31536000; path=/; secure; SameSite=Lax",
+        "strict-transport-security": "max-age=31536000; includeSubDomains",
+        "vary": "Accept-Encoding",
+        "x-content-type-options": "nosniff",
+        "x-frame-options": "SAMEORIGIN",
+        "x-xss-protection": "1; mode=block"
+      },
+      "externalOrigins": [
+        "https://fonts.googleapis.com",
+        "https://fonts.gstatic.com"
+      ],
+      "cookies": [
+        {
+          "name": "pll_language",
+          "domain": "s-nadlan.com",
+          "secure": true,
+          "httpOnly": false,
+          "sameSite": "Lax"
+        }
+      ],
+      "details": {
+        "title": "שכטר נדל\"ן",
+        "privacyLinks": [],
+        "forms": [
+          {
+            "text": "Name\nטלפון\nאימייל\nשלח/י",
+            "action": "https://s-nadlan.com/",
+            "method": "post"
+          },
+          {
+            "text": "Name\nטלפון\nפרפיקס\n050\n052\n054\n055\n057\n058\nאימייל\nMessage\n אשמח לקבל עדכונים על פרוייקטים נוספים\nשלח/י",
+            "action": "https://s-nadlan.com/",
+            "method": "post"
+          }
+        ],
+        "images": 76,
+        "imagesWithoutAlt": 0
+      },
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "nodes": 8,
+          "examples": [
+            {
+              "target": [
+                ".elementor-element-b51d4c0.elementor-sticky--active.elementor-section--handles-inside > .elementor-column-gap-default.elementor-container > .elementor-element-f91599b.elementor-col-33[data-id=\"f91599b\"] > .elementor-element-populated.elementor-widget-wrap > .elementor-element-5558a30.elementor-section-full_width[data-id=\"5558a30\"] > .elementor-column-gap-default.elementor-container > .elementor-element-2a7e575.elementor-col-33[data-id=\"2a7e575\"] > .elementor-element-populated.elementor-widget-wrap > .elementor-element-9f8d968.elementor-widget-heading[data-id=\"9f8d968\"] > .elementor-widget-container > h2"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.72 (foreground color: #02acc0, background color: #414142, font size: 12.8pt (17px), font weight: bold). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".elementor-size-md > span > .elementor-button-text"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.73 (foreground color: #ffffff, background color: #02acc0, font size: 15.0pt (20px), font weight: bold). Expected contrast ratio of 3:1"
+            },
+            {
+              "target": [
+                ".elementor-element-b7b7a6c > .elementor-widget-container > h2"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.73 (foreground color: #ffffff, background color: #02acc0, font size: 27.0pt (36px), font weight: bold). Expected contrast ratio of 3:1"
+            },
+            {
+              "target": [
+                ".swiper-slide-prev.swiper-slide[data-swiper-slide-index=\"0\"] > .elementor-repeater-item-971314c.elementor-testimonial > .elementor-testimonial__header > cite > .elementor-testimonial__name"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.05 (foreground color: #000000, background color: #414142, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".swiper-slide-active.swiper-slide[data-swiper-slide-index=\"1\"] > .elementor-repeater-item-ea66d76.elementor-testimonial > .elementor-testimonial__content > .elementor-testimonial__text"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.42 (foreground color: #737374, background color: #f7f7f7, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        },
+        {
+          "id": "link-name",
+          "impact": "serious",
+          "help": "Links must have discernible text",
+          "nodes": 61,
+          "examples": [
+            {
+              "target": [
+                ".elementor-element-b51d4c0.elementor-sticky--active.elementor-section--handles-inside > .elementor-column-gap-default.elementor-container > .elementor-element-0d1199c.elementor-col-33[data-id=\"0d1199c\"] > .elementor-element-populated.elementor-widget-wrap > .elementor-element-53ed4bf.elementor-widget-image[data-id=\"53ed4bf\"] > .elementor-widget-container > a[href$=\"s-nadlan.com/\"]"
+              ],
+              "summary": "Fix all of the following:\n  Element is in tab order and does not have accessible text\n\nFix any of the following:\n  Element does not have text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+            },
+            {
+              "target": [
+                "li:nth-child(2) > .a-place"
+              ],
+              "summary": "Fix all of the following:\n  Element is in tab order and does not have accessible text\n\nFix any of the following:\n  Element does not have text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+            },
+            {
+              "target": [
+                "li:nth-child(3) > .a-place"
+              ],
+              "summary": "Fix all of the following:\n  Element is in tab order and does not have accessible text\n\nFix any of the following:\n  Element does not have text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+            },
+            {
+              "target": [
+                "li:nth-child(4) > .a-place"
+              ],
+              "summary": "Fix all of the following:\n  Element is in tab order and does not have accessible text\n\nFix any of the following:\n  Element does not have text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+            },
+            {
+              "target": [
+                ".qodef-item--portrait.swiper-slide-prev.post-349 > .qodef-e-inner > .qodef-e-media-holder > .qodef-e-media > .qodef-e-media-image > a[itemprop=\"url\"]"
+              ],
+              "summary": "Fix all of the following:\n  Element is in tab order and does not have accessible text\n\nFix any of the following:\n  Element does not have text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "preview",
+      "url": "https://idan55-websites.github.io/c003-schechter-nadlan-site/",
+      "status": 200,
+      "headers": {
+        "accept-ranges": "bytes",
+        "access-control-allow-origin": "*",
+        "age": "0",
+        "cache-control": "max-age=600",
+        "content-encoding": "gzip",
+        "content-length": "664",
+        "content-type": "text/html; charset=utf-8",
+        "date": "Wed, 28 Oct 2026 11:10:43 GMT",
+        "etag": "W/\"6ad8697e-5d7\"",
+        "expires": "Wed, 28 Oct 2026 11:20:42 GMT",
+        "last-modified": "Wed, 21 Oct 2026 07:27:58 GMT",
+        "server": "GitHub.com",
+        "strict-transport-security": "max-age=31556952",
+        "vary": "Accept-Encoding",
+        "via": "1.1 varnish",
+        "x-cache": "MISS",
+        "x-cache-hits": "0",
+        "x-fastly-request-id": "4331f5e7bf2d58d3a1551dad769ec46438460dfe",
+        "x-github-edge-region": "fra",
+        "x-github-request-id": "7258:177FD7:1C7E43C:1CC44AC:6AE1D832",
+        "x-proxy-cache": "MISS",
+        "x-served-by": "cache-fra-etou8220149-FRA",
+        "x-timer": "S1793185843.899830,VS0,VE140"
+      },
+      "externalOrigins": [],
+      "cookies": [],
+      "details": {
+        "title": "שכטר נדל״ן | בונים איכות חיים",
+        "privacyLinks": [
+          {
+            "text": "פרטיות",
+            "href": "https://idan55-websites.github.io/c003-schechter-nadlan-site/#/privacy"
+          }
+        ],
+        "forms": [],
+        "images": 13,
+        "imagesWithoutAlt": 0
+      },
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "help": "Elements must meet minimum color contrast ratio thresholds",
+          "nodes": 18,
+          "examples": [
+            {
+              "target": [
+                ".section-heading > div:nth-child(1) > .eyebrow"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.22 (foreground color: #897247, background color: #f7f5f0, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".serif-accent"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.84 (foreground color: #8b9497, background color: #f7f5f0, font size: 58.3pt (77.76px), font weight: normal). Expected contrast ratio of 3:1"
+            },
+            {
+              "target": [
+                ".heading-aside > p"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.01 (foreground color: #727a7f, background color: #f7f5f0, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                ".featured > .card-info > p"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.96 (foreground color: #727b80, background color: #f7f5f0, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1"
+            },
+            {
+              "target": [
+                "a[href$=\"#/project/1\"] > .card-info > p"
+              ],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.96 (foreground color: #727b80, background color: #f7f5f0, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        },
+        {
+          "id": "label-content-name-mismatch",
+          "impact": "serious",
+          "help": "Elements must have their visible text as part of their accessible name",
+          "nodes": 4,
+          "examples": [
+            {
+              "target": [
+                ".language-switch"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".active"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".scene-controls > button:nth-child(2)"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            },
+            {
+              "target": [
+                ".scene-controls > button:nth-child(3)"
+              ],
+              "summary": "Fix any of the following:\n  Text inside the element is not included in the accessible name"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "productionLegalPages": [
+    {
+      "url": "https://s-nadlan.com/%d7%94%d7%a6%d7%94%d7%a8%d7%aa-%d7%a0%d7%92%d7%99%d7%a9%d7%95%d7%aa/",
+      "status": 200,
+      "title": "שכטר נדל\"ן",
+      "headings": [
+        "לתיאום פגישה אישית",
+        "076-8844262",
+        "לתיאום פגישה אישית",
+        "076-8844262",
+        "אשמח לקבל פרטים",
+        "ראשי",
+        "פרויקטים",
+        "אודות",
+        "צור קשר",
+        "הצהרת נגישות",
+        "פרויקטים",
+        "שכטר באביגיל",
+        "שכטר בגפן",
+        "שכטר בכנפי נשרים",
+        "שכטר בגליל ים",
+        "חייגו אלינו",
+        "076-8844262",
+        "כתבו לנו",
+        "info@s-nadlan.com",
+        "בואו לבקר",
+        "כנרת 5 , בני ברק\n\nמגדל ב.ס.ר 3 קומה 28"
+      ],
+      "text": "דילוג לתוכן\nפתח סרגל נגישות\n\nכלי נגישות\n\nהגדל טקסט\nהקטן טקסט\nגווני אפור\nניגודיות גבוהה\nניגודיות הפוכה\nרקע בהיר\nהדגשת קישורים\nפונט קריא\n איפוס\nדלג לתוכן\nפרויקטים\nאודות\nשכטר 38\nצור קשר\nלתיאום פגישה אישית\n076-8844262\nפרוייקטים עתידיים\nפרוייקטים בבנייה\nפרוייקטים מאוכלסים\nכל הערים\nIt seems we can't find what you're looking for.\nאשמח לקבל פרטים\nName\nטלפון\nפרפיקס\n050\n052\n054\n055\n057\n058\nאימייל\nMessage\n אשמח לקבל עדכונים על פרוייקטים נוספים\nשלח/י\nראשי\nפרויקטים\nאודות\nצור קשר\nהצהרת נגישות\nWhatsapp\nYoutube\nFacebook-f\nInstagram\nפרויקטים\nשכטר באביגיל\nשכטר בגפן\nשכטר בכנפי נשרים\nשכטר בגליל ים\nPhone-alt\nחייגו אלינו\n076-8844262\nEnvelope\nכתבו לנו\ninfo@s-nadlan.com\nMap-marker\nבואו לבקר\nכנרת 5 , בני ברק\nמגדל ב.ס.ר 3 קומה 28",
+      "privacyLinks": [],
+      "forms": [
+        {
+          "text": "Name\nטלפון\nפרפיקס\n050\n052\n054\n055\n057\n058\nאימייל\nMessage\n אשמח לקבל עדכונים על פרוייקטים נוספים\nשלח/י",
+          "checkboxes": [
+            {
+              "checked": false,
+              "name": "form_fields[field_4bca27b]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "url": "https://s-nadlan.com/%d7%a6%d7%95%d7%a8-%d7%a7%d7%a9%d7%a8/",
+      "status": 200,
+      "title": "שכטר נדל\"ן",
+      "headings": [
+        "לתיאום פגישה אישית",
+        "076-8844262",
+        "לתיאום פגישה אישית",
+        "076-8844262",
+        "אשמח לקבל פרטים",
+        "ראשי",
+        "פרויקטים",
+        "אודות",
+        "צור קשר",
+        "הצהרת נגישות",
+        "פרויקטים",
+        "שכטר באביגיל",
+        "שכטר בגפן",
+        "שכטר בכנפי נשרים",
+        "שכטר בגליל ים",
+        "חייגו אלינו",
+        "076-8844262",
+        "כתבו לנו",
+        "info@s-nadlan.com",
+        "בואו לבקר",
+        "כנרת 5 , בני ברק\n\nמגדל ב.ס.ר 3 קומה 28"
+      ],
+      "text": "דילוג לתוכן\nפתח סרגל נגישות\n\nכלי נגישות\n\nהגדל טקסט\nהקטן טקסט\nגווני אפור\nניגודיות גבוהה\nניגודיות הפוכה\nרקע בהיר\nהדגשת קישורים\nפונט קריא\n איפוס\nדלג לתוכן\nפרויקטים\nאודות\nשכטר 38\nצור קשר\nלתיאום פגישה אישית\n076-8844262\nפרוייקטים עתידיים\nפרוייקטים בבנייה\nפרוייקטים מאוכלסים\nכל הערים\nIt seems we can't find what you're looking for.\nאשמח לקבל פרטים\nName\nטלפון\nפרפיקס\n050\n052\n054\n055\n057\n058\nאימייל\nMessage\n אשמח לקבל עדכונים על פרוייקטים נוספים\nשלח/י\nראשי\nפרויקטים\nאודות\nצור קשר\nהצהרת נגישות\nWhatsapp\nYoutube\nFacebook-f\nInstagram\nפרויקטים\nשכטר באביגיל\nשכטר בגפן\nשכטר בכנפי נשרים\nשכטר בגליל ים\nPhone-alt\nחייגו אלינו\n076-8844262\nEnvelope\nכתבו לנו\ninfo@s-nadlan.com\nMap-marker\nבואו לבקר\nכנרת 5 , בני ברק\nמגדל ב.ס.ר 3 קומה 28",
+      "privacyLinks": [],
+      "forms": [
+        {
+          "text": "Name\nטלפון\nפרפיקס\n050\n052\n054\n055\n057\n058\nאימייל\nMessage\n אשמח לקבל עדכונים על פרוייקטים נוספים\nשלח/י",
+          "checkboxes": [
+            {
+              "checked": false,
+              "name": "form_fields[field_4bca27b]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

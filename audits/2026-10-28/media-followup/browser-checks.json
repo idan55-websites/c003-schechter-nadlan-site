@@ -1,0 +1,192 @@
+{
+  "chromium": {
+    "checked": [
+      {
+        "slug": "nofei-hagiva",
+        "framed": true,
+        "src": "http://localhost:5173/media/img/hagiva-aerial-931.avif?v=7df4097a29df",
+        "fit": "contain",
+        "width": 594.28125,
+        "height": 578,
+        "overflow": 0
+      },
+      {
+        "slug": "nofei-nehalim",
+        "framed": true,
+        "src": "http://localhost:5173/media/img/nehalim-site-316.avif?v=0552f27f1d76",
+        "fit": "contain",
+        "width": 316,
+        "height": 300,
+        "overflow": 0
+      },
+      {
+        "slug": "schechter-rishonim",
+        "framed": true,
+        "src": "http://localhost:5173/media/img/rishonim-render-245.avif?v=576287635702",
+        "fit": "contain",
+        "width": 245,
+        "height": 375,
+        "overflow": 0
+      },
+      {
+        "slug": "schechter-hahayil",
+        "framed": true,
+        "src": "http://localhost:5173/media/img/hahayil-facade-1600.avif?v=b8160d1d86a7",
+        "fit": "contain",
+        "width": 594.28125,
+        "height": 760.671875,
+        "overflow": 0
+      },
+      {
+        "slug": "schechter-premium",
+        "framed": false,
+        "src": "http://localhost:5173/media/img/premium-garden-3840.avif?v=0bc4742e23df",
+        "fit": "cover",
+        "width": 1440,
+        "height": 900,
+        "overflow": 0
+      },
+      {
+        "slug": "schechter-gefen",
+        "framed": false,
+        "src": "http://localhost:5173/media/img/gefen-street-2400.avif?v=f5d1409b0d0a",
+        "fit": "cover",
+        "width": 1440,
+        "height": 900,
+        "overflow": 0
+      },
+      {
+        "slug": "schechter-family",
+        "framed": false,
+        "src": "http://localhost:5173/media/img/family-street-1800.avif?v=9111a2926a16",
+        "fit": "cover",
+        "width": 1440,
+        "height": 900,
+        "overflow": 0
+      }
+    ],
+    "lightbox": {
+      "width": 358,
+      "height": 749,
+      "fit": "contain"
+    },
+    "mobile": [
+      {
+        "slug": "nofei-hagiva",
+        "overflow": 0
+      },
+      {
+        "slug": "nofei-nehalim",
+        "overflow": 0
+      },
+      {
+        "slug": "schechter-rishonim",
+        "overflow": 0
+      },
+      {
+        "slug": "schechter-hahayil",
+        "overflow": 0
+      },
+      {
+        "slug": "beeri-31",
+        "overflow": 0
+      }
+    ],
+    "errors": []
+  },
+  "webkit": {
+    "checked": [
+      {
+        "slug": "nofei-hagiva",
+        "framed": true,
+        "src": "http://localhost:5173/media/img/hagiva-aerial-931.avif?v=7df4097a29df",
+        "fit": "contain",
+        "width": 594.28125,
+        "height": 577.984375,
+        "overflow": 0
+      },
+      {
+        "slug": "nofei-nehalim",
+        "framed": true,
+        "src": "http://localhost:5173/media/img/nehalim-site-316.avif?v=0552f27f1d76",
+        "fit": "contain",
+        "width": 316,
+        "height": 300,
+        "overflow": 0
+      },
+      {
+        "slug": "schechter-rishonim",
+        "framed": true,
+        "src": "http://localhost:5173/media/img/rishonim-render-245.avif?v=576287635702",
+        "fit": "contain",
+        "width": 245,
+        "height": 375,
+        "overflow": 0
+      },
+      {
+        "slug": "schechter-hahayil",
+        "framed": true,
+        "src": "http://localhost:5173/media/img/hahayil-facade-1200.avif?v=b8160d1d86a7",
+        "fit": "contain",
+        "width": 594.28125,
+        "height": 760.671875,
+        "overflow": 0
+      },
+      {
+        "slug": "schechter-premium",
+        "framed": false,
+        "src": "http://localhost:5173/media/img/premium-garden-3840.avif?v=0bc4742e23df",
+        "fit": "cover",
+        "width": 1440,
+        "height": 900,
+        "overflow": 0
+      },
+      {
+        "slug": "schechter-gefen",
+        "framed": false,
+        "src": "http://localhost:5173/media/img/gefen-street-2400.avif?v=f5d1409b0d0a",
+        "fit": "cover",
+        "width": 1440,
+        "height": 900,
+        "overflow": 0
+      },
+      {
+        "slug": "schechter-family",
+        "framed": false,
+        "src": "http://localhost:5173/media/img/family-street-1800.avif?v=9111a2926a16",
+        "fit": "cover",
+        "width": 1440,
+        "height": 900,
+        "overflow": 0
+      }
+    ],
+    "lightbox": {
+      "width": 358,
+      "height": 749,
+      "fit": "contain"
+    },
+    "mobile": [
+      {
+        "slug": "nofei-hagiva",
+        "overflow": 0
+      },
+      {
+        "slug": "nofei-nehalim",
+        "overflow": 0
+      },
+      {
+        "slug": "schechter-rishonim",
+        "overflow": 0
+      },
+      {
+        "slug": "schechter-hahayil",
+        "overflow": 0
+      },
+      {
+        "slug": "beeri-31",
+        "overflow": 0
+      }
+    ],
+    "errors": []
+  }
+}
