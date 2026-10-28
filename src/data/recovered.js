@@ -87,7 +87,7 @@ export const recovered = {
     }
   },
   9: {
-    slug: 'nofei-hagiva', key: 'hagiva', clip: 'hagiva', cover: 'hagiva-aerial',
+    slug: 'nofei-hagiva', key: 'hagiva', clip: 'hagiva', cover: 'hagiva-site-2',
     gallery: ['hagiva-tower', 'hagiva-aerial', 'hagiva-salon', 'hagiva-living', 'hagiva-penthouse', 'hagiva-site-1', 'hagiva-site-2'],
     architect: {he: 'דביר יחיעם', en: 'Dvir Yehiam'},
     financing: {he: 'מזרחי טפחות', en: 'Mizrahi Tefahot'},
