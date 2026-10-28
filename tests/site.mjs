@@ -101,18 +101,33 @@ await check('language switch keeps the current page', async () => {
   await page.context().close();
 });
 
-await check('catalog: stage tabs, city filter and search', async () => {
+await check('catalog: published projects, city filter, search and secondary future list', async () => {
   const page = await open();
   await page.goto(SITE + '/projects/', {waitUntil: 'networkidle'});
   const count = () => page.locator('.card').count();
-  const completed = await count();
-  await page.getByRole('button', {name: /עתידיים/}).click();
-  assert.notEqual(await count(), completed);
-  await page.getByRole('button', {name: /מאוכלסים/}).click();
+  assert.equal(await count(), 12);
+  const removed = ['sirkin-19', 'schechter-rishonim', 'halapid-1', 'assaf-32', 'ahisamach'];
+  const sitemap = fs.readFileSync(path.join(dist, 'sitemap.xml'), 'utf8');
+  for (const slug of removed) {
+    assert.equal(await page.locator(`a[href*="/projects/${slug}/"]`).count(), 0);
+    assert.ok(!sitemap.includes(`/projects/${slug}/`));
+    for (const prefix of ['', 'en/']) assert.ok(!fs.existsSync(path.join(dist, prefix, 'projects', slug, 'index.html')));
+  }
+  await page.locator('.catalog-filters select').selectOption({label: 'הרצליה'});
+  assert.equal(await count(), 1);
+  await page.locator('.catalog-filters select').selectOption('');
   await page.fill('.search input', 'גליל');
   assert.equal(await count(), 1);
   await page.fill('.search input', 'zzzz');
   await page.locator('.empty').waitFor();
+  await page.fill('.search input', '');
+  const future = page.locator('.future-projects');
+  assert.equal(await future.evaluate(el => el.open), false);
+  await future.locator('summary').click();
+  assert.equal(await future.locator('a:visible').count(), 8);
+  assert.equal(await count(), 12);
+  await page.goto(SITE + '/projects/?stage=future', {waitUntil: 'networkidle'});
+  assert.equal(await future.evaluate(el => el.open), true);
   await page.context().close();
 });
 
@@ -163,6 +178,9 @@ await check('contact form: error summary, field errors, preselected project, dra
   await page.evaluate(() => { window.__mail = null; });
   await page.click('.contact-form button[type=submit]');
   await page.waitForFunction(() => document.querySelector('.form-done').textContent.length > 10);
+  await page.goto(SITE + '/contact/?project=beeri-31', {waitUntil: 'networkidle'});
+  assert.equal(await page.locator('select[name=project]').inputValue(), 'בארי 31');
+  assert.deepEqual(page.errors, []);
   await page.context().close();
 });
 

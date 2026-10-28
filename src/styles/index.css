@@ -266,7 +266,7 @@ html.js:not(.reduce-motion) .film-frame { clip-path: inset(0% 7% 0% 7% round 14p
 .value span { font: 500 .78rem/1 var(--sans); color: var(--teal-ink); letter-spacing: .1em; }
 
 /* ---------- Home: stats ---------- */
-.stats { display: grid; grid-template-columns: repeat(4, 1fr); padding-block: clamp(70px, 9vw, 140px); gap: 32px; }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); padding-block: clamp(70px, 9vw, 140px); gap: 32px; }
 .stat { border-inline-start: 1px solid var(--line); padding-inline-start: clamp(16px, 2vw, 32px); }
 .stat-n { display: block; font-size: clamp(3rem, 2rem + 4vw, 6.6rem); line-height: 1; font-variant-numeric: tabular-nums lining-nums; }
 .stat-label { display: block; margin-top: 14px; color: var(--muted); font-size: .95rem; max-width: 18ch; }
@@ -322,11 +322,6 @@ html.js:not(.reduce-motion) .film-frame { clip-path: inset(0% 7% 0% 7% round 14p
 .catalog { padding-bottom: var(--space); }
 .catalog-bar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; padding-block: 18px; border-block: 1px solid var(--line); position: sticky; top: 0; z-index: 5; background: var(--paper); transition: top .6s var(--ease); }
 .site-header:not(.is-hidden) ~ main .catalog-bar { top: var(--header); }
-.tabs { display: flex; flex-wrap: wrap; gap: 6px; }
-.tabs button { min-height: 44px; padding: 0 18px; border-radius: 99px; border: 1px solid transparent; font-size: .95rem; transition: background .3s, color .3s, border-color .3s; }
-.tabs button:hover { border-color: var(--line); }
-.tabs button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
-.tabs sup { font-size: .65em; margin-inline-start: 4px; opacity: .7; }
 .catalog-filters { display: flex; gap: 12px; flex-wrap: wrap; }
 .select { position: relative; }
 .select::after { content: ''; position: absolute; inset-inline-end: 16px; top: 50%; width: 7px; height: 7px; border: solid currentColor; border-width: 0 1px 1px 0; transform: translateY(-70%) rotate(45deg); pointer-events: none; }
@@ -338,6 +333,17 @@ html.js:not(.reduce-motion) .film-frame { clip-path: inset(0% 7% 0% 7% round 14p
 .catalog-count { margin-block: 28px 36px; color: var(--muted); font: 400 .95rem/1.5 var(--sans); }
 .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(40px, 5vw, 72px) clamp(20px, 2.4vw, 36px); }
 .empty { padding: 80px 0; display: grid; justify-items: start; gap: 20px; font-size: 1.2rem; }
+.future-projects { margin-top: 64px; border-block: 1px solid var(--line); }
+.future-projects summary { display: flex; justify-content: space-between; align-items: center; gap: 20px; min-height: 72px; cursor: pointer; list-style: none; }
+.future-projects summary::-webkit-details-marker { display: none; }
+.future-projects summary i { position: relative; flex: none; width: 16px; height: 16px; }
+.future-projects summary i::before, .future-projects summary i::after { content: ''; position: absolute; inset: 50% 0 auto; height: 1px; background: currentColor; }
+.future-projects summary i::after { transform: rotate(90deg); }
+.future-projects[open] summary i::after { transform: rotate(0); }
+.future-projects li { border-top: 1px solid var(--line); }
+.future-projects > ul > li > a { display: grid; grid-template-columns: minmax(0, 1fr) auto 18px; align-items: center; gap: 16px; min-height: 64px; padding-block: 16px; }
+.future-projects li small { color: var(--muted); }
+.future-projects li a:hover { color: var(--teal-ink); }
 
 /* Card */
 .card-link { display: block; }
@@ -631,6 +637,7 @@ a.contact-row:hover strong { color: var(--teal-ink); }
   .values ul { grid-template-columns: 1fr 1fr; gap: 0 20px; }
   .value { padding-bottom: 26px; border-bottom: 1px solid var(--line); }
   .stats { grid-template-columns: 1fr 1fr; row-gap: 48px; }
+  .stat:last-child { grid-column: 1 / -1; }
   .closing, .contact-layout, .project-intro, .project-location, .specs-grid, .urban-hero-grid, .duo { grid-template-columns: 1fr; }
   .project-facts { position: static; }
   .project-hero.is-framed { min-height: auto; display: flex; flex-direction: column-reverse; padding-top: calc(var(--header) + 48px); gap: 36px; }

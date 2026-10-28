@@ -1,12 +1,12 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {href, useRouter} from '../lib/router.jsx';
 import {strings, contact, press} from '../data/site.js';
-import {projects, bySlug, byId, categoryOrder} from '../data/projects.js';
+import {completedProjects, bySlug, byId} from '../data/projects.js';
 import {aboutStory, urbanStory} from '../data/recovered.js';
 import media from '../data/media.json';
 import {Link, Picture, Lines, Label, Arrow, ArrowDiag, Phone, Mail, Pin, Chat} from '../components/ui.jsx';
 import {ContactForm} from '../components/contact-form.jsx';
-import {ProjectCard} from '../components/project-ui.jsx';
+import {ProjectCard, FutureProjects} from '../components/project-ui.jsx';
 
 const PageHero = ({label, lines, lede}) => <section className="page-hero wrap">
   <Label>{label}</Label>
@@ -127,12 +127,14 @@ export function Residents() {
 export function Contact() {
   const {route: {lang}, search} = useRouter();
   const he = lang === 'he', t = strings[lang];
-  const project = bySlug[new URLSearchParams(search).get('project')];
+  const [project, setProject] = useState();
+  // Static pages have no query-specific HTML. Apply the selection after hydration.
+  useEffect(() => { setProject(bySlug[new URLSearchParams(search).get('project')]); }, [search]);
   const [map, setMap] = useState(false);
   return <>
     <PageHero label={t.nav.contact} lines={he ? ['נשמח', 'לדבר.'] : ['We’d love', 'to talk.']} lede={project ? (he ? `על ${project.name.he}, ועל הבית הבא שלכם.` : `About ${project.name.en}, and your next home.`) : (he ? 'הנציגים שלנו מחכים לדבר איתכם — לתיאום פגישה אישית, לשאלות על פרויקט או על התחדשות הבניין שלכם.' : 'Our team is ready to talk — to book a personal meeting, ask about a project or about renewing your building.')}/>
     <section className="contact-layout wrap">
-      <ContactForm project={project}/>
+      <ContactForm key={project?.id || 'general'} project={project}/>
       <aside className="contact-card" aria-label={t.footer.contactTitle}>
         <a href={contact.phoneHref} className="contact-row"><Phone size={22}/><span><small>{he ? 'חייגו אלינו' : 'Call us'}</small><strong dir="ltr">{contact.phone}</strong></span></a>
         <a href={`mailto:${contact.email}`} className="contact-row"><Mail size={22}/><span><small>{he ? 'כתבו לנו' : 'Write to us'}</small><strong>{contact.email}</strong></span></a>
@@ -284,8 +286,9 @@ export function SiteMap() {
     <h1 className="display-2">{t.pages.sitemap}</h1>
     <div className="sitemap-cols">
       <div><h2 className="h-small">{t.brand}</h2><ul role="list">{pages.map(([p, label]) => <li key={p}><Link to={href(lang, p)}>{label}</Link></li>)}</ul></div>
-      {categoryOrder.map(c => <div key={c}><h2 className="h-small">{t.categoriesLong[c]}</h2><ul role="list">{projects.filter(p => p.category === c).map(p => <li key={p.id}><Link to={href(lang, 'project', p.slug)}>{p.name[lang]}</Link></li>)}</ul></div>)}
+      <div><h2 className="h-small">{t.categoriesLong.completed}</h2><ul role="list">{completedProjects.map(p => <li key={p.id}><Link to={href(lang, 'project', p.slug)}>{p.name[lang]}</Link></li>)}</ul></div>
     </div>
+    <FutureProjects/>
   </section>;
 }
 

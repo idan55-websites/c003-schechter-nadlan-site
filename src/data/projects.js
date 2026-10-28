@@ -8,6 +8,7 @@ import media from './media.json';
 const paragraphs = text => (text || '').split(/\n+/).map(s => s.trim()).filter(Boolean);
 const pair = (he, en) => ({he, en});
 
+// Unpublished records stay in the archive without creating public pages or links.
 export const projects = records.map((p, i) => {
   const r = recovered[p.id] || {};
   const e = english[i];
@@ -16,6 +17,7 @@ export const projects = records.map((p, i) => {
   const hero = gallery.find(g => g.name === r.hero) || cover;
   return {
     id: p.id,
+    published: p.published !== false,
     slug: r.slug || `project-${p.id}`,
     category: p.category,
     stage: r.stage,
@@ -41,10 +43,11 @@ export const projects = records.map((p, i) => {
     emblem: r.emblem,
     aliases: p.search_aliases || []
   };
-});
+}).filter(p => p.published);
 
+export const completedProjects = projects.filter(p => p.category === 'completed');
+export const futureProjects = projects.filter(p => p.category === 'future');
 export const bySlug = Object.fromEntries(projects.map(p => [p.slug, p]));
 export const byId = Object.fromEntries(projects.map(p => [p.id, p]));
 export const featured = ['1', '6', '2', '7', '10'].map(id => byId[id]);
 export const showcase = projects.filter(p => p.gallery.length > 1);
-export const categoryOrder = ['completed', 'future'];

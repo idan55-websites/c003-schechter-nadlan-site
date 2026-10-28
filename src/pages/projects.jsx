@@ -1,25 +1,21 @@
 import React, {useEffect, useMemo, useState} from 'react';
 import {href, useRouter} from '../lib/router.jsx';
 import {strings, contact} from '../data/site.js';
-import {projects, bySlug, categoryOrder} from '../data/projects.js';
+import {projects, completedProjects, bySlug} from '../data/projects.js';
 import {Link, Picture, LazyVideo, Lines, Label, Arrow, ArrowDiag, Search, Close, Pin, asset} from '../components/ui.jsx';
-import {ProjectCard, Gallery, Status, Emblem} from '../components/project-ui.jsx';
+import {ProjectCard, FutureProjects, Gallery, Status, Emblem} from '../components/project-ui.jsx';
 
 const normalize = s => s.toLowerCase().replace(/[\p{P}\p{Z}\p{M}״׳"']/gu, '');
 
 export function Projects() {
-  const {route: {lang}, search} = useRouter();
+  const {route: {lang}} = useRouter();
   const t = strings[lang];
-  const initial = new URLSearchParams(search).get('stage');
-  const [category, setCategory] = useState(categoryOrder.includes(initial) ? initial : 'completed');
   const [city, setCity] = useState('');
   const [q, setQ] = useState('');
-  const inCategory = projects.filter(p => p.category === category);
-  const cities = [...new Set(inCategory.map(p => p.city[lang]).filter(Boolean))];
-  const list = useMemo(() => inCategory.filter(p => (!city || p.city[lang] === city) &&
-    normalize([p.name.he, p.name.en, p.address.he, p.address.en, ...p.aliases].join(' ')).includes(normalize(q))), [category, city, q, lang]);
+  const cities = [...new Set(completedProjects.map(p => p.city[lang]).filter(Boolean))];
+  const list = useMemo(() => completedProjects.filter(p => (!city || p.city[lang] === city) &&
+    normalize([p.name.he, p.name.en, p.address.he, p.address.en, ...p.aliases].join(' ')).includes(normalize(q))), [city, q, lang]);
   useEffect(() => { window.dispatchEvent(new CustomEvent('content-change')); }, [list]);
-  const choose = c => { setCategory(c); setCity(''); setQ(''); };
   return <>
     <section className="page-hero wrap">
       <Label>{lang === 'he' ? 'תיק הפרויקטים' : 'Portfolio'}</Label>
@@ -28,10 +24,7 @@ export function Projects() {
     </section>
     <section className="catalog wrap" aria-label={t.pages.projects}>
       <div className="catalog-bar">
-        <div className="tabs" role="group" aria-label={lang === 'he' ? 'שלב הפרויקט' : 'Project stage'}>
-          {categoryOrder.map(c => <button key={c} type="button" aria-pressed={category === c} onClick={() => choose(c)}>
-            {t.categories[c]}<sup dir="ltr">{projects.filter(p => p.category === c).length}</sup></button>)}
-        </div>
+        <span className="chip">{t.categories.completed}</span>
         <div className="catalog-filters">
           {cities.length > 1 && <div className="select"><select aria-label={t.city} value={city} onChange={e => setCity(e.target.value)}>
             <option value="">{t.allCities}</option>{cities.map(c => <option key={c}>{c}</option>)}</select></div>}
@@ -41,9 +34,10 @@ export function Projects() {
           </label>
         </div>
       </div>
-      <h2 className="catalog-count" aria-live="polite">{t.categoriesLong[category]} · {t.results(list.length)}</h2>
+      <h2 className="catalog-count" aria-live="polite">{t.categoriesLong.completed} · {t.results(list.length)}</h2>
       {list.length ? <div className="card-grid">{list.map((p, i) => <ProjectCard key={p.id} p={p} index={i}/>)}</div> :
         <div className="empty"><p>{t.empty}</p><button type="button" className="btn btn-line" onClick={() => { setCity(''); setQ(''); }}>{t.reset}</button></div>}
+      <FutureProjects/>
     </section>
   </>;
 }

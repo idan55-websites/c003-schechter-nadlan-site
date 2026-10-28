@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {href, useRouter} from '../lib/router.jsx';
 import {strings, contact} from '../data/site.js';
-import {projects, featured, byId} from '../data/projects.js';
+import {completedProjects, featured, byId} from '../data/projects.js';
 import {Link, Picture, LazyVideo, Lines, Label, Arrow, ArrowDiag, Play, Pause, Phone, Mail, asset} from '../components/ui.jsx';
 import {Status} from '../components/project-ui.jsx';
 import {ContactForm} from '../components/contact-form.jsx';
@@ -30,7 +30,7 @@ const copy = {
     detail: 'איכות החומרים המעולה, רמת הגימור יוצאת הדופן, הקפדה על כל פרט ומפרט טכני עשיר ומרשים — כדי להבטיח את שביעות רצונם של הלקוחות לאורך שנים.',
     values: ['יושרה', 'אמינות', 'ליווי אישי', 'שקיפות מלאה'],
     valuesLabel: 'הערכים שלנו',
-    stats: [['שנת תחילת הפעילות בישראל'], ['פרויקטים בתיק החברה'], ['ערים ושכונות'], ['פרויקטים מאוכלסים']],
+    stats: [['שנת תחילת הפעילות בישראל'], ['פרויקטים מאוכלסים'], ['ערים ושכונות בפרויקטים המאוכלסים']],
     indexLabel: 'תיק הפרויקטים', indexTitle: 'מרמת גן ועד הרצליה.',
     urbanLabel: 'שכטר 38 · התחדשות עירונית', urbanQuote: ['אנשים אינם', '״בטון ולבנים״.'],
     urbanCopy: 'תמ״א 38 ופינוי בינוי הם, עוד לפני היותם תוכנית נדל״ן, תוכנית חברתית. אנחנו מלווים את הדיירים צעד צעד, יד ביד — בשותפות ובשקיפות מלאה.',
@@ -50,7 +50,7 @@ const copy = {
     detail: 'Excellent materials, an exceptional level of finish, meticulous attention to every detail and a rich technical specification — to ensure our clients’ satisfaction for years to come.',
     values: ['Integrity', 'Reliability', 'Personal care', 'Full transparency'],
     valuesLabel: 'Our values',
-    stats: [['Active in Israel since'], ['Projects in the portfolio'], ['Cities and neighborhoods'], ['Completed projects']],
+    stats: [['Active in Israel since'], ['Completed and occupied projects'], ['Cities and neighborhoods with occupied projects']],
     indexLabel: 'Portfolio', indexTitle: 'From Ramat Gan to Herzliya.',
     urbanLabel: 'Schechter 38 · Urban renewal', urbanQuote: ['People are not', '“concrete and bricks”.'],
     urbanCopy: 'TAMA 38 and vacate-and-rebuild are, before anything else, social plans. We accompany residents step by step, hand in hand — in partnership and full transparency.',
@@ -66,9 +66,9 @@ export default function Home() {
   // The floating index preview only exists for fine pointers on wide screens.
   const [hoverPreview, setHoverPreview] = useState(false);
   useEffect(() => setHoverPreview(matchMedia('(hover: hover) and (pointer: fine) and (min-width: 900px)').matches), []);
-  const cities = new Set(projects.map(p => p.city.he).filter(Boolean)).size;
-  const stats = [[2006, c.stats[0]], [projects.length, c.stats[1]], [cities, c.stats[2]], [projects.filter(p => p.category === 'completed').length, c.stats[3]]];
-  const index = projects.filter(p => p.cover && p.category === 'completed');
+  const cities = new Set(completedProjects.map(p => p.city.he).filter(Boolean)).size;
+  const stats = [[2006, c.stats[0]], [completedProjects.length, c.stats[1]], [cities, c.stats[2]]];
+  const index = completedProjects.filter(p => p.cover);
   return <>
     <section className="hero" data-hero>
       <div className="hero-copy wrap">

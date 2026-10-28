@@ -1,5 +1,5 @@
 import {strings, contact} from '../data/site.js';
-import {bySlug, projects} from '../data/projects.js';
+import {bySlug, completedProjects} from '../data/projects.js';
 import {href} from './router.jsx';
 
 // Production origin used for canonical URLs, sitemap and structured data.
@@ -9,7 +9,7 @@ const abs = path => SITE + path.replace(import.meta.env.BASE_URL, '/');
 const descriptions = {
   he: {
     home: 'שכטר נדל״ן — יזמות, בנייה והתחדשות עירונית בסטנדרט אירופאי מאז 2006. בנייני בוטיק ומגדלי מגורים ברמת גן, גבעתיים, הרצליה, רחובות ותל אביב.',
-    projects: 'כל הפרויקטים של שכטר נדל״ן: פרויקטים מאוכלסים ועתידיים ברמת גן, גבעתיים, הרצליה, רחובות, פתח תקווה, גבעת זאב ותל אביב.',
+    projects: 'הפרויקטים המאוכלסים של שכטר נדל״ן ברמת גן, גבעתיים, הרצליה, רחובות, פתח תקווה וגבעת זאב. כל הדירות בפרויקטים המאוכלסים נמכרו.',
     about: 'שכטר נדל״ן בבעלות משפחת שכטר, הפועלים באירופה ובישראל ומשקיעים בנדל״ן בארץ מאז 2006. סטנדרט בנייה גבוה, יושרה, אמינות וליווי אישי.',
     'urban-renewal': 'שכטר 38 — התחדשות עירונית, תמ״א 38/2 ופינוי בינוי בשותפות ובשקיפות מלאה עם הדיירים. עשרות בניינים בפריסה ארצית.',
     press: 'כתבות נבחרות על שכטר נדל״ן ועל פעילות החברה בהתחדשות עירונית, מתוך ארכיון החברה.',
@@ -22,7 +22,7 @@ const descriptions = {
   },
   en: {
     home: 'Schechter Real Estate — residential development, construction and urban renewal to a European standard since 2006, in Ramat Gan, Givatayim, Herzliya, Rehovot and Tel Aviv.',
-    projects: 'All Schechter Real Estate projects: completed and occupied projects, and future developments across Ramat Gan, Givatayim, Herzliya, Rehovot, Petah Tikva, Givat Ze’ev and Tel Aviv.',
+    projects: 'Schechter Real Estate’s completed and occupied projects in Ramat Gan, Givatayim, Herzliya, Rehovot, Petah Tikva and Givat Ze’ev. All apartments in these projects are sold out.',
     about: 'Schechter Real Estate is owned by the Schechter family, active in Europe and Israel and investing in Israeli real estate since 2006.',
     'urban-renewal': 'Schechter 38 — urban renewal, TAMA 38/2 and vacate-and-rebuild in partnership and full transparency with residents.',
     press: 'Selected press coverage of Schechter Real Estate and its urban renewal work, from the company archive.',
@@ -62,7 +62,7 @@ export function getMeta(route) {
     address: {'@type': 'PostalAddress', streetAddress: p.address[lang], addressLocality: p.city[lang] || undefined, addressCountry: 'IL'},
     image: p.gallery.slice(0, 6).map(g => abs(`${import.meta.env.BASE_URL}media/img/${g.name}-${g.widths.find(w => w >= 1200) || g.widths.at(-1)}.webp`)),
     ...(p.architect ? {creator: {'@type': 'Organization', name: p.architect[lang]}} : {}), provider: {'@id': org['@id']}});
-  if (page === 'projects') graph.push({'@type': 'ItemList', itemListElement: projects.map((x, i) => ({'@type': 'ListItem', position: i + 1, url: abs(href(lang, 'project', x.slug)), name: x.name[lang]}))});
+  if (page === 'projects') graph.push({'@type': 'ItemList', itemListElement: completedProjects.map((x, i) => ({'@type': 'ListItem', position: i + 1, url: abs(href(lang, 'project', x.slug)), name: x.name[lang]}))});
   return {title, description, image, canonical: path && abs(path), alternates, lang, dir: lang === 'he' ? 'rtl' : 'ltr', jsonLd: {'@context': 'https://schema.org', '@graph': graph}};
 }
 
