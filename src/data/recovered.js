@@ -112,7 +112,7 @@ export const recovered = {
     story: {he: ['פרויקט יוקרתי בן 76 יחידות קוטג׳ים בגבעת זאב. בפרויקט דירות גן ודופלקסי גג עם מרפסות.'], en: ['A prestigious project of 76 cottage units in Givat Ze’ev, with garden apartments and rooftop duplexes with balconies.']}
   },
   12: {
-    slug: 'nofei-nehalim', key: 'nehalim', emblem: 'nehalim', gallery: [],
+    slug: 'nofei-nehalim', key: 'nehalim', emblem: 'nehalim', gallery: ['nehalim-aerial-1', 'nehalim-aerial-2'],
     soldOut: 'original',
     facts: {he: [['מבנים', '3 בנייני בוטיק'], ['קומות', '6'], ['יחידות דיור', '74']], en: [['Buildings', '3 boutique buildings'], ['Floors', '6'], ['Homes', '74']]},
     story: {he: ['3 בנייני בוטיק בני 6 קומות, היוצרים מתחם מגורים שקט ואקסקלוסיבי הכולל 74 יחידות דיור.'], en: ['Three 6-storey boutique buildings forming a quiet, exclusive residential complex of 74 homes.']}

@@ -64,12 +64,12 @@ export function App({url}) {
   const t = strings[route.lang];
   const dark = route.page === 'home' || route.page === 'urban-renewal' || (route.page === 'project' && bySlug[route.slug]?.cover);
   return <RouterProvider value={{route, navigate, search: loc.search}}>
-    <a className="skip" href="#main">{t.skip}</a>
+    <a className="skip" href="#main" inert={menu || undefined}>{t.skip}</a>
     <Header onMenu={() => setMenu(true)} menuOpen={menu} dark={dark}/>
     <Menu open={menu} onClose={() => setMenu(false)}/>
     <main id="main" ref={main} tabIndex={-1} inert={menu || undefined} className={`page page-${route.page}`}><View key={route.page + route.slug}/></main>
     <div inert={menu || undefined}><Footer/></div>
-    <AccessibilityTools/>
+    <AccessibilityTools inert={menu}/>
     <div className="curtain" ref={curtain} aria-hidden="true"><span className="curtain-mark"/></div>
     <p className="sr-only" aria-live="polite">{announce}</p>
   </RouterProvider>;

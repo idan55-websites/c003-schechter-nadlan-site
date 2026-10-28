@@ -88,6 +88,8 @@ Every web image, emblem and video is derived by `npm run media` (`scripts/build-
 | dunash-living | interior | 1000px | WP #655 `2022/01/דונש4.jpg` |
 | dunash-interior-1 | interior | 1920px | WP #657 `2022/01/דונש6.jpg` |
 | dunash-interior-2 | interior | 1000px | WP #658 `2022/01/דונש7.jpg` |
+| nehalim-aerial-1 | photo | 3840px | client-supplied 29 October 2026, `2022/01/DJI_0862נופי נחלים.jpg` (4000 × 3000 original, archived as `local-2022/nehalim-aerial-1.jpg`) |
+| nehalim-aerial-2 | photo | 3840px | client-supplied 29 October 2026, `2022/01/DJI_0871נופי נחלים .jpg` (4000 × 3000 original, archived as `local-2022/nehalim-aerial-2.jpg`) |
 | nehalim-site | photo | 316px | WP #2951 `2022/01/Copy-of-נוף-נחלים.jpeg` |
 | rishonim-render | render | 245px | client-supplied (previous build) `rishonim-render.webp` |
 | urban-site-01 | construction-photo | 1280px | WP #2953 `2022/02/8fed0fc4-82a6-4e40-adde-501e00d9f671.jpg` |
@@ -137,3 +139,5 @@ The client archive contains 1,372 image files grouped into 174 filename families
 Project cards and large project headers now select images independently. Small originals and portrait headers are contained rather than enlarged across the viewport; lightboxes preserve native limits. Responsive source selection accounts for the effective image width under object-fit cropping. High-resolution originals now have variants up to 3840px, without upscaling. Source hashes invalidate browser caches when an original changes.
 
 Thirteen project records still have no identifiable matching image in the supplied archive. Their cards/pages explicitly say images are forthcoming. Nofei Nehalim (316px wide) and the supplied Rishonim crop (245px wide) remain limited by their originals, and are shown at restrained sizes. See MEDIA_REVIEW.md.
+
+29 October 2026: the client supplied two 4000 × 3000 aerial photographs for Nofei Nehalim. Both now appear in its gallery; the first also supplies the project card and header in both languages. The original files are archived without modification, and AVIF/WebP variants are generated up to 3840px. These resolve the earlier Nofei Nehalim image limitation. The manifest now contains 100 image records, including 80 published project-gallery images.

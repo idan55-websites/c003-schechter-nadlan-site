@@ -46,7 +46,7 @@ export function Header({onMenu, menuOpen, dark}) {
         <a className="header-lang" href={href(other, route.page, route.slug)} hrefLang={other} lang={other} aria-label={`${lang === 'he' ? 'EN' : 'עב'} — ${t.switchLangLabel}`}>{lang === 'he' ? 'EN' : 'עב'}</a>
         <a className="header-phone" href={contact.phoneHref}><Phone size={16}/><span dir="ltr">{contact.phone}</span></a>
         <Link className="btn btn-small header-cta" to={href(lang, 'contact')}>{t.cta}</Link>
-        <button className="menu-button" type="button" onClick={onMenu} aria-expanded={menuOpen} aria-controls="site-menu" aria-haspopup="dialog">
+        <button className="menu-button" type="button" onClick={onMenu} aria-label={t.menu} aria-expanded={menuOpen} aria-controls="site-menu" aria-haspopup="dialog">
           <span className="menu-lines" aria-hidden="true"><i/><i/></span><span className="menu-text">{t.menu}</span>
         </button>
       </div>
@@ -68,7 +68,7 @@ export function Menu({open, onClose}) {
       if (e.key === 'Escape') onClose();
       if (e.key === 'Tab') trapTab(e, panel.current);
     };
-    const resize = () => { if (window.innerWidth > 1100) onClose(); };
+    const resize = () => { if (getComputedStyle(document.querySelector('.menu-button')).display === 'none') onClose(); };
     document.addEventListener('keydown', key);
     window.addEventListener('resize', resize);
     return () => {
@@ -140,32 +140,44 @@ export function Footer() {
 }
 
 const defaults = {motion: false, contrast: false, links: false, text: false};
-export function AccessibilityTools() {
+export function AccessibilityTools({inert}) {
   const {route: {lang}} = useRouter();
   const t = strings[lang].a11y;
   const [open, setOpen] = useState(false);
-  const [settings, setSettings] = useState(defaults);
+  const [settings, setSettings] = useState(null);
   const trigger = useRef(null), panel = useRef(null);
-  useEffect(() => { try { setSettings({...defaults, ...JSON.parse(localStorage.getItem('a11y') || '{}')}); } catch {} }, []);
   useEffect(() => {
+    try {
+      const saved = JSON.parse(localStorage.getItem('a11y') || '{}');
+      setSettings(Object.fromEntries(Object.keys(defaults).map(key => [key, saved?.[key] === true])));
+    } catch { setSettings(defaults); }
+  }, []);
+  useEffect(() => {
+    if (!settings) return;
     const root = document.documentElement;
-    root.classList.toggle('reduce-motion', settings.motion || matchMedia('(prefers-reduced-motion: reduce)').matches);
-    root.classList.toggle('high-contrast', settings.contrast);
-    root.classList.toggle('underline-links', settings.links);
-    root.classList.toggle('large-text', settings.text);
+    const media = matchMedia('(prefers-reduced-motion: reduce)');
+    const apply = () => {
+      root.classList.toggle('reduce-motion', settings.motion || media.matches);
+      root.classList.toggle('high-contrast', settings.contrast);
+      root.classList.toggle('underline-links', settings.links);
+      root.classList.toggle('large-text', settings.text);
+      window.dispatchEvent(new CustomEvent('a11ychange'));
+    };
+    apply();
     try { localStorage.setItem('a11y', JSON.stringify(settings)); } catch {}
-    window.dispatchEvent(new CustomEvent('a11ychange'));
+    media.addEventListener('change', apply);
+    return () => media.removeEventListener('change', apply);
   }, [settings]);
   useEffect(() => { if (open) panel.current?.querySelector('button')?.focus(); }, [open]);
-  const toggle = k => setSettings(s => ({...s, [k]: !s[k]}));
-  return <div className="a11y" onKeyDown={e => { if (e.key === 'Escape' && open) { setOpen(false); trigger.current.focus(); } }}
+  const toggle = k => setSettings(s => ({...(s || defaults), [k]: !s?.[k]}));
+  return <aside className="a11y" aria-label={t.title} inert={inert || undefined} onKeyDown={e => { if (e.key === 'Escape' && open) { setOpen(false); trigger.current.focus(); } }}
     onBlur={e => { if (open && e.relatedTarget && !e.currentTarget.contains(e.relatedTarget)) setOpen(false); }}>
     <button ref={trigger} type="button" className="a11y-trigger" aria-expanded={open} aria-controls="a11y-panel" onClick={() => setOpen(!open)}><Access size={22}/><span className="sr-only">{t.open}</span></button>
     {open && <div id="a11y-panel" className="a11y-panel" ref={panel} role="group" aria-label={t.title}>
       <p className="a11y-title">{t.title}</p>
-      {['motion', 'contrast', 'links', 'text'].map(k => <button key={k} type="button" role="switch" aria-checked={settings[k]} onClick={() => toggle(k)}><span>{t[k]}</span><i aria-hidden="true"/></button>)}
+      {['motion', 'contrast', 'links', 'text'].map(k => <button key={k} type="button" role="switch" aria-checked={!!settings?.[k]} onClick={() => toggle(k)}><span>{t[k]}</span><i aria-hidden="true"/></button>)}
       <button type="button" className="a11y-reset" onClick={() => setSettings(defaults)}>{t.reset}</button>
       <Link to={href(lang, 'accessibility')} onClick={() => setOpen(false)}>{t.statement}</Link>
     </div>}
-  </div>;
+  </aside>;
 }

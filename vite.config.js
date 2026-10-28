@@ -3,6 +3,7 @@ import {defineConfig} from 'vite';
 // BASE_PATH lets the same build run at a domain root or a repository subdirectory.
 export default defineConfig({
   base: process.env.BASE_PATH || '/',
+  define: {'import.meta.env.SITE_INDEX': JSON.stringify(process.env.SITE_INDEX === 'true')},
   build: {
     target: 'es2020',
     cssCodeSplit: false,

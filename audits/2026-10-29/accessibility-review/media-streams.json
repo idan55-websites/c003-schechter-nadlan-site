@@ -1,0 +1,194 @@
+[
+  {
+    "file": "film-1280.mp4",
+    "duration": "00:00:29.56",
+    "audioTracks": [],
+    "videoTracks": [
+      "  Stream #0:0[0x1](eng): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 1280x424 [SAR 901:900 DAR 136:45], 1312 kb/s, 25 fps, 25 tbr, 12800 tbn (default)"
+    ]
+  },
+  {
+    "file": "film-1280.webm",
+    "duration": "00:00:29.56",
+    "audioTracks": [],
+    "videoTracks": [
+      "  Stream #0:0(eng): Video: vp9 (Profile 0), yuv420p(tv, bt709, progressive), 1280x424, SAR 1281:1280 DAR 1281:424, 25 fps, 25 tbr, 1k tbn (default)"
+    ]
+  },
+  {
+    "file": "film-mobile.mp4",
+    "duration": "00:00:29.56",
+    "audioTracks": [],
+    "videoTracks": [
+      "  Stream #0:0[0x1](eng): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 720x540 [SAR 1:1 DAR 4:3], 649 kb/s, 25 fps, 25 tbr, 12800 tbn (default)"
+    ]
+  },
+  {
+    "file": "film-mobile.webm",
+    "duration": "00:00:29.56",
+    "audioTracks": [],
+    "videoTracks": [
+      "  Stream #0:0(eng): Video: vp9 (Profile 0), yuv420p(tv, bt709, progressive), 720x540, SAR 1:1 DAR 4:3, 25 fps, 25 tbr, 1k tbn (default)"
+    ]
+  },
+  {
+    "file": "film-wide.mp4",
+    "duration": "00:00:29.56",
+    "audioTracks": [],
+    "videoTracks": [
+      "  Stream #0:0[0x1](eng): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 1904x630 [SAR 1:1 DAR 136:45], 2218 kb/s, 25 fps, 25 tbr, 12800 tbn (default)"
+    ]
+  },
+  {
+    "file": "film-wide.webm",
+    "duration": "00:00:29.56",
+    "audioTracks": [],
+    "videoTracks": [
+      "  Stream #0:0(eng): Video: vp9 (Profile 0), yuv420p(tv, bt709, progressive), 1904x630, SAR 1:1 DAR 136:45, 25 fps, 25 tbr, 1k tbn (default)"
+    ]
+  },
+  {
+    "file": "location-abigail.mp4",
+    "duration": "00:00:02.00",
+    "audioTracks": [],
+    "videoTracks": [
+      "  Stream #0:0[0x1](eng): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 640x640 [SAR 1:1 DAR 1:1], 136 kb/s, 25 fps, 25 tbr, 12800 tbn (default)"
+    ]
+  },
+  {
+    "file": "location-abigail.webm",
+    "duration": "00:00:02.00",
+    "audioTracks": [],
+    "videoTracks": [
+      "  Stream #0:0(eng): Video: vp9 (Profile 0), yuv420p(tv, bt709, progressive), 640x640, SAR 1:1 DAR 1:1, 25 fps, 25 tbr, 1k tbn (default)"
+    ]
+  },
+  {
+    "file": "location-dunash.mp4",
+    "duration": "00:00:02.00",
+    "audioTracks": [],
+    "videoTracks": [
+      "  Stream #0:0[0x1](eng): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 640x640 [SAR 1:1 DAR 1:1], 146 kb/s, 25 fps, 25 tbr, 12800 tbn (default)"
+    ]
+  },
+  {
+    "file": "location-dunash.webm",
+    "duration": "00:00:02.00",
+    "audioTracks": [],
+    "videoTracks": [
+      "  Stream #0:0(eng): Video: vp9 (Profile 0), yuv420p(tv, bt709, progressive), 640x640, SAR 1:1 DAR 1:1, 25 fps, 25 tbr, 1k tbn (default)"
+    ]
+  },
+  {
+    "file": "location-family.mp4",
+    "duration": "00:00:02.00",
+    "audioTracks": [],
+    "videoTracks": [
+      "  Stream #0:0[0x1](eng): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 640x640 [SAR 1:1 DAR 1:1], 157 kb/s, 25 fps, 25 tbr, 12800 tbn (default)"
+    ]
+  },
+  {
+    "file": "location-family.webm",
+    "duration": "00:00:02.00",
+    "audioTracks": [],
+    "videoTracks": [
+      "  Stream #0:0(eng): Video: vp9 (Profile 0), yuv420p(tv, bt709, progressive), 640x640, SAR 1:1 DAR 1:1, 25 fps, 25 tbr, 1k tbn (default)"
+    ]
+  },
+  {
+    "file": "location-gefen.mp4",
+    "duration": "00:00:02.00",
+    "audioTracks": [],
+    "videoTracks": [
+      "  Stream #0:0[0x1](eng): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 640x640 [SAR 1:1 DAR 1:1], 149 kb/s, 25 fps, 25 tbr, 12800 tbn (default)"
+    ]
+  },
+  {
+    "file": "location-gefen.webm",
+    "duration": "00:00:02.00",
+    "audioTracks": [],
+    "videoTracks": [
+      "  Stream #0:0(eng): Video: vp9 (Profile 0), yuv420p(tv, bt709, progressive), 640x640, SAR 1:1 DAR 1:1, 25 fps, 25 tbr, 1k tbn (default)"
+    ]
+  },
+  {
+    "file": "location-gordon.mp4",
+    "duration": "00:00:02.00",
+    "audioTracks": [],
+    "videoTracks": [
+      "  Stream #0:0[0x1](eng): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 640x640 [SAR 1:1 DAR 1:1], 149 kb/s, 25 fps, 25 tbr, 12800 tbn (default)"
+    ]
+  },
+  {
+    "file": "location-gordon.webm",
+    "duration": "00:00:02.00",
+    "audioTracks": [],
+    "videoTracks": [
+      "  Stream #0:0(eng): Video: vp9 (Profile 0), yuv420p(tv, bt709, progressive), 640x640, SAR 1:1 DAR 1:1, 25 fps, 25 tbr, 1k tbn (default)"
+    ]
+  },
+  {
+    "file": "location-hagiva.mp4",
+    "duration": "00:00:02.00",
+    "audioTracks": [],
+    "videoTracks": [
+      "  Stream #0:0[0x1](eng): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 640x640 [SAR 1:1 DAR 1:1], 139 kb/s, 25 fps, 25 tbr, 12800 tbn (default)"
+    ]
+  },
+  {
+    "file": "location-hagiva.webm",
+    "duration": "00:00:02.00",
+    "audioTracks": [],
+    "videoTracks": [
+      "  Stream #0:0(eng): Video: vp9 (Profile 0), yuv420p(tv, bt709, progressive), 640x640, SAR 1:1 DAR 1:1, 25 fps, 25 tbr, 1k tbn (default)"
+    ]
+  },
+  {
+    "file": "location-hahayil.mp4",
+    "duration": "00:00:02.00",
+    "audioTracks": [],
+    "videoTracks": [
+      "  Stream #0:0[0x1](eng): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 640x640 [SAR 1:1 DAR 1:1], 171 kb/s, 25 fps, 25 tbr, 12800 tbn (default)"
+    ]
+  },
+  {
+    "file": "location-hahayil.webm",
+    "duration": "00:00:02.00",
+    "audioTracks": [],
+    "videoTracks": [
+      "  Stream #0:0(eng): Video: vp9 (Profile 0), yuv420p(tv, bt709, progressive), 640x640, SAR 1:1 DAR 1:1, 25 fps, 25 tbr, 1k tbn (default)"
+    ]
+  },
+  {
+    "file": "location-knafei.mp4",
+    "duration": "00:00:02.00",
+    "audioTracks": [],
+    "videoTracks": [
+      "  Stream #0:0[0x1](eng): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 640x640 [SAR 1:1 DAR 1:1], 150 kb/s, 25 fps, 25 tbr, 12800 tbn (default)"
+    ]
+  },
+  {
+    "file": "location-knafei.webm",
+    "duration": "00:00:02.00",
+    "audioTracks": [],
+    "videoTracks": [
+      "  Stream #0:0(eng): Video: vp9 (Profile 0), yuv420p(tv, bt709, progressive), 640x640, SAR 1:1 DAR 1:1, 25 fps, 25 tbr, 1k tbn (default)"
+    ]
+  },
+  {
+    "file": "location-premium.mp4",
+    "duration": "00:00:02.00",
+    "audioTracks": [],
+    "videoTracks": [
+      "  Stream #0:0[0x1](eng): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 640x640 [SAR 1:1 DAR 1:1], 164 kb/s, 25 fps, 25 tbr, 12800 tbn (default)"
+    ]
+  },
+  {
+    "file": "location-premium.webm",
+    "duration": "00:00:02.00",
+    "audioTracks": [],
+    "videoTracks": [
+      "  Stream #0:0(eng): Video: vp9 (Profile 0), yuv420p(tv, bt709, progressive), 640x640, SAR 1:1 DAR 1:1, 25 fps, 25 tbr, 1k tbn (default)"
+    ]
+  }
+]

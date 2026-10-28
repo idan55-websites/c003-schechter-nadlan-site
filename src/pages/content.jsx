@@ -151,7 +151,7 @@ export function Contact() {
   </>;
 }
 
-const updated = {he: '28 באוקטובר 2026', en: '28 October 2026'};
+const updated = {he: '29 באוקטובר 2026', en: '29 October 2026'};
 
 export function Accessibility() {
   const {route: {lang}} = useRouter();
@@ -163,7 +163,8 @@ export function Accessibility() {
     {he ? <>
       <p>שכטר נדל״ן מייחסת חשיבות רבה להנגשת אתר האינטרנט שלה לאנשים עם מוגבלות, מתוך תפיסה שלכל אדם מגיעה הזדמנות שווה לגלוש באתר בקלות ובנוחות ולהפיק תועלת מהשירותים והתכנים המתפרסמים בו.</p>
       <h2>רמת הנגישות באתר</h2>
-      <p>האתר נבנה בהתאם לתקן הישראלי ת״י 5568, המבוסס על הנחיות WCAG ברמה AA, תוך שאיפה לעמידה בגרסה העדכנית WCAG 2.2 ברמה AA. ההתאמות נבדקו בבדיקה פנימית באוקטובר 2026, בדפדפני Chrome ו־Safari במחשב ובטלפון, עם קורא מסך, ניווט מקלדת והגדלת תצוגה.</p>
+      <p>אנו פועלים להתאמת האתר לתקן הישראלי ת״י 5568 חלק 1 (מהדורת 2023), המבוסס על WCAG 2.0 ברמה AA ועל השינויים הלאומיים שבתקן. בנוסף נבדקות התאמות לפי WCAG 2.2 ברמה AA.</p>
+      <p>הבדיקה הטכנית הפנימית באוקטובר 2026 כוללת סריקות אוטומטיות, ניווט במקלדת, תוויות ותפקידים בעץ הנגישות של הדפדפן, הגדלת טקסט ותצוגה במחשב ובנייד. בדיקת שימוש מלאה בקוראי מסך כגון NVDA או VoiceOver טרם הושלמה; בדיקות הדפדפן אינן מחליפות אותה.</p>
       <h2>התאמות שבוצעו באתר</h2>
       <ul>
         <li>ניווט מלא באמצעות מקלדת, סימון מיקוד ברור וקישור ״דילוג לתוכן״ בראש כל עמוד.</li>
@@ -173,7 +174,7 @@ export function Accessibility() {
         <li>תמיכה בהגדרת ״הפחתת תנועה״ של מערכת ההפעלה, ובכפתור הגדרות נגישות באתר: הפחתת תנועה, ניגודיות גבוהה, הדגשת קישורים והגדלת טקסט.</li>
         <li>טפסים עם תוויות, הודעות שגיאה מפורטות הנקראות על ידי קוראי מסך, וריכוז שגיאות בראש הטופס.</li>
         <li>גלריות ותפריטים הנפתחים כחלון דו־שיח עם לכידת מיקוד, סגירה ב־Escape וחזרה לנקודת המוצא.</li>
-        <li>התאמה למסכים בכל הגדלים ולהגדלת תצוגה עד 400% ללא אובדן תוכן.</li>
+        <li>התאמה לרוחב של 320 פיקסלי CSS, המקביל לתצוגת 400% בחלון שרוחבו 1280 פיקסלים, ולהגדלת טקסט ולשינוי ריווח.</li>
       </ul>
       <h2>מגבלות ידועות</h2>
       <ul>
@@ -182,7 +183,7 @@ export function Accessibility() {
         <li>תוכניות דירות אינן מתפרסמות באתר ונשלחות לפי בקשה; ניתן לבקש אותן גם בפורמט נגיש.</li>
       </ul>
       <h2>הסדרי נגישות במשרדי החברה</h2>
-      <p>לפי הצהרת הנגישות המקורית של החברה, במגדל ב.ס.ר קיימים חניות נכים בחניון (כולל לרכב גבוה), רצף גישה מהחניה דרך הלובי למשרדים, מעליות, שירותי נכים נגישים, שילוט הכוונה, ומותרת כניסה לכלבי שירות. במקרה הצורך ניתן לפנות למזכירות החברה לקבלת סיוע. מומלץ לתאם הגעה מראש.</p>
+      <p>לקבלת פרטים עדכניים על חניה נגישה, דרך הגישה למשרדים, מעליות, שירותים נגישים ואמצעי עזר לשמיעה, ולבקשת סיוע או התאמה לקראת הביקור, פנו לצוות החברה בטלפון או בדואר האלקטרוני המופיעים להלן. מומלץ לתאם הגעה מראש.</p>
       <h2>פנייה בנושא נגישות</h2>
       <p>נתקלתם בקושי? נשמח לשמוע ולתקן. ציינו את העמוד, הפעולה שניסיתם לבצע ואת סוג המכשיר והדפדפן.</p>
       <ul className="plain">
@@ -193,7 +194,8 @@ export function Accessibility() {
     </> : <>
       <p>Schechter Real Estate is committed to making its website accessible to people with disabilities, so that everyone can browse it easily and benefit from its content and services.</p>
       <h2>Conformance</h2>
-      <p>The website follows Israeli Standard IS 5568, based on WCAG level AA, and aims to meet WCAG 2.2 level AA. The adjustments were reviewed internally in October 2026 in Chrome and Safari on desktop and mobile, with a screen reader, keyboard-only navigation and zoom.</p>
+      <p>We are working to make the website conform to Israeli Standard IS 5568 Part 1 (2023 edition), based on WCAG 2.0 level AA and the standard’s national modifications. Additional adjustments are checked against WCAG 2.2 level AA.</p>
+      <p>The internal technical review in October 2026 includes automated scans, keyboard navigation, labels and roles in the browser accessibility tree, text resizing, and desktop and mobile layouts. A full usability review with screen readers such as NVDA or VoiceOver has not yet been completed; browser checks do not replace it.</p>
       <h2>What we have done</h2>
       <ul>
         <li>Full keyboard navigation, clear focus indicators and a “Skip to content” link on every page.</li>
@@ -203,7 +205,7 @@ export function Accessibility() {
         <li>Support for the operating system’s reduced-motion setting, plus on-site settings for reduced motion, high contrast, highlighted links and larger text.</li>
         <li>Labelled form fields, descriptive error messages announced to screen readers, and an error summary.</li>
         <li>Galleries and menus open as dialogs with focus management, Escape to close and focus return.</li>
-        <li>Responsive layouts that work at up to 400% zoom without loss of content.</li>
+        <li>Layouts for a width of 320 CSS pixels, equivalent to 400% zoom in a 1280-pixel window, plus text resizing and adjustable text spacing.</li>
       </ul>
       <h2>Known limitations</h2>
       <ul>
@@ -212,7 +214,7 @@ export function Accessibility() {
         <li>Floor plans are not published online and are sent on request, including in an accessible format.</li>
       </ul>
       <h2>Office accessibility</h2>
-      <p>According to the company’s original accessibility statement, the B.S.R. Tower offers accessible parking (including for high vehicles), step-free access from the car park through the lobby and elevators, accessible restrooms and wayfinding signage, and service animals are welcome. Our office staff can provide further assistance; please let us know before your visit.</p>
+      <p>For current details about accessible parking, the route to the office, elevators, accessible restrooms and hearing assistance, or to request assistance or an adjustment for your visit, contact our team by phone or email using the details below. Please arrange your visit in advance.</p>
       <h2>Contact us about accessibility</h2>
       <ul className="plain">
         <li>Phone: <a href={contact.phoneHref} dir="ltr">{contact.phone}</a> ({contact.hours.en})</li>

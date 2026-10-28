@@ -1,0 +1,104 @@
+{
+  "engine": "webkit",
+  "date": "2026-10-28T22:11:28.056Z",
+  "site": "http://localhost:4173",
+  "results": [
+    {
+      "name": "skip link and hidden header keyboard focus",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n'' !== 'skip'\n\n    at file:///Users/idanhadad/Desktop/websites%20business/001%20Active%20Clients/s-nadlan/tests/accessibility-behavior.mjs:27:46\n    at async check (file:///Users/idanhadad/Desktop/websites%20business/001%20Active%20Clients/s-nadlan/tests/accessibility-behavior.mjs:18:24)\n    at async file:///Users/idanhadad/Desktop/websites%20business/001%20Active%20Clients/s-nadlan/tests/accessibility-behavior.mjs:25:3"
+    },
+    {
+      "name": "gallery isolates background and restores focus",
+      "passed": true,
+      "evidence": {
+        "dialogTree": "- dialog \"גלריה — שכטר בגפן\":\n  - paragraph: 01 / 11 · הדמיה\n  - button \"סגירת הגלריה\"\n  - figure:\n    - img \"הדמיה — שכטר בגפן, תמונה 1 מתוך 11\"\n  - button \"הקודם\"\n  - button \"הבא\""
+      }
+    },
+    {
+      "name": "mobile navigation isolates all background controls",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: false == true\n    at check.viewport.width (file:///Users/idanhadad/Desktop/websites%20business/001%20Active%20Clients/s-nadlan/tests/accessibility-behavior.mjs:56:52)\n    at async check (file:///Users/idanhadad/Desktop/websites%20business/001%20Active%20Clients/s-nadlan/tests/accessibility-behavior.mjs:18:24)\n    at async file:///Users/idanhadad/Desktop/websites%20business/001%20Active%20Clients/s-nadlan/tests/accessibility-behavior.mjs:51:3"
+    },
+    {
+      "name": "required fields and error links expose their state",
+      "passed": true,
+      "evidence": {
+        "formTree": "- group \"השאירו פרטים ונחזור אליכם\":\n  - text: השאירו פרטים ונחזור אליכם\n  - paragraph: שדות המסומנים ב־* הם שדות חובה.\n  - alert:\n    - paragraph: \"כדי להמשיך, יש לתקן:\"\n    - list:\n      - listitem:\n        - link \"יש להזין שם מלא.\":\n          - /url: \"#f-name\"\n      - listitem:\n        - link \"יש להזין מספר טלפון תקין, לדוגמה 050-1234567.\":\n          - /url: \"#f-phone\"\n      - listitem:\n        - link \"יש לאשר את השימוש בפרטים כדי שנוכל לחזור אליכם.\":\n          - /url: \"#f-consent\"\n  - text: שם מלא\n  - textbox \"שם מלא\" [invalid]\n  - paragraph: יש להזין שם מלא.\n  - text: טלפון\n  - textbox \"טלפון\" [invalid]\n  - paragraph: יש להזין מספר טלפון תקין, לדוגמה 050-1234567.\n  - text: אימייל (רשות)\n  - textbox \"אימייל (רשות)\"\n  - text: הפרויקט שמעניין אתכם (רשות)\n  - combobox \"הפרויקט שמעניין אתכם (רשות)\":\n    - option \"פנייה כללית\" [selected]\n    - option \"שכטר בגפן\"\n    - option \"שכטר Family\"\n    - option \"גורדון 33\"\n    - option \"שכטר באביגיל\"\n    - option \"שכטר בכנפי נשרים\"\n    - option \"שכטר בגליל ים\"\n    - option \"שכטר Premium\"\n    - option \"שכטר בחי״ל\"\n    - option \"גבעת אהבה\"\n    - option \"שכטר בדונש\"\n    - option \"נופי עמק האיילות\"\n    - option \"נופי נחלים\"\n  - text: הודעה (רשות)\n  - textbox \"הודעה (רשות)\"\n  - checkbox \"אני מאשר/ת שהפרטים ישמשו לחזרה אליי בנוגע לפנייה זו, כמפורט במדיניות הפרטיות. מדיניות פרטיות\" [invalid]\n  - text: אני מאשר/ת שהפרטים ישמשו לחזרה אליי בנוגע לפנייה זו, כמפורט במדיניות הפרטיות.\n  - link \"מדיניות פרטיות\":\n    - /url: /privacy/\n  - paragraph: יש לאשר את השימוש בפרטים כדי שנוכל לחזור אליכם.\n  - checkbox \"אשמח לקבל עדכונים על פרויקטים נוספים (רשות)\"\n  - text: אשמח לקבל עדכונים על פרויקטים נוספים (רשות)\n  - button \"שליחת הפנייה\"\n  - paragraph: השליחה פותחת טיוטת אימייל מוכנה בתוכנת הדואר שלכם — ההודעה נשלחת רק כשתלחצו על ״שלח״ שם. הפרטים אינם נשמרים באתר.\n  - status"
+      }
+    },
+    {
+      "name": "preferences survive reload without a contrast flash",
+      "passed": true,
+      "evidence": {
+        "contrastFlash": []
+      }
+    },
+    {
+      "name": "movie pause and live reduced-motion preferences",
+      "passed": false,
+      "error": "page.waitForFunction: Timeout 20000ms exceeded.\n    at check.reducedMotion (/Users/idanhadad/Desktop/websites business/001 Active Clients/s-nadlan/tests/accessibility-behavior.mjs:89:16)\n    at async check (/Users/idanhadad/Desktop/websites business/001 Active Clients/s-nadlan/tests/accessibility-behavior.mjs:18:24)\n    at async file:///Users/idanhadad/Desktop/websites%20business/001%20Active%20Clients/s-nadlan/tests/accessibility-behavior.mjs:87:3"
+    },
+    {
+      "name": "200% text keeps header controls on screen",
+      "passed": true,
+      "evidence": [
+        {
+          "lang": "",
+          "width": 1440,
+          "outside": []
+        },
+        {
+          "lang": "",
+          "width": 1024,
+          "outside": []
+        },
+        {
+          "lang": "",
+          "width": 640,
+          "outside": []
+        },
+        {
+          "lang": "",
+          "width": 375,
+          "outside": []
+        },
+        {
+          "lang": "",
+          "width": 320,
+          "outside": []
+        },
+        {
+          "lang": "en/",
+          "width": 1440,
+          "outside": []
+        },
+        {
+          "lang": "en/",
+          "width": 1024,
+          "outside": []
+        },
+        {
+          "lang": "en/",
+          "width": 640,
+          "outside": []
+        },
+        {
+          "lang": "en/",
+          "width": 375,
+          "outside": []
+        },
+        {
+          "lang": "en/",
+          "width": 320,
+          "outside": []
+        }
+      ]
+    },
+    {
+      "name": "no-JavaScript contact fallback avoids HTTP personal-data submission",
+      "passed": false,
+      "error": "TypeError: request.url is not a function\n    at file:///Users/idanhadad/Desktop/websites%20business/001%20Active%20Clients/s-nadlan/tests/accessibility-behavior.mjs:125:114\n    at Array.some (<anonymous>)\n    at check.javaScriptEnabled (file:///Users/idanhadad/Desktop/websites%20business/001%20Active%20Clients/s-nadlan/tests/accessibility-behavior.mjs:125:25)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:453:9)\n    at process.callbackTrampoline (node:internal/async_hooks:130:17)\n    at async check (file:///Users/idanhadad/Desktop/websites%20business/001%20Active%20Clients/s-nadlan/tests/accessibility-behavior.mjs:18:24)\n    at async file:///Users/idanhadad/Desktop/websites%20business/001%20Active%20Clients/s-nadlan/tests/accessibility-behavior.mjs:117:3"
+    }
+  ]
+}

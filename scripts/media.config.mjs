@@ -103,7 +103,10 @@ export const images = {
   'dunash-interior-1': {src: 'media/657.jpg', kind: 'interior'},
   'dunash-interior-2': {src: 'media/658.jpg', kind: 'interior'},
 
-  // Nofei Nehalim, Petah Tikva (WP post 602) — the only genuine image is small
+  // Nofei Nehalim, Petah Tikva (WP post 602) — client-supplied aerials, 29 Oct 2026
+  'nehalim-aerial-1': {src: 'local-2022/nehalim-aerial-1.jpg', kind: 'photo'},
+  'nehalim-aerial-2': {src: 'local-2022/nehalim-aerial-2.jpg', kind: 'photo'},
+  // Retained archive thumbnail; the supplied aerials are used on the project page.
   'nehalim-site': {src: 'media/2951.jpeg', kind: 'photo'},
 
   // Original named project הראשונים — crop from the supplied mockup (kept from previous build)

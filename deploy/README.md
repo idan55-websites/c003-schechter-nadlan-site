@@ -1,6 +1,6 @@
 # Deployment notes
 
-The site is fully static (`npm run build` → `dist/`). Nothing here changes DNS or the live server; these are the settings to apply when the owner approves launch.
+The site is fully static (`npm run build` → `dist/`). The client requested search visibility for `s-nadlan.com` on 29 October 2026. Publishing the indexable build there requires access to its hosting; the connected GitHub Actions workflow currently deploys only the preview. See [SEO_LAUNCH.md](SEO_LAUNCH.md).
 
 ## Build variables
 
@@ -8,17 +8,36 @@ The site is fully static (`npm run build` → `dist/`). Nothing here changes DNS
 | --- | --- | --- |
 | `BASE_PATH` | `/` | Sub-path when not served at a domain root (GitHub Pages preview uses `/c003-schechter-nadlan-site/`). |
 | `VITE_SITE_URL` | `https://s-nadlan.com` | Origin for canonical URLs, hreflang, sitemap and structured data. |
-| `SITE_INDEX` | unset | Set to `true` **only for the approved production launch**. Otherwise every page is `noindex` and `robots.txt` disallows crawling. |
+| `SITE_INDEX` | unset | `true` enables indexing for the production build; other values retain preview `noindex`. |
+| `GOOGLE_SITE_VERIFICATION` | unset | Optional Search Console HTML verification token; emitted only in a production build. |
+| `BING_SITE_VERIFICATION` | unset | Optional Bing Webmaster Tools HTML verification token; emitted only in a production build. |
 
-Production: `SITE_INDEX=true npm run build`.
+Production: `npm run build:production`, then `SITE_INDEX=true npm run test:seo`.
+
+## Cloudflare Workers
+
+The root `wrangler.jsonc` deploys the prerendered `dist/` directory as static assets to the `c003-schechter-nadlan-site` Worker. Unknown URLs serve the generated `404.html` with a 404 status.
+
+Use these Cloudflare Git build settings:
+
+- Build command: `npm run build`
+- Deploy command: `npx wrangler deploy`
+- Root directory: repository root
+- `BASE_PATH`: `/` (or leave unset)
+
+Keep `SITE_INDEX` unset for previews. For the approved production launch, set `SITE_INDEX=true` and `VITE_SITE_URL` to the production origin before building.
+
+The explicit Wrangler configuration avoids automatic Vite setup during deployment. The existing client build and build-time SSR prerender produce the complete static site; no Cloudflare Vite plugin is required. See [Cloudflare's static site configuration](https://developers.cloudflare.com/workers/static-assets/routing/static-site-generation/).
+
+To validate without publishing, run `npm run build` followed by `npx wrangler deploy --dry-run`.
 
 ## Redirects from the WordPress URLs
 
-The build writes the same 34 permanent redirects in three forms:
+The build writes 34 legacy page redirects and two WordPress sitemap redirects:
 
 - `dist/_redirects` — Netlify / Cloudflare Pages (served as real 301s).
 - `deploy/nginx-redirects.conf` — `include` inside the nginx `server {}` block of the current SpinupWP/nginx host.
-- Static fallback pages at every old path (instant meta refresh + canonical) for hosts without server rules, such as GitHub Pages.
+- Static fallback pages at every old page path (instant meta refresh + canonical) for hosts without server rules, such as GitHub Pages. The sitemap redirects require server rules and are not HTML fallback pages.
 
 ## Headers
 

@@ -1,0 +1,508 @@
+{
+  "reduceMotion": {
+    "reduced": true,
+    "videoPaused": false,
+    "button": "השהיית הסרט"
+  },
+  "headerFocus": {
+    "hidden": "site-header  is-solid is-hidden",
+    "top": -55.796875,
+    "focused": "<a class=\"header-lang\" href=\"/en/about/\" hreflang=\"en\" lang=\"en\" aria-label=\"EN — Switch to English\">EN</a>"
+  },
+  "formSnapshot": "- group \"השאירו פרטים ונחזור אליכם\":\n  - text: השאירו פרטים ונחזור אליכם\n  - alert:\n    - paragraph: \"כדי להמשיך, יש לתקן:\"\n    - list:\n      - listitem:\n        - link \"יש להזין שם מלא.\":\n          - /url: \"#f-name\"\n      - listitem:\n        - link \"יש להזין מספר טלפון תקין, לדוגמה 050-1234567.\":\n          - /url: \"#f-phone\"\n      - listitem:\n        - link \"יש לאשר את השימוש בפרטים כדי שנוכל לחזור אליכם.\":\n          - /url: \"#f-consent\"\n  - text: שם מלא\n  - textbox \"שם מלא\" [invalid]\n  - paragraph: יש להזין שם מלא.\n  - text: טלפון\n  - textbox \"טלפון\" [invalid]\n  - paragraph: יש להזין מספר טלפון תקין, לדוגמה 050-1234567.\n  - text: אימייל (רשות)\n  - textbox \"אימייל (רשות)\"\n  - text: הפרויקט שמעניין אתכם (רשות)\n  - combobox \"הפרויקט שמעניין אתכם (רשות)\":\n    - option \"פנייה כללית\" [selected]\n    - option \"שכטר בגפן\"\n    - option \"שכטר Family\"\n    - option \"גורדון 33\"\n    - option \"שכטר באביגיל\"\n    - option \"שכטר בכנפי נשרים\"\n    - option \"שכטר בגליל ים\"\n    - option \"שכטר Premium\"\n    - option \"שכטר בחי״ל\"\n    - option \"גבעת אהבה\"\n    - option \"שכטר בדונש\"\n    - option \"נופי עמק האיילות\"\n    - option \"נופי נחלים\"\n  - text: הודעה (רשות)\n  - textbox \"הודעה (רשות)\"\n  - checkbox \"אני מאשר/ת שהפרטים ישמשו לחזרה אליי בנוגע לפנייה זו, כמפורט במדיניות הפרטיות. מדיניות פרטיות\" [invalid]\n  - text: אני מאשר/ת שהפרטים ישמשו לחזרה אליי בנוגע לפנייה זו, כמפורט במדיניות הפרטיות.\n  - link \"מדיניות פרטיות\":\n    - /url: /privacy/\n  - paragraph: יש לאשר את השימוש בפרטים כדי שנוכל לחזור אליכם.\n  - checkbox \"אשמח לקבל עדכונים על פרויקטים נוספים (רשות)\"\n  - text: אשמח לקבל עדכונים על פרויקטים נוספים (רשות)\n  - button \"שליחת הפנייה\"\n  - paragraph: השליחה פותחת טיוטת אימייל מוכנה בתוכנת הדואר שלכם — ההודעה נשלחת רק כשתלחצו על ״שלח״ שם. הפרטים אינם נשמרים באתר.\n  - status",
+  "accessibilityTree": [
+    {
+      "role": "button",
+      "name": "הגדרות נגישות",
+      "properties": [
+        {
+          "name": "invalid",
+          "value": {
+            "type": "token",
+            "value": "false"
+          }
+        },
+        {
+          "name": "focusable",
+          "value": {
+            "type": "booleanOrUndefined",
+            "value": true
+          }
+        },
+        {
+          "name": "expanded",
+          "value": {
+            "type": "booleanOrUndefined",
+            "value": false
+          }
+        }
+      ]
+    },
+    {
+      "role": "button",
+      "name": "הצגת המפה",
+      "properties": [
+        {
+          "name": "invalid",
+          "value": {
+            "type": "token",
+            "value": "false"
+          }
+        },
+        {
+          "name": "focusable",
+          "value": {
+            "type": "booleanOrUndefined",
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "role": "alert",
+      "name": "",
+      "properties": [
+        {
+          "name": "live",
+          "value": {
+            "type": "token",
+            "value": "assertive"
+          }
+        },
+        {
+          "name": "atomic",
+          "value": {
+            "type": "boolean",
+            "value": true
+          }
+        },
+        {
+          "name": "relevant",
+          "value": {
+            "type": "tokenList",
+            "value": "additions text"
+          }
+        },
+        {
+          "name": "focusable",
+          "value": {
+            "type": "booleanOrUndefined",
+            "value": true
+          }
+        },
+        {
+          "name": "focused",
+          "value": {
+            "type": "booleanOrUndefined",
+            "value": true
+          }
+        }
+      ]
+    },
+    {
+      "role": "textbox",
+      "name": "שם מלא",
+      "properties": [
+        {
+          "name": "invalid",
+          "value": {
+            "type": "token",
+            "value": "true"
+          }
+        },
+        {
+          "name": "focusable",
+          "value": {
+            "type": "booleanOrUndefined",
+            "value": true
+          }
+        },
+        {
+          "name": "editable",
+          "value": {
+            "type": "token",
+            "value": "plaintext"
+          }
+        },
+        {
+          "name": "settable",
+          "value": {
+            "type": "booleanOrUndefined",
+            "value": true
+          }
+        },
+        {
+          "name": "multiline",
+          "value": {
+            "type": "boolean",
+            "value": false
+          }
+        },
+        {
+          "name": "readonly",
+          "value": {
+            "type": "boolean",
+            "value": false
+          }
+        },
+        {
+          "name": "required",
+          "value": {
+            "type": "boolean",
+            "value": true
+          }
+        },
+        {
+          "name": "describedby",
+          "value": {
+            "type": "idrefList",
+            "value": "f-name-err",
+            "relatedNodes": [
+              {
+                "backendDOMNodeId": 222,
+                "idref": "f-name-err"
+              }
+            ]
+          }
+        },
+        {
+          "name": "labelledby",
+          "value": {
+            "type": "nodeList",
+            "relatedNodes": [
+              {
+                "backendDOMNodeId": 218,
+                "text": "שם מלא"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "role": "textbox",
+      "name": "טלפון",
+      "properties": [
+        {
+          "name": "invalid",
+          "value": {
+            "type": "token",
+            "value": "true"
+          }
+        },
+        {
+          "name": "focusable",
+          "value": {
+            "type": "booleanOrUndefined",
+            "value": true
+          }
+        },
+        {
+          "name": "editable",
+          "value": {
+            "type": "token",
+            "value": "plaintext"
+          }
+        },
+        {
+          "name": "settable",
+          "value": {
+            "type": "booleanOrUndefined",
+            "value": true
+          }
+        },
+        {
+          "name": "multiline",
+          "value": {
+            "type": "boolean",
+            "value": false
+          }
+        },
+        {
+          "name": "readonly",
+          "value": {
+            "type": "boolean",
+            "value": false
+          }
+        },
+        {
+          "name": "required",
+          "value": {
+            "type": "boolean",
+            "value": true
+          }
+        },
+        {
+          "name": "describedby",
+          "value": {
+            "type": "idrefList",
+            "value": "f-phone-err",
+            "relatedNodes": [
+              {
+                "backendDOMNodeId": 228,
+                "idref": "f-phone-err"
+              }
+            ]
+          }
+        },
+        {
+          "name": "labelledby",
+          "value": {
+            "type": "nodeList",
+            "relatedNodes": [
+              {
+                "backendDOMNodeId": 224,
+                "text": "טלפון"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "role": "textbox",
+      "name": "אימייל (רשות)",
+      "properties": [
+        {
+          "name": "invalid",
+          "value": {
+            "type": "token",
+            "value": "false"
+          }
+        },
+        {
+          "name": "focusable",
+          "value": {
+            "type": "booleanOrUndefined",
+            "value": true
+          }
+        },
+        {
+          "name": "editable",
+          "value": {
+            "type": "token",
+            "value": "plaintext"
+          }
+        },
+        {
+          "name": "settable",
+          "value": {
+            "type": "booleanOrUndefined",
+            "value": true
+          }
+        },
+        {
+          "name": "multiline",
+          "value": {
+            "type": "boolean",
+            "value": false
+          }
+        },
+        {
+          "name": "readonly",
+          "value": {
+            "type": "boolean",
+            "value": false
+          }
+        },
+        {
+          "name": "required",
+          "value": {
+            "type": "boolean",
+            "value": false
+          }
+        },
+        {
+          "name": "labelledby",
+          "value": {
+            "type": "nodeList",
+            "relatedNodes": [
+              {
+                "backendDOMNodeId": 229,
+                "text": "אימייל (רשות)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "role": "textbox",
+      "name": "הודעה (רשות)",
+      "properties": [
+        {
+          "name": "invalid",
+          "value": {
+            "type": "token",
+            "value": "false"
+          }
+        },
+        {
+          "name": "focusable",
+          "value": {
+            "type": "booleanOrUndefined",
+            "value": true
+          }
+        },
+        {
+          "name": "editable",
+          "value": {
+            "type": "token",
+            "value": "plaintext"
+          }
+        },
+        {
+          "name": "settable",
+          "value": {
+            "type": "booleanOrUndefined",
+            "value": true
+          }
+        },
+        {
+          "name": "multiline",
+          "value": {
+            "type": "boolean",
+            "value": true
+          }
+        },
+        {
+          "name": "readonly",
+          "value": {
+            "type": "boolean",
+            "value": false
+          }
+        },
+        {
+          "name": "required",
+          "value": {
+            "type": "boolean",
+            "value": false
+          }
+        },
+        {
+          "name": "labelledby",
+          "value": {
+            "type": "nodeList",
+            "relatedNodes": [
+              {
+                "backendDOMNodeId": 281,
+                "text": "הודעה (רשות)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "role": "checkbox",
+      "name": "אני מאשר/ת שהפרטים ישמשו לחזרה אליי בנוגע לפנייה זו, כמפורט במדיניות הפרטיות.מדיניות פרטיות",
+      "properties": [
+        {
+          "name": "invalid",
+          "value": {
+            "type": "token",
+            "value": "true"
+          }
+        },
+        {
+          "name": "focusable",
+          "value": {
+            "type": "booleanOrUndefined",
+            "value": true
+          }
+        },
+        {
+          "name": "checked",
+          "value": {
+            "type": "tristate",
+            "value": "false"
+          }
+        },
+        {
+          "name": "describedby",
+          "value": {
+            "type": "idrefList",
+            "value": "f-consent-err",
+            "relatedNodes": [
+              {
+                "backendDOMNodeId": 289,
+                "idref": "f-consent-err"
+              }
+            ]
+          }
+        },
+        {
+          "name": "labelledby",
+          "value": {
+            "type": "nodeList",
+            "relatedNodes": [
+              {
+                "backendDOMNodeId": 287,
+                "text": "אני מאשר/ת שהפרטים ישמשו לחזרה אליי בנוגע לפנייה זו, כמפורט במדיניות הפרטיות.מדיניות פרטיות"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "role": "checkbox",
+      "name": "אשמח לקבל עדכונים על פרויקטים נוספים (רשות)",
+      "properties": [
+        {
+          "name": "invalid",
+          "value": {
+            "type": "token",
+            "value": "false"
+          }
+        },
+        {
+          "name": "focusable",
+          "value": {
+            "type": "booleanOrUndefined",
+            "value": true
+          }
+        },
+        {
+          "name": "checked",
+          "value": {
+            "type": "tristate",
+            "value": "false"
+          }
+        },
+        {
+          "name": "labelledby",
+          "value": {
+            "type": "nodeList",
+            "relatedNodes": [
+              {
+                "backendDOMNodeId": 291,
+                "text": "אשמח לקבל עדכונים על פרויקטים נוספים (רשות)"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "role": "button",
+      "name": "שליחת הפנייה",
+      "properties": [
+        {
+          "name": "invalid",
+          "value": {
+            "type": "token",
+            "value": "false"
+          }
+        },
+        {
+          "name": "focusable",
+          "value": {
+            "type": "booleanOrUndefined",
+            "value": true
+          }
+        }
+      ]
+    }
+  ]
+}

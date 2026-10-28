@@ -1,5 +1,7 @@
 # Localhost image review — 28 October 2026
 
+29 October 2026 update: Nofei Nehalim now uses two client-supplied 4000 × 3000 aerial photographs, with responsive variants up to 3840px. Both appear in its gallery, and the first supplies its card/header. This resolves the Nofei Nehalim limitation recorded below; current totals are 100 image records and 80 published project-gallery images.
+
 The earlier verification established source-file matches. It did not establish that each picture was displayed at a suitable size. This follow-up addresses the local development build.
 
 The supplied `Downloads/2022` folder contains 1,372 image files across about 174 filename families. Most extra files are thumbnail sizes, WebP copies, branding, masked crops of existing renderings or template placeholders. These are not 1,372 distinct project photographs.

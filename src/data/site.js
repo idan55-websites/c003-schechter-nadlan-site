@@ -36,7 +36,7 @@ export const strings = {
     openMaps: 'ניווט ב־Google Maps', openWaze: 'ניווט ב־Waze', inquire: 'אשמח לקבל פרטים', prev: 'הקודם', nextImg: 'הבא',
     closeGallery: 'סגירת הגלריה', image: 'תמונה', of: 'מתוך', noImages: 'הדמיות ותמונות הפרויקט יפורסמו בהמשך. לפרטים נוספים, נשמח לשוחח.', noStory: 'הפרויקט הוא חלק מתיק הפרויקטים של שכטר נדל״ן. למידע עדכני על התכנון ועל שלבי הפרויקט, נשמח לשוחח.',
     search: 'חיפוש לפי שם או כתובת', allCities: 'כל הערים', results: n => `${n} פרויקטים`, empty: 'לא נמצאו פרויקטים שתואמים את החיפוש.', reset: 'איפוס',
-    since: 'מאז', scroll: 'גללו', play: 'הפעלת הסרט', pause: 'השהיית הסרט', film: 'סרט התדמית המקורי של שכטר נדל״ן: צילומי רחפן מעל פארק הירקון, מגדלי רמת גן ואתרי התחדשות עירונית, עם סמל החברה. ללא קול.',
+    since: 'מאז', scroll: 'גללו', play: 'הפעלת הסרט', pause: 'השהיית הסרט', filmTitle: 'סרט תדמית ללא קול', film: 'סרט תדמית ללא קול: סמל שכטר נדל״ן מופיע מעל תצלומי פארק, קו רקיע ועבודות התחדשות עירונית, לצד הדמיות בניינים ופנים דירות. מידע על החברה ועל הפרויקטים מופיע גם בטקסט האתר.',
     form: {
       legend: 'השאירו פרטים ונחזור אליכם', name: 'שם מלא', phone: 'טלפון', email: 'אימייל', project: 'הפרויקט שמעניין אתכם', general: 'פנייה כללית',
       message: 'הודעה', optional: 'רשות', required: 'שדה חובה', consent: 'אני מאשר/ת שהפרטים ישמשו לחזרה אליי בנוגע לפנייה זו, כמפורט במדיניות הפרטיות.',
@@ -65,7 +65,7 @@ export const strings = {
     openMaps: 'Open in Google Maps', openWaze: 'Navigate with Waze', inquire: 'Request details', prev: 'Previous', nextImg: 'Next',
     closeGallery: 'Close gallery', image: 'Image', of: 'of', noImages: 'Project renderings and photographs will be published later. We will be happy to tell you more.', noStory: 'This project is part of the Schechter Real Estate portfolio. For current planning and stage information, we will be happy to talk.',
     search: 'Search by name or address', allCities: 'All cities', results: n => `${n} projects`, empty: 'No projects match your search.', reset: 'Reset',
-    since: 'Since', scroll: 'Scroll', play: 'Play film', pause: 'Pause film', film: 'Schechter Real Estate’s original brand film: drone footage over HaYarkon Park, the Ramat Gan skyline and urban renewal sites, with the company emblem. No sound.',
+    since: 'Since', scroll: 'Scroll', play: 'Play film', pause: 'Pause film', filmTitle: 'Silent brand film', film: 'Silent brand film: the Schechter Real Estate emblem appears over footage of a park, a city skyline and urban renewal work, alongside building and apartment renderings. Company and project information is also provided in the website text.',
     form: {
       legend: 'Leave your details and we will get back to you', name: 'Full name', phone: 'Phone', email: 'Email', project: 'Project of interest', general: 'General inquiry',
       message: 'Message', optional: 'optional', required: 'required', consent: 'I agree that these details will be used to respond to this inquiry, as described in the privacy policy.',

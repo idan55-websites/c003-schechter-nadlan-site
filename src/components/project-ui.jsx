@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {href, useRouter} from '../lib/router.jsx';
 import {strings} from '../data/site.js';
-import {Link, Picture, Arrow, ArrowDiag, Close, asset, trapTab} from './ui.jsx';
+import {Link, Picture, Arrow, ArrowDiag, Close, asset, trapTab, isolateModal} from './ui.jsx';
 
 export function Status({p, lang}) {
   const t = strings[lang];
@@ -70,6 +70,7 @@ function Lightbox({p, index, onClose, returnTo}) {
   const forward = lang === 'he' ? 'ArrowLeft' : 'ArrowRight';
   useEffect(() => {
     const prev = returnTo?.current || document.activeElement;
+    const restore = isolateModal(ref.current);
     document.documentElement.classList.add('menu-open');
     ref.current.querySelector('.lb-close').focus();
     const key = e => {
@@ -79,7 +80,7 @@ function Lightbox({p, index, onClose, returnTo}) {
       else if (e.key === 'Tab') trapTab(e, ref.current);
     };
     document.addEventListener('keydown', key);
-    return () => { document.removeEventListener('keydown', key); document.documentElement.classList.remove('menu-open'); prev?.focus?.(); };
+    return () => { document.removeEventListener('keydown', key); document.documentElement.classList.remove('menu-open'); restore(); prev?.focus?.(); };
   }, []);
   const item = p.gallery[i];
   return <div className="lightbox" role="dialog" aria-modal="true" aria-label={`${t.gallery} — ${p.name[lang]}`} ref={ref}

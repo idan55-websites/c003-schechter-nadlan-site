@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {href, useRouter} from '../lib/router.jsx';
 import {strings, contact} from '../data/site.js';
 import {projects} from '../data/projects.js';
@@ -11,6 +11,8 @@ export function ContactForm({project, compact}) {
   const t = strings[lang].form;
   const [errors, setErrors] = useState({});
   const [done, setDone] = useState(false);
+  const [enhanced, setEnhanced] = useState(false);
+  useEffect(() => { setEnhanced(true); }, []);
   const summary = useRef(null);
   const id = k => `f-${compact ? 'c-' : ''}${k}`;
   const listed = projects.filter(p => p.category !== 'archive');
@@ -37,9 +39,10 @@ export function ContactForm({project, compact}) {
     {errors[k] && <p className="field-error" id={`${id(k)}-err`}>{errors[k]}</p>}
   </div>;
 
-  return <form className={`contact-form ${compact ? 'is-compact' : ''}`} noValidate onSubmit={submit}>
+  return <form className={`contact-form ${compact ? 'is-compact' : ''}`} action={`mailto:${contact.email}`} method="post" encType="text/plain" noValidate={enhanced} onSubmit={submit} aria-describedby={id('required')}>
     <fieldset>
       <legend>{t.legend}</legend>
+      <p className="form-required" id={id('required')}>{lang === 'he' ? 'שדות המסומנים ב־* הם שדות חובה.' : 'Fields marked with * are required.'}</p>
       {Object.keys(errors).length > 0 && <div className="form-errors" role="alert" tabIndex={-1} ref={summary}>
         <p>{t.errorsTitle}</p>
         <ul>{Object.entries(errors).map(([k, msg]) => <li key={k}><a href={`#${id(k)}`} onClick={e => { e.preventDefault(); document.getElementById(id(k)).focus(); }}>{msg}</a></li>)}</ul>
@@ -61,7 +64,7 @@ export function ContactForm({project, compact}) {
         </div>}
       </div>
       <div className={`check ${errors.consent ? 'has-error' : ''}`}>
-        <input type="checkbox" id={id('consent')} name="consent" aria-invalid={errors.consent ? true : undefined} aria-describedby={errors.consent ? `${id('consent')}-err` : undefined}/>
+        <input type="checkbox" id={id('consent')} name="consent" required aria-invalid={errors.consent ? true : undefined} aria-describedby={errors.consent ? `${id('consent')}-err` : undefined}/>
         <label htmlFor={id('consent')}>{t.consent} <Link to={href(lang, 'privacy')}>{strings[lang].footer.privacy}</Link></label>
         {errors.consent && <p className="field-error" id={`${id('consent')}-err`}>{errors.consent}</p>}
       </div>
@@ -71,6 +74,7 @@ export function ContactForm({project, compact}) {
         <p className="form-note">{t.note}</p>
       </div>
       <p className="form-done" role="status">{done ? t.done : ''}</p>
+      <noscript><p className="form-note">{lang === 'he' ? 'אפשר לפנות גם בדואר אלקטרוני או בטלפון:' : 'You can also contact us by email or phone:'} <a href={`mailto:${contact.email}`}>{contact.email}</a> · <a href={contact.phoneHref} dir="ltr">{contact.phone}</a></p></noscript>
     </fieldset>
   </form>;
 }

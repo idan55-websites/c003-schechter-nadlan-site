@@ -20,7 +20,9 @@ function head(meta) {
     `<meta http-equiv="Content-Security-Policy" content="${csp}">`,
     `<title>${esc(meta.title)}</title>`,
     `<meta name="description" content="${esc(meta.description)}">`,
-    `<meta name="robots" content="${index && meta.canonical ? 'index,follow,max-image-preview:large' : 'noindex,nofollow'}">`,
+    `<meta name="robots" content="${meta.robots}">`,
+    index && process.env.GOOGLE_SITE_VERIFICATION && `<meta name="google-site-verification" content="${esc(process.env.GOOGLE_SITE_VERIFICATION)}">`,
+    index && process.env.BING_SITE_VERIFICATION && `<meta name="msvalidate.01" content="${esc(process.env.BING_SITE_VERIFICATION)}">`,
     meta.canonical && `<link rel="canonical" href="${meta.canonical}">`,
     meta.alternates && `<link rel="alternate" hreflang="he" href="${meta.alternates.he}">`,
     meta.alternates && `<link rel="alternate" hreflang="en" href="${meta.alternates.en}">`,
@@ -28,6 +30,7 @@ function head(meta) {
     `<meta property="og:type" content="website">`, `<meta property="og:site_name" content="שכטר נדל״ן">`,
     `<meta property="og:title" content="${esc(meta.title)}">`, `<meta property="og:description" content="${esc(meta.description)}">`,
     `<meta property="og:image" content="${meta.image}">`, `<meta property="og:locale" content="${meta.lang === 'he' ? 'he_IL' : 'en_US'}">`,
+    `<meta property="og:image:alt" content="${esc(meta.title)}">`,
     meta.canonical && `<meta property="og:url" content="${meta.canonical}">`,
     `<meta name="twitter:card" content="summary_large_image">`,
     `<script type="application/ld+json" id="ld">${JSON.stringify(meta.jsonLd).replace(/</g, '\\u003c')}</script>`
@@ -45,21 +48,25 @@ const all = routes();
 for (const route of all) write(path.join(route.slice(base.length), 'index.html'), page(route));
 write('404.html', page(base + '404/'));
 
-// sitemap.xml with hreflang pairs, robots.txt.
-const urls = all.filter(r => !r.startsWith(base + 'en/'));
-const abs = r => site + '/' + r.slice(base.length);
+// Canonical URLs, reciprocal language alternates and project images in one sitemap.
+// Omit lastmod until actual per-page modification dates are tracked.
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
-${urls.flatMap(r => { const en = base + 'en/' + r.slice(base.length); return [r, en].map(u => `<url><loc>${abs(u)}</loc><xhtml:link rel="alternate" hreflang="he" href="${abs(r)}"/><xhtml:link rel="alternate" hreflang="en" href="${abs(en)}"/><lastmod>2026-10-26</lastmod></url>`); }).join('\n')}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+${all.map(route => {
+  const {meta} = render(route);
+  const languages = {...meta.alternates, 'x-default': meta.alternates.he};
+  return `<url><loc>${esc(meta.canonical)}</loc>${Object.entries(languages).map(([lang, url]) => `<xhtml:link rel="alternate" hreflang="${lang}" href="${esc(url)}"/>`).join('')}${meta.images.map(url => `<image:image><image:loc>${esc(url)}</image:loc></image:image>`).join('')}</url>`;
+}).join('\n')}
 </urlset>
 `;
 write('sitemap.xml', sitemap);
 write('robots.txt', index ? `User-agent: *\nAllow: /\n\nSitemap: ${site}/sitemap.xml\n` : 'User-agent: *\nDisallow: /\n');
 
 // Redirects: Netlify/Cloudflare format, nginx map, and static fallback pages for hosts without server rules.
-write('_redirects', redirects.map(([from, to]) => `${encodeURI(from)} ${to} 301`).join('\n') + '\n');
+const serverRedirects = [...redirects, ['/sitemap_index.xml', '/sitemap.xml'], ['/wp-sitemap.xml', '/sitemap.xml']];
+write('_redirects', serverRedirects.map(([from, to]) => `${encodeURI(from)} ${to} 301`).join('\n') + '\n');
 fs.writeFileSync(path.join(root, 'deploy/nginx-redirects.conf'), '# Include inside the server block of the production nginx configuration.\n' +
-  redirects.map(([from, to]) => `location = ${encodeURI(from)} { return 301 ${to}; }`).join('\n') + '\n');
+  serverRedirects.map(([from, to]) => `location = ${encodeURI(from)} { return 301 ${to}; }`).join('\n') + '\n');
 for (const [from, to] of redirects) {
   const target = base + to.slice(1);
   if (fs.existsSync(path.join(dist, from, 'index.html'))) continue;

@@ -12,6 +12,9 @@ Bilingual (Hebrew RTL / English LTR) website for Schechter Real Estate, rebuilt 
 npm install
 npm run dev        # development server, http://localhost:5173
 npm run build      # client build + SSR prerender of all 44 routes → dist/
+npm run build:production # indexable build for s-nadlan.com → dist/
+npm run test:seo   # validate crawler-facing HTML, sitemap, schema and preview noindex
+# After build:production, use SITE_INDEX=true npm run test:seo instead.
 npm run preview    # serve dist/ on http://localhost:4173
 npm test           # end-to-end checks against the preview (BROWSER=webkit for Safari's engine)
 npm run media      # regenerate public/media from recovery/wp-originals (needs the local archive)
@@ -46,10 +49,10 @@ The portfolio and home statistics cover 12 occupied, sold-out projects. Per the 
 
 - **Motion**: transforms, opacity and clip-path only; scrubbed by native scroll (no scroll hijacking or smooth-scroll library). Above-the-fold intros are CSS animations so they never wait for JavaScript. System reduced-motion and the on-site setting remove all motion and stop the film.
 - **Video**: the hero film and location clips download only when visible, are muted and pausable, and are skipped entirely with Save-Data or on 2G connections.
-- **Images**: 98 image records / 80 project-gallery images. Cards and large headers choose suitable views separately; small originals are contained at native limits. Responsive selection accounts for image cropping, with variants up to 3840px where the original supports them. `MEDIA_REVIEW.md` lists remaining gaps.
+- **Images**: 100 image records / 80 published project-gallery images, including two client-supplied aerial photographs of Nofei Nehalim (29 October 2026). Cards and large headers choose suitable views separately; small originals are contained at native limits. Responsive selection accounts for image cropping, with variants up to 3840px where the original supports them. `MEDIA_REVIEW.md` lists remaining gaps.
 - **Contact form**: there is no server endpoint. The form validates, then opens a prepared email to info@s-nadlan.com in the visitor's mail app, and says so. Connecting a real form backend or CRM requires updating the privacy policy first.
 - **Privacy**: no cookies, analytics or trackers. Accessibility preferences are kept in `localStorage`. Google Maps loads only after the visitor clicks “Show map”.
-- **SEO**: unique titles/descriptions, canonical and hreflang links, Open Graph, JSON-LD (RealEstateAgent, WebSite, BreadcrumbList, ApartmentComplex, ItemList), `sitemap.xml` and `robots.txt`. The preview is `noindex`; set `SITE_INDEX=true` only for the approved launch.
+- **SEO**: bilingual service titles and individual project descriptions, canonical and hreflang links, Open Graph, JSON-LD (Organization, WebSite, WebPage, BreadcrumbList, ApartmentComplex, Service, ItemList), project images in `sitemap.xml`, and `robots.txt`. The preview is `noindex`; `npm run build:production` enables indexing for the business domain. See `deploy/SEO_LAUNCH.md` for publishing and Search Console setup.
 
 ## Preview deployment
 

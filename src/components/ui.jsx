@@ -4,11 +4,24 @@ import {BASE, useRouter} from '../lib/router.jsx';
 
 // Keeps Tab inside a dialog. Cycles explicitly, because Safari skips buttons by default.
 export function trapTab(e, container) {
-  const items = [...container.querySelectorAll('a[href], button:not([disabled]), input, select, textarea')].filter(el => el.offsetParent !== null || el === document.activeElement);
+  const items = [...container.querySelectorAll('a[href], button, input, select, textarea')].filter(el => !el.disabled && el.tabIndex >= 0 && !el.closest('[inert]') && (el.offsetParent !== null || el === document.activeElement));
   if (!items.length) return;
   e.preventDefault();
   const i = items.indexOf(document.activeElement);
   items[(i + (e.shiftKey ? -1 : 1) + items.length) % items.length].focus();
+}
+
+// Hide background branches from keyboard and assistive technology while a modal is open.
+export function isolateModal(element) {
+  const previous = [];
+  for (let branch = element; branch?.parentElement && branch !== document.body; branch = branch.parentElement) {
+    for (const sibling of branch.parentElement.children) {
+      if (sibling !== branch && !['SCRIPT', 'STYLE'].includes(sibling.tagName)) {
+        previous.push([sibling, sibling.inert]); sibling.inert = true;
+      }
+    }
+  }
+  return () => previous.forEach(([element, inert]) => { element.inert = inert; });
 }
 
 export const asset = path => BASE + path.replace(/^\//, '');
@@ -66,14 +79,14 @@ export const ratio = name => media[name] ? media[name].w / media[name].h : 1.5;
 const constrained = () => { const c = navigator.connection; return !!c && (c.saveData || /2g/.test(c.effectiveType || '')); };
 
 // Muted inline video that only downloads and plays while visible.
-export function LazyVideo({sources, poster, className = '', label, loop = true, playing = true, onEnded}) {
+export function LazyVideo({sources, poster, className = '', label, describedBy, loop = true, playing = true, onEnded, onPlayingChange}) {
   const ref = useRef(null);
   const [active, setActive] = useState(false);
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
     const io = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting && !constrained()) setActive(true);
+      if (entry.isIntersecting && !constrained() && !document.documentElement.classList.contains('reduce-motion')) setActive(true);
       if (!entry.isIntersecting) el.pause();
       else if (playing && !document.documentElement.classList.contains('reduce-motion')) el.play().catch(() => {});
     }, {rootMargin: '200px 0px', threshold: 0.15});
@@ -82,11 +95,21 @@ export function LazyVideo({sources, poster, className = '', label, loop = true, 
   }, [playing, active]);
   useEffect(() => {
     const el = ref.current;
-    if (!el || !active) return;
-    if (playing && !document.documentElement.classList.contains('reduce-motion')) el.play().catch(() => {}); else el.pause();
-  }, [playing, active]);
-  return <video ref={ref} className={className} muted playsInline loop={loop} preload="none" poster={poster} aria-label={label} onEnded={onEnded}
-    disablePictureInPicture>
+    if (!el) return;
+    const media = matchMedia('(prefers-reduced-motion: reduce)');
+    const sync = () => {
+      if (media.matches || document.documentElement.classList.contains('reduce-motion') || constrained()) {
+        el.pause(); onPlayingChange?.(false);
+      } else if (active && playing) el.play().catch(() => {});
+      else el.pause();
+    };
+    sync();
+    window.addEventListener('a11ychange', sync);
+    media.addEventListener('change', sync);
+    return () => { window.removeEventListener('a11ychange', sync); media.removeEventListener('change', sync); };
+  }, [playing, active, onPlayingChange]);
+  return <video ref={ref} className={className} muted playsInline loop={loop} preload="none" poster={poster} aria-label={label} aria-describedby={describedBy} onEnded={onEnded}
+    onPlay={() => onPlayingChange?.(true)} onPause={() => onPlayingChange?.(false)} disablePictureInPicture>
     {active && sources.filter(s => !s.media || matchMedia(s.media).matches).map(s => <source key={s.src} src={s.src} type={s.type}/>)}
   </video>;
 }

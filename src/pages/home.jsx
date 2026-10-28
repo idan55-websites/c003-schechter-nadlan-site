@@ -88,16 +88,17 @@ export default function Home() {
             <source type="image/avif" srcSet={`${v('film-wide-poster.avif')}`}/>
             <img src={v('film-wide-poster.webp')} alt="" width="1904" height="630" fetchPriority="high"/>
           </picture>
-          <LazyVideo className="film-video" sources={filmSources} label={t.film} playing={playing}/>
+          <LazyVideo className="film-video" sources={filmSources} label={t.filmTitle} describedBy="film-description" playing={playing} onPlayingChange={setPlaying}/>
           </div>
         </div>
         <figcaption className="film-caption wrap">
           <span className="film-meta" dir="ltr">SCHECHTER — FILM · 00:30</span>
-          <button type="button" className="film-toggle" onClick={() => setPlaying(!playing)} aria-pressed={!playing}>
+          <button type="button" className="film-toggle" onClick={() => setPlaying(!playing)}>
             {playing ? <Pause size={16}/> : <Play size={16}/>}<span>{playing ? t.pause : t.play}</span>
           </button>
         </figcaption>
       </figure>
+      <p className="film-description wrap" id="film-description">{t.film}</p>
     </section>
 
     <section className="statement wrap" aria-labelledby="statement-label">

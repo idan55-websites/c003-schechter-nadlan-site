@@ -188,6 +188,7 @@ await check('contact form: error summary, field errors, preselected project, dra
 await check('hero film streams and plays; paused and not loaded under reduced motion', async () => {
   const page = await open();
   await page.goto(SITE + '/', {waitUntil: 'load'});
+  await page.locator('.film-video').scrollIntoViewIfNeeded();
   await page.waitForFunction(() => { const v = document.querySelector('.film-video'); return v && v.currentSrc && v.readyState >= 2 && !v.paused; }, null, {timeout: 20000});
   await page.click('.film-toggle');
   assert.ok(await page.evaluate(() => document.querySelector('.film-video').paused));
