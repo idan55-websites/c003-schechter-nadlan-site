@@ -92,7 +92,7 @@ export const recovered = {
     architect: {he: 'דביר יחיעם', en: 'Dvir Yehiam'},
     financing: {he: 'מזרחי טפחות', en: 'Mizrahi Tefahot'},
     soldOut: 'original',
-    tagline: {he: 'מגדל יוקרה בן 19 קומות מול הרי ירושלים.', en: 'A 19-storey luxury tower facing the Jerusalem hills.'}
+    tagline: {he: 'מגדל יוקרה בן 19 קומות.', en: 'A 19-storey luxury tower.'}
   },
   10: {
     slug: 'schechter-dunash', key: 'dunash', clip: 'dunash', emblem: 'dunash', hero: 'dunash-aerial-2',
