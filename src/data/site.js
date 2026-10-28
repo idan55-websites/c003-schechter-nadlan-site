@@ -1,6 +1,6 @@
 // Contact number confirmed by the client on 28 October 2026.
-const phone = '0544259337';
-const phoneE164 = `+972${phone.slice(1)}`;
+const phone = '+972-54-425-9337';
+const phoneE164 = phone.replace(/-/g, '');
 const phoneHref = `tel:${phoneE164}`;
 export const contact = {
   phone, phoneE164, phoneHref,
@@ -43,7 +43,7 @@ export const strings = {
       updates: 'אשמח לקבל עדכונים על פרויקטים נוספים (רשות)', submit: 'שליחת הפנייה',
       note: 'השליחה פותחת טיוטת אימייל מוכנה בתוכנת הדואר שלכם — ההודעה נשלחת רק כשתלחצו על ״שלח״ שם. הפרטים אינם נשמרים באתר.',
       errorsTitle: 'כדי להמשיך, יש לתקן:', errName: 'יש להזין שם מלא.', errPhone: 'יש להזין מספר טלפון תקין, לדוגמה 050-1234567.', errEmail: 'יש להזין כתובת אימייל תקינה, לדוגמה name@example.com.', errConsent: 'יש לאשר את השימוש בפרטים כדי שנוכל לחזור אליכם.',
-      done: `טיוטת האימייל נפתחה. לסיום, לחצו ״שלח״ בתוכנת הדואר. אם לא נפתחה טיוטה, כתבו לנו ישירות ל־${contact.email} או התקשרו ל־${contact.phone}.`,
+      done: `טיוטת האימייל נפתחה. לסיום, לחצו ״שלח״ בתוכנת הדואר. אם לא נפתחה טיוטה, כתבו לנו ישירות ל־${contact.email} או התקשרו ל־\u2066${contact.phone}\u2069.`,
       subject: name => `פנייה מאתר שכטר נדל״ן — ${name}`
     },
     a11y: {open: 'הגדרות נגישות', title: 'נגישות', motion: 'הפחתת תנועה', contrast: 'ניגודיות גבוהה', links: 'הדגשת קישורים', text: 'הגדלת טקסט', reset: 'איפוס הגדרות', statement: 'להצהרת הנגישות'},
