@@ -1,10 +1,11 @@
-// Business details: original website + the client's October 2026 business card.
+// Contact number confirmed by the client on 28 October 2026.
+const phone = '0544259337';
+const phoneE164 = `+972${phone.slice(1)}`;
+const phoneHref = `tel:${phoneE164}`;
 export const contact = {
-  phone: '076-8844262', phoneHref: 'tel:+972768844262',
+  phone, phoneE164, phoneHref,
   email: 'info@s-nadlan.com',
-  fax: '03-5258473',
-  whatsapp: 'https://wa.link/ozfvp7',
-  alex: {email: 'alexs@s-nadlan.com', phone: '+32 473 793 131', phoneHref: 'tel:+32473793131'},
+  alex: {email: 'alexs@s-nadlan.com', phone, phoneHref},
   address: {he: 'כנרת 5, מגדל ב.ס.ר, רמת גן 5158219', en: 'B.S.R. Tower, 5 Kineret Street, Ramat Gan 5158219'},
   addressShort: {he: 'כנרת 5, מגדל ב.ס.ר', en: '5 Kineret St., B.S.R. Tower'},
   maps: 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('מגדל ב.ס.ר 3 כנרת 5'),
@@ -42,7 +43,7 @@ export const strings = {
       updates: 'אשמח לקבל עדכונים על פרויקטים נוספים (רשות)', submit: 'שליחת הפנייה',
       note: 'השליחה פותחת טיוטת אימייל מוכנה בתוכנת הדואר שלכם — ההודעה נשלחת רק כשתלחצו על ״שלח״ שם. הפרטים אינם נשמרים באתר.',
       errorsTitle: 'כדי להמשיך, יש לתקן:', errName: 'יש להזין שם מלא.', errPhone: 'יש להזין מספר טלפון תקין, לדוגמה 050-1234567.', errEmail: 'יש להזין כתובת אימייל תקינה, לדוגמה name@example.com.', errConsent: 'יש לאשר את השימוש בפרטים כדי שנוכל לחזור אליכם.',
-      done: 'טיוטת האימייל נפתחה. לסיום, לחצו ״שלח״ בתוכנת הדואר. אם לא נפתחה טיוטה, כתבו לנו ישירות ל־info@s-nadlan.com או התקשרו ל־076-8844262.',
+      done: `טיוטת האימייל נפתחה. לסיום, לחצו ״שלח״ בתוכנת הדואר. אם לא נפתחה טיוטה, כתבו לנו ישירות ל־${contact.email} או התקשרו ל־${contact.phone}.`,
       subject: name => `פנייה מאתר שכטר נדל״ן — ${name}`
     },
     a11y: {open: 'הגדרות נגישות', title: 'נגישות', motion: 'הפחתת תנועה', contrast: 'ניגודיות גבוהה', links: 'הדגשת קישורים', text: 'הגדלת טקסט', reset: 'איפוס הגדרות', statement: 'להצהרת הנגישות'},
@@ -71,7 +72,7 @@ export const strings = {
       updates: 'Send me updates about other projects (optional)', submit: 'Send inquiry',
       note: 'Sending opens a ready-made email in your mail app — the message is only sent when you press “Send” there. Nothing is stored on this website.',
       errorsTitle: 'To continue, please fix:', errName: 'Please enter your full name.', errPhone: 'Please enter a valid phone number, for example +972 50-123-4567.', errEmail: 'Please enter a valid email address, for example name@example.com.', errConsent: 'Please confirm that we may use your details to respond.',
-      done: 'Your email draft is open. To finish, press “Send” in your mail app. If no draft opened, write to info@s-nadlan.com or call +972 76-884-4262.',
+      done: `Your email draft is open. To finish, press “Send” in your mail app. If no draft opened, write to ${contact.email} or call ${contact.phone}.`,
       subject: name => `Inquiry from the Schechter website — ${name}`
     },
     a11y: {open: 'Accessibility settings', title: 'Accessibility', motion: 'Reduce motion', contrast: 'High contrast', links: 'Highlight links', text: 'Larger text', reset: 'Reset settings', statement: 'Accessibility statement'},

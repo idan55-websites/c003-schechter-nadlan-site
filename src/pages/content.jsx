@@ -4,7 +4,7 @@ import {strings, contact, press} from '../data/site.js';
 import {completedProjects, bySlug, byId} from '../data/projects.js';
 import {aboutStory, urbanStory} from '../data/recovered.js';
 import media from '../data/media.json';
-import {Link, Picture, Lines, Label, Arrow, ArrowDiag, Phone, Mail, Pin, Chat} from '../components/ui.jsx';
+import {Link, Picture, Lines, Label, Arrow, ArrowDiag, Phone, Mail, Pin} from '../components/ui.jsx';
 import {ContactForm} from '../components/contact-form.jsx';
 import {ProjectCard} from '../components/project-ui.jsx';
 
@@ -138,11 +138,9 @@ export function Contact() {
       <aside className="contact-card" aria-label={t.footer.contactTitle}>
         <a href={contact.phoneHref} className="contact-row"><Phone size={22}/><span><small>{he ? 'חייגו אלינו' : 'Call us'}</small><strong dir="ltr">{contact.phone}</strong></span></a>
         <a href={`mailto:${contact.email}`} className="contact-row"><Mail size={22}/><span><small>{he ? 'כתבו לנו' : 'Write to us'}</small><strong>{contact.email}</strong></span></a>
-        <a href={contact.whatsapp} className="contact-row" target="_blank" rel="noopener noreferrer"><Chat size={22}/><span><small>WhatsApp</small><strong>{he ? 'שיחה עם נציג' : 'Chat with us'}</strong></span></a>
         <div className="contact-row"><Pin size={22}/><span><small>{he ? 'בואו לבקר' : 'Visit us'}</small><strong>{contact.address[lang]}</strong><span>{contact.hours[lang]}</span>
           <span className="contact-nav"><a href={contact.maps} target="_blank" rel="noopener noreferrer">Google Maps<ArrowDiag size={14}/></a><a href={contact.waze} target="_blank" rel="noopener noreferrer">Waze<ArrowDiag size={14}/></a></span></span></div>
         <div className="contact-row contact-alex"><span><small>{he ? 'אלכס שכטר' : 'Alex Schechter'}</small><a href={`mailto:${contact.alex.email}`}>{contact.alex.email}</a><a href={contact.alex.phoneHref} dir="ltr">{contact.alex.phone}</a></span></div>
-        <p className="muted small">{he ? 'פקס' : 'Fax'}: <span dir="ltr">{contact.fax}</span></p>
       </aside>
     </section>
     <section className="map wrap" aria-label={he ? 'מפת הגעה' : 'Map'}>
@@ -153,7 +151,7 @@ export function Contact() {
   </>;
 }
 
-const updated = {he: '26 באוקטובר 2026', en: '26 October 2026'};
+const updated = {he: '28 באוקטובר 2026', en: '28 October 2026'};
 
 export function Accessibility() {
   const {route: {lang}} = useRouter();
@@ -190,7 +188,6 @@ export function Accessibility() {
       <ul className="plain">
         <li>טלפון: <a href={contact.phoneHref} dir="ltr">{contact.phone}</a> ({contact.hours.he})</li>
         <li>דואר אלקטרוני: <a href={`mailto:${contact.email}?subject=${encodeURIComponent('פנייה בנושא נגישות')}`}>{contact.email}</a></li>
-        <li>פקס: <span dir="ltr">{contact.fax}</span></li>
         <li>דואר: שכטר נדל״ן, {contact.address.he}</li>
       </ul>
     </> : <>
@@ -218,7 +215,7 @@ export function Accessibility() {
       <p>According to the company’s original accessibility statement, the B.S.R. Tower offers accessible parking (including for high vehicles), step-free access from the car park through the lobby and elevators, accessible restrooms and wayfinding signage, and service animals are welcome. Our office staff can provide further assistance; please let us know before your visit.</p>
       <h2>Contact us about accessibility</h2>
       <ul className="plain">
-        <li>Phone: <a href={contact.phoneHref} dir="ltr">+972 76-884-4262</a> ({contact.hours.en})</li>
+        <li>Phone: <a href={contact.phoneHref} dir="ltr">{contact.phone}</a> ({contact.hours.en})</li>
         <li>Email: <a href={`mailto:${contact.email}?subject=Accessibility`}>{contact.email}</a></li>
         <li>Post: Schechter Real Estate, {contact.address.en}</li>
       </ul>
@@ -239,12 +236,12 @@ export function Privacy() {
       <ul>
         <li><strong>פניות באמצעות הטופס:</strong> שם, טלפון, ואם בחרתם — אימייל, פרויקט מבוקש והודעה. הטופס אינו שולח מידע לשרת: הוא פותח טיוטת אימייל בתוכנת הדואר שלכם, והמידע מגיע לחברה רק אם תשלחו אותה. המידע משמש לחזרה אליכם ולטיפול בפנייה בלבד.</li>
         <li><strong>עדכונים על פרויקטים:</strong> רק אם סימנתם זאת במפורש. ניתן להסיר את ההסכמה בכל עת בפנייה אלינו, וכל דיוור שיווקי יכלול אפשרות הסרה.</li>
-        <li><strong>פנייה בטלפון, באימייל או ב־WhatsApp:</strong> המידע שתמסרו משמש לטיפול בפנייה. WhatsApp מופעל על ידי Meta, בהתאם למדיניות הפרטיות שלה.</li>
+        <li><strong>פנייה בטלפון או באימייל:</strong> המידע שתמסרו משמש לטיפול בפנייה.</li>
       </ul>
       <p>אינכם חייבים על פי חוק למסור מידע. ללא שם ואמצעי התקשרות לא נוכל לחזור אליכם.</p>
       <h2>עוגיות, אנליטיקה ואחסון בדפדפן</h2>
       <p>האתר אינו משתמש בעוגיות, בכלי אנליטיקה, בפיקסלים שיווקיים או בפרסום מותאם. העדפות הנגישות שבחרתם נשמרות בדפדפן שלכם בלבד (localStorage) כדי שיישמרו בין העמודים, ואינן נשלחות אלינו. ספק האחסון של האתר מעבד נתוני גישה טכניים (כגון כתובת IP וסוג דפדפן) לצורכי אבטחה ותפעול.</p>
-      <p>מפת Google בעמוד יצירת הקשר נטענת רק לאחר שתלחצו ״הצגת המפה״. מאותו רגע Google עשויה לאסוף מידע ולהציב עוגיות בהתאם למדיניות שלה. קישורים לשירותים חיצוניים (Google Maps, Waze, WhatsApp) כפופים למדיניות של אותם שירותים.</p>
+      <p>מפת Google בעמוד יצירת הקשר נטענת רק לאחר שתלחצו ״הצגת המפה״. מאותו רגע Google עשויה לאסוף מידע ולהציב עוגיות בהתאם למדיניות שלה. קישורים לשירותים חיצוניים (Google Maps, Waze) כפופים למדיניות של אותם שירותים.</p>
       <h2>מי מקבל את המידע</h2>
       <p>המידע נגיש לעובדי החברה ולנותני שירותים הפועלים מטעמה (כגון ספקי דואר אלקטרוני ואחסון), לצורך הטיפול בפנייה בלבד ובכפוף לחובת סודיות. איננו מוכרים מידע אישי. ייתכן שספקי שירות מאחסנים מידע מחוץ לישראל, בהתאם להוראות הדין.</p>
       <h2>שמירה ואבטחה</h2>
@@ -259,18 +256,18 @@ export function Privacy() {
       <ul>
         <li><strong>Inquiry form:</strong> your name, phone and, if you choose, email, project of interest and message. The form does not send anything to a server — it opens an email draft in your mail app, and the company receives it only if you send it. We use it only to respond to your inquiry.</li>
         <li><strong>Project updates:</strong> only if you explicitly tick the box. You can withdraw at any time, and every marketing message includes an unsubscribe option.</li>
-        <li><strong>Phone, email or WhatsApp:</strong> what you share is used to handle your request. WhatsApp is operated by Meta under its own privacy policy.</li>
+        <li><strong>Phone or email:</strong> what you share is used to handle your request.</li>
       </ul>
       <p>You are not legally required to provide data, but without a name and a way to reach you we cannot respond.</p>
       <h2>Cookies, analytics and browser storage</h2>
       <p>This website uses no cookies, analytics, marketing pixels or targeted advertising. Your accessibility preferences are stored only in your browser (localStorage) so they persist between pages; they are never sent to us. Our hosting provider processes technical access data (such as IP address and browser type) for security and operations.</p>
-      <p>The Google map on the contact page loads only after you click “Show map”; from then on Google may collect data and set cookies under its own policy. Links to external services (Google Maps, Waze, WhatsApp) are subject to their policies.</p>
+      <p>The Google map on the contact page loads only after you click “Show map”; from then on Google may collect data and set cookies under its own policy. Links to external services (Google Maps, Waze) are subject to their policies.</p>
       <h2>Who receives your data</h2>
       <p>Company staff and service providers acting on our behalf (such as email and hosting providers), only to handle your inquiry and under confidentiality. We never sell personal data. Some providers may store data outside Israel, as permitted by law.</p>
       <h2>Retention and security</h2>
       <p>Inquiry data is kept only as long as needed to handle your request, for an ongoing business relationship or as required by law, and is then deleted. We apply reasonable security measures under the Israeli Privacy Protection (Data Security) Regulations. The website is served over HTTPS.</p>
       <h2>Your rights</h2>
-      <p>You may access the data we hold about you, ask us to correct or delete it, and ask to be removed from any mailing list. If you are in the EU or EEA, you also have your rights under the GDPR, including restriction, portability, objection and the right to complain to a supervisory authority. Contact: <a href={`mailto:${contact.email}?subject=Privacy request`}>{contact.email}</a> or <a href={contact.phoneHref} dir="ltr">+972 76-884-4262</a>. You may also contact the Israeli Privacy Protection Authority.</p>
+      <p>You may access the data we hold about you, ask us to correct or delete it, and ask to be removed from any mailing list. If you are in the EU or EEA, you also have your rights under the GDPR, including restriction, portability, objection and the right to complain to a supervisory authority. Contact: <a href={`mailto:${contact.email}?subject=Privacy request`}>{contact.email}</a> or <a href={contact.phoneHref} dir="ltr">{contact.phone}</a>. You may also contact the Israeli Privacy Protection Authority.</p>
       <h2>Changes</h2>
       <p>We will update this policy when the website’s services change. The date above shows the latest update.</p>
     </>}

@@ -2,7 +2,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import {href, useRouter} from '../lib/router.jsx';
 import {strings, contact} from '../data/site.js';
 import {featured} from '../data/projects.js';
-import {Link, asset, trapTab, Phone, Mail, Close, Access, Chat, ArrowDiag, Picture} from './ui.jsx';
+import {Link, asset, trapTab, Phone, Mail, Close, Access, ArrowDiag, Picture} from './ui.jsx';
 
 const navPages = [['projects', 'projects'], ['about', 'about'], ['urban-renewal', 'urban'], ['press', 'media'], ['contact', 'contact']];
 
@@ -98,7 +98,6 @@ export function Menu({open, onClose}) {
         <div className="menu-contact">
           <a href={contact.phoneHref}><Phone size={18}/><span dir="ltr">{contact.phone}</span></a>
           <a href={`mailto:${contact.email}`}><Mail size={18}/>{contact.email}</a>
-          <a href={contact.whatsapp} target="_blank" rel="noopener noreferrer"><Chat size={18}/>WhatsApp</a>
           <a className="menu-lang" href={href(other, route.page, route.slug)} lang={other} hrefLang={other}>{t.switchLang}</a>
         </div>
       </div>
@@ -125,7 +124,6 @@ export function Footer() {
       <div className="footer-col"><h2>{t.footer.contactTitle}</h2>
         <a href={contact.phoneHref} dir="ltr">{contact.phone}</a>
         <a href={`mailto:${contact.email}`}>{contact.email}</a>
-        <a href={contact.whatsapp} target="_blank" rel="noopener noreferrer">WhatsApp</a>
         <address>{contact.address[lang]}<br/>{contact.hours[lang]}</address>
       </div>
       <nav className="footer-col" aria-label={t.footer.legal}><h2>{t.footer.legal}</h2>

@@ -14,7 +14,7 @@ const descriptions = {
     'urban-renewal': 'שכטר 38 — התחדשות עירונית, תמ״א 38/2 ופינוי בינוי בשותפות ובשקיפות מלאה עם הדיירים. עשרות בניינים בפריסה ארצית.',
     press: 'כתבות נבחרות על שכטר נדל״ן ועל פעילות החברה בהתחדשות עירונית, מתוך ארכיון החברה.',
     residents: 'שירות לדיירים של שכטר נדל״ן — פנייה לצוות החברה בנושא הדירה והפרויקט.',
-    contact: 'צרו קשר עם שכטר נדל״ן לתיאום פגישה אישית: 076-8844262, info@s-nadlan.com. מגדל ב.ס.ר, כנרת 5.',
+    contact: `צרו קשר עם שכטר נדל״ן לתיאום פגישה אישית: ${contact.phone}, ${contact.email}. מגדל ב.ס.ר, כנרת 5.`,
     accessibility: 'הצהרת הנגישות של אתר שכטר נדל״ן והסדרי הנגישות במשרדי החברה.',
     privacy: 'מדיניות הפרטיות של אתר שכטר נדל״ן: איזה מידע נאסף, למה, ומהן זכויותיכם.',
     sitemap: 'מפת האתר של שכטר נדל״ן — כל העמודים והפרויקטים.',
@@ -27,7 +27,7 @@ const descriptions = {
     'urban-renewal': 'Schechter 38 — urban renewal, TAMA 38/2 and vacate-and-rebuild in partnership and full transparency with residents.',
     press: 'Selected press coverage of Schechter Real Estate and its urban renewal work, from the company archive.',
     residents: 'Resident services — contact the Schechter Real Estate team about your apartment or project.',
-    contact: 'Contact Schechter Real Estate to book a personal meeting: +972 76-884-4262, info@s-nadlan.com. B.S.R. Tower, 5 Kineret St.',
+    contact: `Contact Schechter Real Estate to book a personal meeting: ${contact.phone}, ${contact.email}. B.S.R. Tower, 5 Kineret St.`,
     accessibility: 'Accessibility statement for the Schechter Real Estate website and office accessibility arrangements.',
     privacy: 'Privacy policy of the Schechter Real Estate website: what we collect, why, and your rights.',
     sitemap: 'Sitemap of the Schechter Real Estate website.',
@@ -48,7 +48,7 @@ export function getMeta(route) {
   const alternates = path ? {he: abs(href('he', page, slug)), en: abs(href('en', page, slug))} : null;
   const org = {
     '@type': 'RealEstateAgent', '@id': SITE + '/#organization', name: strings.he.brand, alternateName: strings.en.brand, url: SITE + '/',
-    logo: SITE + '/media/brand/logo-dark.png', image: SITE + '/og-image.jpg', telephone: '+972-76-884-4262', email: contact.email, faxNumber: '+972-3-525-8473',
+    logo: SITE + '/media/brand/logo-dark.png', image: SITE + '/og-image.jpg', telephone: contact.phoneE164, email: contact.email,
     address: {'@type': 'PostalAddress', streetAddress: lang === 'he' ? 'כנרת 5, מגדל ב.ס.ר' : '5 Kineret St., B.S.R. Tower', addressLocality: lang === 'he' ? 'רמת גן' : 'Ramat Gan', postalCode: '5158219', addressCountry: 'IL'},
     foundingDate: '2006', areaServed: 'IL'
   };
