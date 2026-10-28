@@ -11,7 +11,7 @@ Bilingual (Hebrew RTL / English LTR) website for Schechter Real Estate, rebuilt 
 ```sh
 npm install
 npm run dev        # development server, http://localhost:5173
-npm run build      # client build + SSR prerender of all 60 routes → dist/
+npm run build      # client build + SSR prerender of all 44 routes → dist/
 npm run preview    # serve dist/ on http://localhost:4173
 npm test           # end-to-end checks against the preview (BROWSER=webkit for Safari's engine)
 npm run media      # regenerate public/media from recovery/wp-originals (needs the local archive)
@@ -38,9 +38,9 @@ Install browsers for testing once with `npx playwright install chromium webkit`.
 
 ## Routes
 
-Hebrew at `/`, English at `/en/`: home, `projects/`, `projects/<slug>/` (20 published projects), `about/`, `urban-renewal/`, `press/`, `residents/`, `contact/` (`?project=<slug>` preselects a project), `accessibility/`, `privacy/`, `sitemap/`. All 50 old WordPress URLs and the previous preview's `#/…` links redirect to their new pages.
+Hebrew at `/`, English at `/en/`: home, `projects/`, `projects/<slug>/` (12 published projects), `about/`, `urban-renewal/`, `press/`, `residents/`, `contact/` (`?project=<slug>` preselects a project), `accessibility/`, `privacy/`, `sitemap/`. The 34 retained old WordPress URLs and the previous preview's `#/…` links redirect to their new pages.
 
-The main portfolio and home statistics cover 12 occupied, sold-out projects. Eight future projects retain their pages in a collapsed secondary list. Per the owner's 28 October 2026 update, Sirkin 19, Schechter Rishonim, HaLapid 1, Assaf 32 and Ahisamach are unpublished (`published: false`): their archive records remain, but they have no public routes, form options or sitemap entries.
+The portfolio and home statistics cover 12 occupied, sold-out projects. Per the owner's 28 October 2026 update, all eight future projects have been deleted from the project data, translations, routes, redirects, forms and sitemaps. Sirkin 19, Schechter Rishonim, HaLapid 1, Assaf 32 and Ahisamach remain unpublished (`published: false`): their archive records remain, but they have no public routes, form options or sitemap entries.
 
 ## Behaviour notes
 

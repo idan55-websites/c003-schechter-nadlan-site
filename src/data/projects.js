@@ -34,8 +34,8 @@ export const projects = records.map((p, i) => {
     architect: r.architect,
     // Client-confirmed financing (Oct 2026 update) takes precedence over the original site.
     financing: p.financed_by ? pair(p.financed_by, 'Mercantile Bank') : r.financing,
-    // Client confirmation, 28 Oct 2026: all non-future projects are occupied and sold out.
-    soldOut: p.category !== 'future',
+    // Client confirmation, 28 Oct 2026: all published projects are occupied and sold out.
+    soldOut: p.category === 'completed',
     gallery,
     cover,
     hero,
@@ -46,7 +46,6 @@ export const projects = records.map((p, i) => {
 }).filter(p => p.published);
 
 export const completedProjects = projects.filter(p => p.category === 'completed');
-export const futureProjects = projects.filter(p => p.category === 'future');
 export const bySlug = Object.fromEntries(projects.map(p => [p.slug, p]));
 export const byId = Object.fromEntries(projects.map(p => [p.id, p]));
 export const featured = ['1', '6', '2', '7', '10'].map(id => byId[id]);

@@ -333,17 +333,6 @@ html.js:not(.reduce-motion) .film-frame { clip-path: inset(0% 7% 0% 7% round 14p
 .catalog-count { margin-block: 28px 36px; color: var(--muted); font: 400 .95rem/1.5 var(--sans); }
 .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(40px, 5vw, 72px) clamp(20px, 2.4vw, 36px); }
 .empty { padding: 80px 0; display: grid; justify-items: start; gap: 20px; font-size: 1.2rem; }
-.future-projects { margin-top: 64px; border-block: 1px solid var(--line); }
-.future-projects summary { display: flex; justify-content: space-between; align-items: center; gap: 20px; min-height: 72px; cursor: pointer; list-style: none; }
-.future-projects summary::-webkit-details-marker { display: none; }
-.future-projects summary i { position: relative; flex: none; width: 16px; height: 16px; }
-.future-projects summary i::before, .future-projects summary i::after { content: ''; position: absolute; inset: 50% 0 auto; height: 1px; background: currentColor; }
-.future-projects summary i::after { transform: rotate(90deg); }
-.future-projects[open] summary i::after { transform: rotate(0); }
-.future-projects li { border-top: 1px solid var(--line); }
-.future-projects > ul > li > a { display: grid; grid-template-columns: minmax(0, 1fr) auto 18px; align-items: center; gap: 16px; min-height: 64px; padding-block: 16px; }
-.future-projects li small { color: var(--muted); }
-.future-projects li a:hover { color: var(--teal-ink); }
 
 /* Card */
 .card-link { display: block; }

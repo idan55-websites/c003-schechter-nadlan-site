@@ -14,7 +14,7 @@ Production: `SITE_INDEX=true npm run build`.
 
 ## Redirects from the WordPress URLs
 
-The build writes the same 50 permanent redirects in three forms:
+The build writes the same 34 permanent redirects in three forms:
 
 - `dist/_redirects` — Netlify / Cloudflare Pages (served as real 301s).
 - `deploy/nginx-redirects.conf` — `include` inside the nginx `server {}` block of the current SpinupWP/nginx host.

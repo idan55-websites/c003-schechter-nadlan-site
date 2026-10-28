@@ -1,7 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {href, useRouter} from '../lib/router.jsx';
 import {strings} from '../data/site.js';
-import {futureProjects} from '../data/projects.js';
 import {Link, Picture, Arrow, ArrowDiag, Close, asset, trapTab} from './ui.jsx';
 
 export function Status({p, lang}) {
@@ -31,20 +30,6 @@ export function ProjectCard({p, sizes = '(min-width: 1100px) 33vw, (min-width: 7
       </div>
     </Link>
   </article>;
-}
-
-export function FutureProjects() {
-  const {route: {lang}, search} = useRouter();
-  const [open, setOpen] = useState(false);
-  // Keep the first render identical to the static HTML, including on query links.
-  useEffect(() => { setOpen(new URLSearchParams(search).get('stage') === 'future'); }, [search]);
-  useEffect(() => { window.dispatchEvent(new CustomEvent('content-change')); }, [open]);
-  return <details className="future-projects" open={open} onToggle={e => setOpen(e.currentTarget.open)}>
-    <summary><h2 className="h-small">{strings[lang].categoriesLong.future}</h2><i aria-hidden="true"/></summary>
-    <ul role="list">{futureProjects.map(p => <li key={p.id}>
-      <Link to={href(lang, 'project', p.slug)}><span>{p.name[lang]}</span><small>{p.city[lang]}</small><ArrowDiag size={18}/></Link>
-    </li>)}</ul>
-  </details>;
 }
 
 // Editorial gallery: a lead image, then a rhythmic grid. Opens a lightbox.

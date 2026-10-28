@@ -3,7 +3,7 @@ import {href, useRouter} from '../lib/router.jsx';
 import {strings, contact} from '../data/site.js';
 import {projects, completedProjects, bySlug} from '../data/projects.js';
 import {Link, Picture, LazyVideo, Lines, Label, Arrow, ArrowDiag, Search, Close, Pin, asset} from '../components/ui.jsx';
-import {ProjectCard, FutureProjects, Gallery, Status, Emblem} from '../components/project-ui.jsx';
+import {ProjectCard, Gallery, Status, Emblem} from '../components/project-ui.jsx';
 
 const normalize = s => s.toLowerCase().replace(/[\p{P}\p{Z}\p{M}״׳"']/gu, '');
 
@@ -37,7 +37,6 @@ export function Projects() {
       <h2 className="catalog-count" aria-live="polite">{t.categoriesLong.completed} · {t.results(list.length)}</h2>
       {list.length ? <div className="card-grid">{list.map((p, i) => <ProjectCard key={p.id} p={p} index={i}/>)}</div> :
         <div className="empty"><p>{t.empty}</p><button type="button" className="btn btn-line" onClick={() => { setCity(''); setQ(''); }}>{t.reset}</button></div>}
-      <FutureProjects/>
     </section>
   </>;
 }

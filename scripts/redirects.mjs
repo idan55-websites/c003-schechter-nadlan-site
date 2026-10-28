@@ -1,7 +1,6 @@
 // Permanent (301) redirects from the original WordPress URLs to the new routes.
 // Source: recovery/wp-originals/content (REST "link" of every page and post).
 const project = slug => `/projects/${slug}/`;
-const future = {3719: 'beeri-31', 3710: 'dov-friedman-21-23', 3701: 'tirza-jerusalem-boulevard', 3698: 'harishonim-9', 3695: 'gordon-35', 3692: 'teraad-16', 3689: 'abba-hillel-63-65', 3657: 'arlozorov-34'};
 const he = {
   '/פרויקטים/': '/projects/', '/אודות/': '/about/', '/שכטר-38/': '/urban-renewal/', '/צור-קשר/': '/contact/',
   '/הצהרת-נגישות/': '/accessibility/', '/privacy-policy/': '/privacy/',
@@ -11,7 +10,6 @@ const he = {
   '/שכטר-בחי״ל/מאוכלס/': project('schechter-hahayil'), '/שכטר-premium/מאוכלס/': project('schechter-premium'),
   '/שכטר-בדונש/מאוכלס/': project('schechter-dunash'), '/שכטר-family/בבנייה/': project('schechter-family'),
   '/שכטר-בגליל-ים/מאוכלס/': project('schechter-galil-yam'), '/כנפי-נשרים/מאוכלס/': project('schechter-knafei-nesharim'),
-  ...Object.fromEntries(Object.entries(future).map(([id, slug]) => [`/${id}/עתידי/`, project(slug)]))
 };
 const en = {
   '/en/home/': '/en/', '/en/about-us/': '/en/about/', '/en/contact-us/': '/en/contact/', '/en/schechter-38-en/': '/en/urban-renewal/',
@@ -21,6 +19,5 @@ const en = {
   '/en/schechter-premium/populated/': '/en' + project('schechter-premium'), '/en/schechter-in-abigail/under-construction/': '/en' + project('schechter-abigail'),
   '/en/schechter-in-galil-yam/populated/': '/en' + project('schechter-galil-yam'), '/en/schechter-in-geffen/under-construction/': '/en' + project('schechter-gefen'),
   '/en/schechter-in-hachayal/under-construction/': '/en' + project('schechter-hahayil'), '/en/schechter-in-kanfei-nesharim/populated/': '/en' + project('schechter-knafei-nesharim'),
-  ...Object.fromEntries(Object.entries(future).map(([id, slug]) => [`/en/${id}/future-projects/`, '/en' + project(slug)]))
 };
 export const redirects = Object.entries({...he, ...en});

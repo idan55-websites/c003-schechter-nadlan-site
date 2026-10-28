@@ -44,7 +44,8 @@ await check(`${routes.length} prerendered routes: content, language, metadata, n
         lang: document.documentElement.lang, dir: document.documentElement.dir, h1: document.querySelectorAll('h1').length,
         title: document.title, canonical: document.querySelector('link[rel=canonical]')?.href, desc: document.querySelector('meta[name=description]')?.content,
         overflow: document.documentElement.scrollWidth - innerWidth, ld: (() => { try { return !!JSON.parse(document.getElementById('ld').textContent); } catch { return false; } })(),
-        hebrewInEnglish: document.documentElement.lang === 'en' && /[֐-׿]/.test(document.querySelector('main').innerText.replace(/שכטר נדל״ן — לגור בסטנדרט אירופאי/g, ''))
+        hebrewInEnglish: document.documentElement.lang === 'en' && /[֐-׿]/.test(document.querySelector('main').innerText.replace(/שכטר נדל״ן — לגור בסטנדרט אירופאי/g, '')),
+        removedCity: /תל[\s־–-]*אביב|tel[\s–-]*aviv/i.test(document.documentElement.outerHTML)
       }));
       const en = decodeURIComponent(r).startsWith('/en/');
       assert.equal(info.lang, en ? 'en' : 'he', r); assert.equal(info.dir, en ? 'ltr' : 'rtl', r);
@@ -53,6 +54,7 @@ await check(`${routes.length} prerendered routes: content, language, metadata, n
       assert.ok(info.canonical || r.includes('404'), `${r}: canonical`);
       assert.ok(info.overflow <= 0, `${r} @${viewport.width}: horizontal overflow ${info.overflow}px`);
       assert.ok(!info.hebrewInEnglish, `${r}: Hebrew text on an English page`);
+      assert.ok(!info.removedCity, `${r}: removed city mention`);
     }
     assert.deepEqual(page.errors, []);
     await page.context().close();
@@ -101,12 +103,14 @@ await check('language switch keeps the current page', async () => {
   await page.context().close();
 });
 
-await check('catalog: published projects, city filter, search and secondary future list', async () => {
+await check('catalog: published projects, removed pages, city filter and search', async () => {
   const page = await open();
   await page.goto(SITE + '/projects/', {waitUntil: 'networkidle'});
   const count = () => page.locator('.card').count();
   assert.equal(await count(), 12);
-  const removed = ['sirkin-19', 'schechter-rishonim', 'halapid-1', 'assaf-32', 'ahisamach'];
+  const removed = ['sirkin-19', 'schechter-rishonim', 'halapid-1', 'assaf-32', 'ahisamach',
+    'beeri-31', 'dov-friedman-21-23', 'tirza-jerusalem-boulevard', 'harishonim-9',
+    'gordon-35', 'teraad-16', 'abba-hillel-63-65', 'arlozorov-34'];
   const sitemap = fs.readFileSync(path.join(dist, 'sitemap.xml'), 'utf8');
   for (const slug of removed) {
     assert.equal(await page.locator(`a[href*="/projects/${slug}/"]`).count(), 0);
@@ -121,13 +125,9 @@ await check('catalog: published projects, city filter, search and secondary futu
   await page.fill('.search input', 'zzzz');
   await page.locator('.empty').waitFor();
   await page.fill('.search input', '');
-  const future = page.locator('.future-projects');
-  assert.equal(await future.evaluate(el => el.open), false);
-  await future.locator('summary').click();
-  assert.equal(await future.locator('a:visible').count(), 8);
-  assert.equal(await count(), 12);
   await page.goto(SITE + '/projects/?stage=future', {waitUntil: 'networkidle'});
-  assert.equal(await future.evaluate(el => el.open), true);
+  assert.equal(await count(), 12);
+  assert.equal(await page.locator('.future-projects').count(), 0);
   await page.context().close();
 });
 
@@ -179,7 +179,8 @@ await check('contact form: error summary, field errors, preselected project, dra
   await page.click('.contact-form button[type=submit]');
   await page.waitForFunction(() => document.querySelector('.form-done').textContent.length > 10);
   await page.goto(SITE + '/contact/?project=beeri-31', {waitUntil: 'networkidle'});
-  assert.equal(await page.locator('select[name=project]').inputValue(), 'בארי 31');
+  assert.equal(await page.locator('select[name=project]').inputValue(), '');
+  assert.equal(await page.locator('select[name=project] option').count(), 13);
   assert.deepEqual(page.errors, []);
   await page.context().close();
 });
@@ -225,8 +226,12 @@ await check('accessibility settings persist and apply', async () => {
   await page.click('.a11y-trigger');
   await page.getByRole('switch', {name: 'ניגודיות גבוהה'}).click();
   await page.getByRole('switch', {name: 'הפחתת תנועה'}).click();
+  await page.waitForFunction(() => {
+    const saved = JSON.parse(localStorage.getItem('a11y') || '{}');
+    return saved.contrast && saved.motion && document.documentElement.classList.contains('high-contrast') && document.documentElement.classList.contains('reduce-motion');
+  });
   assert.ok(await page.evaluate(() => document.documentElement.classList.contains('high-contrast') && document.documentElement.classList.contains('reduce-motion')));
-  await page.reload();
+  await page.reload({waitUntil: 'networkidle'});
   assert.ok(await page.evaluate(() => document.documentElement.classList.contains('high-contrast')));
   await page.context().close();
 });

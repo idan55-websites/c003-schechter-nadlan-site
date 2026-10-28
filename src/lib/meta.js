@@ -8,7 +8,7 @@ const abs = path => SITE + path.replace(import.meta.env.BASE_URL, '/');
 
 const descriptions = {
   he: {
-    home: 'שכטר נדל״ן — יזמות, בנייה והתחדשות עירונית בסטנדרט אירופאי מאז 2006. בנייני בוטיק ומגדלי מגורים ברמת גן, גבעתיים, הרצליה, רחובות ותל אביב.',
+    home: 'שכטר נדל״ן — יזמות, בנייה והתחדשות עירונית בסטנדרט אירופאי מאז 2006. בנייני בוטיק ומגדלי מגורים ברמת גן, גבעתיים, הרצליה ורחובות.',
     projects: 'הפרויקטים המאוכלסים של שכטר נדל״ן ברמת גן, גבעתיים, הרצליה, רחובות, פתח תקווה וגבעת זאב. כל הדירות בפרויקטים המאוכלסים נמכרו.',
     about: 'שכטר נדל״ן בבעלות משפחת שכטר, הפועלים באירופה ובישראל ומשקיעים בנדל״ן בארץ מאז 2006. סטנדרט בנייה גבוה, יושרה, אמינות וליווי אישי.',
     'urban-renewal': 'שכטר 38 — התחדשות עירונית, תמ״א 38/2 ופינוי בינוי בשותפות ובשקיפות מלאה עם הדיירים. עשרות בניינים בפריסה ארצית.',
@@ -21,7 +21,7 @@ const descriptions = {
     'not-found': 'העמוד המבוקש לא נמצא באתר שכטר נדל״ן.'
   },
   en: {
-    home: 'Schechter Real Estate — residential development, construction and urban renewal to a European standard since 2006, in Ramat Gan, Givatayim, Herzliya, Rehovot and Tel Aviv.',
+    home: 'Schechter Real Estate — residential development, construction and urban renewal to a European standard since 2006, in Ramat Gan, Givatayim, Herzliya and Rehovot.',
     projects: 'Schechter Real Estate’s completed and occupied projects in Ramat Gan, Givatayim, Herzliya, Rehovot, Petah Tikva and Givat Ze’ev. All apartments in these projects are sold out.',
     about: 'Schechter Real Estate is owned by the Schechter family, active in Europe and Israel and investing in Israeli real estate since 2006.',
     'urban-renewal': 'Schechter 38 — urban renewal, TAMA 38/2 and vacate-and-rebuild in partnership and full transparency with residents.',

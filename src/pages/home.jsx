@@ -20,7 +20,7 @@ const copy = {
   he: {
     kicker: 'שכטר נדל״ן · יזמות, בנייה והתחדשות עירונית',
     title: ['לגור', 'בסטנדרט', 'אירופאי.'],
-    intro: 'בנייני בוטיק, מגדלי מגורים והתחדשות עירונית ברמת גן, גבעתיים, הרצליה, רחובות ותל אביב — בהקפדה של מסורת בנייה אירופאית.',
+    intro: 'בנייני בוטיק, מגדלי מגורים והתחדשות עירונית ברמת גן, גבעתיים, הרצליה ורחובות — בהקפדה של מסורת בנייה אירופאית.',
     explore: 'לגלות את הפרויקטים',
     statementLabel: 'החברה',
     statement: 'שכטר נדל״ן היא חברה לייזום פרויקטים מהמובילות והחדשניות בישראל. החברה בבעלות משפחת שכטר, הפועלים באירופה ובישראל ומשקיעים בנדל״ן בארץ מאז 2006.',
@@ -40,7 +40,7 @@ const copy = {
   en: {
     kicker: 'Schechter Real Estate · Development, construction & urban renewal',
     title: ['Living to a', 'European', 'standard.'],
-    intro: 'Boutique buildings, residential towers and urban renewal in Ramat Gan, Givatayim, Herzliya, Rehovot and Tel Aviv — built with the care of a European tradition.',
+    intro: 'Boutique buildings, residential towers and urban renewal in Ramat Gan, Givatayim, Herzliya and Rehovot — built with the care of a European tradition.',
     explore: 'Explore the projects',
     statementLabel: 'The company',
     statement: 'Schechter Real Estate initiates some of the leading and most innovative residential projects in Israel. The company is owned by the Schechter family, who operate in Europe and Israel and have invested in Israeli real estate since 2006.',

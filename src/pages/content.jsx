@@ -6,7 +6,7 @@ import {aboutStory, urbanStory} from '../data/recovered.js';
 import media from '../data/media.json';
 import {Link, Picture, Lines, Label, Arrow, ArrowDiag, Phone, Mail, Pin, Chat} from '../components/ui.jsx';
 import {ContactForm} from '../components/contact-form.jsx';
-import {ProjectCard, FutureProjects} from '../components/project-ui.jsx';
+import {ProjectCard} from '../components/project-ui.jsx';
 
 const PageHero = ({label, lines, lede}) => <section className="page-hero wrap">
   <Label>{label}</Label>
@@ -288,7 +288,6 @@ export function SiteMap() {
       <div><h2 className="h-small">{t.brand}</h2><ul role="list">{pages.map(([p, label]) => <li key={p}><Link to={href(lang, p)}>{label}</Link></li>)}</ul></div>
       <div><h2 className="h-small">{t.categoriesLong.completed}</h2><ul role="list">{completedProjects.map(p => <li key={p.id}><Link to={href(lang, 'project', p.slug)}>{p.name[lang]}</Link></li>)}</ul></div>
     </div>
-    <FutureProjects/>
   </section>;
 }
 
