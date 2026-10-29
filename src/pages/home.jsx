@@ -105,6 +105,7 @@ export default function Home() {
       <Label n="01"><span id="statement-label">{c.statementLabel}</span></Label>
       <p className="statement-text" data-words>{c.statement.split(' ').map((w, i, a) => <React.Fragment key={i}><span className="word">{w}</span>{i < a.length - 1 ? ' ' : ''}</React.Fragment>)}</p>
       <Link to={href(lang, 'about')} className="link-arrow rv">{c.more}<Arrow size={18}/></Link>
+      <Link to={href(lang, 'alex-shechter')} className="link-arrow rv">{lang === 'he' ? 'ליצירת קשר עם אלכס שכטר' : 'Contact Alex Shechter'}<Arrow size={18}/></Link>
     </section>
 
     <section className="selected" aria-labelledby="selected-title">

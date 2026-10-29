@@ -1,7 +1,7 @@
 import {strings, contact} from '../data/site.js';
 import {bySlug, completedProjects} from '../data/projects.js';
 import {href} from './router.jsx';
-import {brandAliases, siteNames, alexAliases, searchTitles, projectDescriptions} from '../data/seo.js';
+import {brandAliases, siteNames, alexAliases, alexProfile, searchTitles, projectDescriptions} from '../data/seo.js';
 
 // Production origin used for canonical URLs, sitemap and structured data.
 export const SITE = (import.meta.env.VITE_SITE_URL || 'https://s-nadlan.com').replace(/\/$/, '');
@@ -12,7 +12,8 @@ const descriptions = {
   he: {
     home: 'שכטר נדל״ן היא חברה משפחתית ליזמות, בנייה והתחדשות עירונית בישראל מאז 2006. בנייני בוטיק ופרויקטי מגורים ברמת גן, גבעתיים, הרצליה, רחובות, פתח תקווה וגבעת זאב.',
     projects: 'הפרויקטים המאוכלסים של שכטר נדל״ן ברמת גן, גבעתיים, הרצליה, רחובות, פתח תקווה וגבעת זאב. כל הדירות בפרויקטים המאוכלסים נמכרו.',
-    about: 'שכטר נדל״ן בבעלות משפחת שכטר, הפועלים באירופה ובישראל ומשקיעים בנדל״ן בארץ מאז 2006. סטנדרט בנייה גבוה, יושרה, אמינות וליווי אישי.',
+    about: 'שכטר נדל״ן בבעלות משפחת שכטר — יזמות, בנייה והתחדשות עירונית בישראל מאז 2006. הכירו את החברה, את הערכים ואת הפרויקטים, וצרו קשר עם אלכס שכטר.',
+    'alex-shechter': `אלכס שכטר בשכטר נדל״ן — פרטי קשר לפניות על פרויקטי מגורים והתחדשות עירונית: ${contact.alex.phone}, ${contact.alex.email}. משרדי החברה ברמת גן.`,
     'urban-renewal': 'שכטר 38 מבית שכטר נדל״ן — התחדשות עירונית, תמ״א 38/2 ופינוי בינוי. ליווי בעלי דירות, שותפות ושקיפות לאורך הפרויקט. צרו קשר בנוגע לבניין שלכם.',
     press: 'כתבות נבחרות על שכטר נדל״ן ועל פעילות החברה בהתחדשות עירונית, מתוך ארכיון החברה.',
     residents: 'שירות לדיירים של שכטר נדל״ן — פנייה לצוות החברה בנושא הדירה והפרויקט.',
@@ -25,11 +26,12 @@ const descriptions = {
   en: {
     home: 'Schechter Real Estate — residential development, construction and urban renewal in Israel since 2006. Explore our company and completed residential projects.',
     projects: 'Schechter Real Estate’s completed and occupied projects in Ramat Gan, Givatayim, Herzliya, Rehovot, Petah Tikva and Givat Ze’ev. All apartments in these projects are sold out.',
-    about: 'Schechter Real Estate is owned by the Schechter family, active in Europe and Israel and investing in Israeli real estate since 2006.',
+    about: 'Meet Schechter Real Estate, a family-owned residential development and urban renewal company active in Israel since 2006. Contact Alex Shechter for inquiries.',
+    'alex-shechter': `Alex Shechter (Alex Schechter) at Schechter Real Estate. Residential projects and urban renewal inquiries: ${contact.alex.email}, ${contact.alex.phone}.`,
     'urban-renewal': 'Schechter 38 — urban renewal, TAMA 38/2 and vacate-and-rebuild in partnership and full transparency with residents.',
     press: 'Selected press coverage of Schechter Real Estate and its urban renewal work, from the company archive.',
     residents: 'Resident services — contact the Schechter Real Estate team about your apartment or project.',
-    contact: `Contact Alex Schechter and the Schechter Real Estate team about residential projects and urban renewal: ${contact.phone}, ${contact.email}. B.S.R. Tower, 5 Kineret St.`,
+    contact: `Contact Alex Shechter and the Schechter Real Estate team about residential projects and urban renewal: ${contact.phone}, ${contact.email}. B.S.R. Tower, 5 Kineret St.`,
     accessibility: 'Accessibility statement for the Schechter Real Estate website and office accessibility arrangements.',
     privacy: 'Privacy policy of the Schechter Real Estate website: what we collect, why, and your rights.',
     sitemap: 'Sitemap of the Schechter Real Estate website.',
@@ -37,7 +39,7 @@ const descriptions = {
   }
 };
 
-const titleKey = {projects: 'projects', about: 'about', 'urban-renewal': 'urban', press: 'media', residents: 'residents', contact: 'contact', accessibility: 'accessibility', privacy: 'privacy', sitemap: 'sitemap', 'not-found': 'notFound'};
+const titleKey = {projects: 'projects', about: 'about', 'alex-shechter': 'alex', 'urban-renewal': 'urban', press: 'media', residents: 'residents', contact: 'contact', accessibility: 'accessibility', privacy: 'privacy', sitemap: 'sitemap', 'not-found': 'notFound'};
 
 export function getMeta(route) {
   const {lang, page, slug} = route;
@@ -62,17 +64,21 @@ export function getMeta(route) {
   const alex = {
     '@type': 'Person', '@id': SITE + '/#alex-schechter',
     name: 'אלכס שכטר', alternateName: alexAliases,
-    url: abs(href(lang, 'contact')) + '#alex-schechter',
+    url: abs(href('he', 'alex-shechter')),
+    description: alexProfile.summary[lang],
     email: contact.alex.email, telephone: contact.phoneE164,
-    affiliation: {'@id': org['@id']}
+    affiliation: {'@id': org['@id']},
+    mainEntityOfPage: ['he', 'en'].map(language => ({'@id': abs(href(language, 'alex-shechter')) + '#webpage'}))
   };
   const graph = [org, alex, {'@type': 'WebSite', '@id': SITE + '/#website', url: SITE + '/', name: strings.he.brand, alternateName: siteNames, description: descriptions.he.home, inLanguage: ['he-IL', 'en'], publisher: {'@id': org['@id']}}];
-  if (path) graph.push({'@type': page === 'contact' ? 'ContactPage' : page === 'about' ? 'AboutPage' : page === 'projects' ? 'CollectionPage' : 'WebPage',
+  if (path) graph.push({'@type': page === 'alex-shechter' ? 'ProfilePage' : page === 'contact' ? 'ContactPage' : page === 'about' ? 'AboutPage' : page === 'projects' ? 'CollectionPage' : 'WebPage',
     '@id': canonical + '#webpage', url: canonical, name: title, description, inLanguage: lang === 'he' ? 'he-IL' : 'en',
-    isPartOf: {'@id': SITE + '/#website'}, about: {'@id': org['@id']},
-    ...(p ? {mainEntity: {'@id': canonical + '#project'}} : page === 'urban-renewal' ? {mainEntity: {'@id': canonical + '#service'}} : page === 'contact' ? {mainEntity: {'@id': alex['@id']}} : {}),
+    isPartOf: {'@id': SITE + '/#website'}, about: {'@id': page === 'alex-shechter' ? alex['@id'] : org['@id']},
+    ...(p ? {mainEntity: {'@id': canonical + '#project'}} : page === 'urban-renewal' ? {mainEntity: {'@id': canonical + '#service'}} : ['contact', 'alex-shechter'].includes(page) ? {mainEntity: {'@id': alex['@id']}} : page === 'projects' ? {mainEntity: {'@id': canonical + '#projects'}} : {}),
+    ...(['home', 'about'].includes(page) ? {mentions: {'@id': alex['@id']}} : {}),
     ...(page !== 'home' ? {breadcrumb: {'@id': canonical + '#breadcrumbs'}} : {}),
-    primaryImageOfPage: {'@type': 'ImageObject', url: image}});
+    // The generic brand image is for social sharing, not Alex's portrait.
+    ...(page !== 'alex-shechter' ? {primaryImageOfPage: {'@type': 'ImageObject', url: image}} : {})});
   if (path && page !== 'home') graph.push({'@type': 'BreadcrumbList', '@id': canonical + '#breadcrumbs', itemListElement: [
     {'@type': 'ListItem', position: 1, name: t.home, item: abs(href(lang))},
     ...(p ? [{'@type': 'ListItem', position: 2, name: t.pages.projects, item: abs(href(lang, 'projects'))}] : []),
@@ -90,7 +96,7 @@ export function getMeta(route) {
     name: lang === 'he' ? 'שכטר 38 — התחדשות עירונית' : 'Schechter 38 — Urban Renewal', description, url: canonical,
     serviceType: lang === 'he' ? ['התחדשות עירונית', 'תמ״א 38/2', 'פינוי בינוי'] : ['Urban renewal', 'TAMA 38/2', 'Vacate and rebuild'],
     provider: {'@id': org['@id']}, areaServed: {'@type': 'Country', name: 'Israel'}});
-  if (page === 'projects') graph.push({'@type': 'ItemList', itemListElement: completedProjects.map((x, i) => ({'@type': 'ListItem', position: i + 1, url: abs(href(lang, 'project', x.slug)), name: x.name[lang]}))});
+  if (page === 'projects') graph.push({'@type': 'ItemList', '@id': canonical + '#projects', numberOfItems: completedProjects.length, itemListElement: completedProjects.map((x, i) => ({'@type': 'ListItem', position: i + 1, url: abs(href(lang, 'project', x.slug)), name: x.name[lang]}))});
   return {title, description, image, images, canonical, robots, alternates, lang, dir: lang === 'he' ? 'rtl' : 'ltr', jsonLd: {'@context': 'https://schema.org', '@graph': graph}};
 }
 
@@ -111,7 +117,12 @@ export function applyMeta(meta) {
   set('meta[property="og:image"]', 'content', meta.image);
   set('meta[property="og:image:alt"]', 'content', meta.title);
   set('meta[property="og:locale"]', 'content', meta.lang === 'he' ? 'he_IL' : 'en_US');
+  set('meta[property="og:locale:alternate"]', 'content', meta.lang === 'he' ? 'en_US' : 'he_IL');
   set('meta[property="og:url"]', 'content', meta.canonical);
+  set('meta[name="twitter:title"]', 'content', meta.title);
+  set('meta[name="twitter:description"]', 'content', meta.description);
+  set('meta[name="twitter:image"]', 'content', meta.image);
+  set('meta[name="twitter:image:alt"]', 'content', meta.title);
   set('link[rel="canonical"]', 'href', meta.canonical);
   set('link[hreflang="he"]', 'href', meta.alternates?.he);
   set('link[hreflang="en"]', 'href', meta.alternates?.en);

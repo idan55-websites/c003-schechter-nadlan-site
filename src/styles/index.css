@@ -454,6 +454,8 @@ html.js:not(.reduce-motion) .film-frame { clip-path: inset(0% 7% 0% 7% round 14p
 .prose > p { max-width: 64ch; color: var(--ink-2); font-size: 1.1rem; margin-bottom: 1.2em; }
 .prose > .lede { color: var(--ink); max-width: 32ch; font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2.5rem); line-height: 1.3; }
 .prose .btn { margin-top: 28px; }
+.profile-links { display: grid; gap: 12px; margin-top: 28px; }
+.page-alex-shechter .prose h2 { margin-bottom: 24px; }
 .duo { display: grid; grid-template-columns: 1.8fr 1fr; gap: clamp(20px, 3vw, 48px); align-items: center; padding-block: clamp(80px, 10vw, 160px); }
 .duo .pic { aspect-ratio: 16 / 10; }
 .duo > div:last-child .pic { aspect-ratio: 4 / 5; }

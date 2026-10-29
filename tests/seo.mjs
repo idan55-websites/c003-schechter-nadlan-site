@@ -10,6 +10,7 @@ const root = path.resolve(import.meta.dirname, '..');
 const dist = path.join(root, 'dist');
 const site = (process.env.VITE_SITE_URL || 'https://s-nadlan.com').replace(/\/$/, '');
 const index = (process.env.SITE_INDEX ?? 'true') === 'true';
+const base = (process.env.BASE_PATH || '/').replace(/\/?$/, '/');
 const browser = await chromium.launch();
 try {
   const page = await browser.newPage();
@@ -23,6 +24,7 @@ try {
     }));
   }, fs.readFileSync(path.join(dist, 'sitemap.xml'), 'utf8'));
   const titles = new Set(), descriptions = new Set(), imageUrls = new Set();
+  const publishedUrls = new Set(sitemap.map(item => item.url));
   assert.equal(new Set(sitemap.map(item => item.url)).size, sitemap.length, 'unique sitemap URLs');
   for (const item of sitemap) {
     assert.ok(item.url.startsWith(site + '/'), item.url);
@@ -43,7 +45,12 @@ try {
         graph: JSON.parse(d.querySelector('#ld').textContent)['@graph'],
         icons: [...d.querySelectorAll('link[rel="icon"]')].map(el => ({href: el.getAttribute('href'), sizes: el.getAttribute('sizes')})),
         applicationName: d.querySelector('meta[name="application-name"]')?.content,
-        verification: d.querySelector('meta[name="google-site-verification"]')?.content
+        verification: d.querySelector('meta[name="google-site-verification"]')?.content,
+        links: [...d.querySelectorAll('a[href]')].map(link => link.getAttribute('href')),
+        mainLinks: [...d.querySelectorAll('main a[href]')].map(link => link.getAttribute('href')),
+        twitterTitle: d.querySelector('meta[name="twitter:title"]')?.content,
+        twitterDescription: d.querySelector('meta[name="twitter:description"]')?.content,
+        alternateLocale: d.querySelector('meta[property="og:locale:alternate"]')?.content
       };
     }, html);
     assert.equal(doc.canonical, item.url);
@@ -51,6 +58,9 @@ try {
     assert.equal(doc.lang, he ? 'he' : 'en');
     assert.equal(doc.dir, he ? 'rtl' : 'ltr');
     assert.equal(doc.h1Count, 1);
+    assert.equal(doc.twitterTitle, doc.title);
+    assert.equal(doc.twitterDescription, doc.description);
+    assert.equal(doc.alternateLocale, he ? 'en_US' : 'he_IL');
     assert.ok(doc.content?.trim().length > 100, 'content is in static HTML');
     assert.ok(doc.title && !doc.title.includes('undefined'), item.url);
     assert.ok(!titles.has(doc.title), `duplicate title: ${doc.title}`);
@@ -74,6 +84,22 @@ try {
     assert.equal(alex.name, 'אלכס שכטר');
     assert.ok(alex.alternateName.includes('Alex Shechter'));
     assert.equal(alex.affiliation['@id'], org['@id']);
+    assert.equal(alex.url, `${site}/alex-shechter/`, 'one stable person URL across languages');
+    assert.deepEqual(alex.mainEntityOfPage, [
+      {'@id': `${site}/alex-shechter/#webpage`}, {'@id': `${site}/en/alex-shechter/#webpage`}
+    ]);
+    // Search engines must be able to discover every internal destination from HTML.
+    for (const link of doc.links) {
+      if (!link.startsWith(base)) continue;
+      const target = new URL(link.slice(base.length), site + '/');
+      target.search = ''; target.hash = '';
+      assert.ok(publishedUrls.has(target.href), `${item.url}: broken or unpublished link ${link}`);
+    }
+    const profileHref = `${base}${he ? '' : 'en/'}alex-shechter/`;
+    assert.ok(doc.links.includes(profileHref), `profile discoverable from ${item.url}`);
+    if (['', 'en/', 'about/', 'en/about/', 'contact/', 'en/contact/', 'sitemap/', 'en/sitemap/'].includes(relative)) {
+      assert.ok(doc.mainLinks.includes(profileHref), `contextual profile link at ${item.url}`);
+    }
     assert.ok(doc.graph.find(node => node['@id'] === item.url + '#webpage'));
     if (/(?:^|\/)projects\/[^/]+\/$/.test(relative)) {
       const project = doc.graph.find(node => node['@type'] === 'ApartmentComplex');
@@ -83,9 +109,20 @@ try {
     }
     if (relative.endsWith('urban-renewal/')) assert.ok(doc.graph.find(node => node['@type'] === 'Service'));
     if (relative.endsWith('contact/')) {
-      assert.match(doc.title, he ? /אלכס שכטר/ : /Alex Schechter/);
-      assert.match(doc.content, he ? /אלכס שכטר/ : /Alex Schechter/);
+      assert.match(doc.title, he ? /אלכס שכטר/ : /Alex Shechter/);
+      assert.match(doc.content, he ? /אלכס שכטר/ : /Alex Shechter/);
       assert.equal(doc.graph.find(node => node['@type'] === 'ContactPage').mainEntity['@id'], alex['@id']);
+    }
+    if (relative.endsWith('alex-shechter/')) {
+      assert.match(doc.title, he ? /אלכס שכטר/ : /Alex Shechter.*Alex Schechter/);
+      assert.match(doc.content, /Alex Shechter/);
+      assert.match(doc.content, /Alex Schechter/);
+      assert.ok(doc.links.includes(`mailto:${alex.email}`));
+      const profile = doc.graph.find(node => node['@type'] === 'ProfilePage');
+      assert.equal(profile.mainEntity['@id'], alex['@id']);
+      assert.equal(profile.about['@id'], alex['@id']);
+      assert.ok(!alex.image, 'no brand logo misrepresented as a portrait');
+      assert.ok(!alex.jobTitle, 'no unconfirmed professional title');
     }
     if (relative.endsWith('projects/nofei-nehalim/')) {
       assert.match(doc.content, he ? /כ־100 יחידות דיור ב־5 בנייני בוטיק/ : /approximately 100 homes in five boutique buildings/);
@@ -121,7 +158,7 @@ try {
     const metadata = await sharp(frame).metadata();
     assert.equal(metadata.width, size); assert.equal(metadata.height, size);
   }
-  assert.equal(sitemap.length, 44, 'only published pages in the sitemap');
+  assert.equal(sitemap.length, 46, 'published pages plus both Alex profiles in the sitemap');
   console.log(`SEO passed: ${sitemap.length} bilingual pages, ${imageUrls.size} project images, unique metadata, schema, language alternates and ${index ? 'production indexing' : 'preview noindex'}.`);
 } finally {
   await browser.close();

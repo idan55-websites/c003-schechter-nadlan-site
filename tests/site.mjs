@@ -103,6 +103,24 @@ await check('language switch keeps the current page', async () => {
   await page.context().close();
 });
 
+await check('Alex profile: crawlable links, client metadata and language switch', async () => {
+  const page = await open();
+  await page.emulateMedia({reducedMotion: 'reduce'});
+  await page.goto(SITE + '/');
+  await page.locator('main a[href="/alex-shechter/"]').click();
+  await page.waitForURL(/\/alex-shechter\/$/);
+  await page.waitForFunction(() => JSON.parse(document.getElementById('ld').textContent)['@graph'].some(node => node['@type'] === 'ProfilePage'));
+  assert.match(await page.title(), /אלכס שכטר/);
+  assert.equal(await page.locator('meta[name="twitter:title"]').getAttribute('content'), await page.title());
+  await page.click('.header-lang');
+  await page.waitForURL(/\/en\/alex-shechter\/$/);
+  assert.match(await page.title(), /Alex Shechter.*Alex Schechter/);
+  assert.equal(await page.locator('link[rel="canonical"]').getAttribute('href'), 'https://s-nadlan.com/en/alex-shechter/');
+  assert.equal(await page.locator('main a[href="mailto:alexs@s-nadlan.com"]').count(), 1);
+  assert.deepEqual(page.errors, []);
+  await page.context().close();
+});
+
 await check('catalog: published projects, removed pages, city filter and search', async () => {
   const page = await open();
   await page.goto(SITE + '/projects/', {waitUntil: 'networkidle'});

@@ -2,7 +2,7 @@ import React, {createContext, useContext} from 'react';
 import {bySlug, byId} from '../data/projects.js';
 
 export const BASE = import.meta.env.BASE_URL; // always ends with "/"
-export const pages = ['projects', 'about', 'urban-renewal', 'press', 'residents', 'contact', 'accessibility', 'privacy', 'sitemap'];
+export const pages = ['projects', 'about', 'alex-shechter', 'urban-renewal', 'press', 'residents', 'contact', 'accessibility', 'privacy', 'sitemap'];
 
 // "/en/projects/schechter-family/" → {lang:'en', page:'project', slug:'schechter-family'}
 export function parse(pathname) {

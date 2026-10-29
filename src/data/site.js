@@ -48,7 +48,7 @@ export const strings = {
     },
     a11y: {open: 'הגדרות נגישות', title: 'נגישות', motion: 'הפחתת תנועה', contrast: 'ניגודיות גבוהה', links: 'הדגשת קישורים', text: 'הגדלת טקסט', reset: 'איפוס הגדרות', statement: 'להצהרת הנגישות'},
     footer: {lead: 'הבית הבא שלכם מתחיל בשיחה.', explore: 'ניווט', contactTitle: 'יצירת קשר', legal: 'מידע', rights: 'כל הזכויות שמורות.', privacy: 'מדיניות פרטיות', accessibility: 'הצהרת נגישות', sitemap: 'מפת האתר', residents: 'שירות לדיירים'},
-    pages: {projects: 'הפרויקטים', about: 'אודות', urban: 'שכטר 38 — התחדשות עירונית', media: 'שכטר במדיה', residents: 'שירות לדיירים', contact: 'צור קשר', accessibility: 'הצהרת נגישות', privacy: 'מדיניות פרטיות', sitemap: 'מפת האתר', notFound: 'העמוד לא נמצא'}
+    pages: {projects: 'הפרויקטים', about: 'אודות', alex: 'אלכס שכטר', urban: 'שכטר 38 — התחדשות עירונית', media: 'שכטר במדיה', residents: 'שירות לדיירים', contact: 'צור קשר', accessibility: 'הצהרת נגישות', privacy: 'מדיניות פרטיות', sitemap: 'מפת האתר', notFound: 'העמוד לא נמצא'}
   },
   en: {
     brand: 'Schechter Real Estate', tagline: 'Living to a European standard', skip: 'Skip to content',
@@ -77,6 +77,6 @@ export const strings = {
     },
     a11y: {open: 'Accessibility settings', title: 'Accessibility', motion: 'Reduce motion', contrast: 'High contrast', links: 'Highlight links', text: 'Larger text', reset: 'Reset settings', statement: 'Accessibility statement'},
     footer: {lead: 'Your next home begins with a conversation.', explore: 'Explore', contactTitle: 'Contact', legal: 'Information', rights: 'All rights reserved.', privacy: 'Privacy policy', accessibility: 'Accessibility statement', sitemap: 'Sitemap', residents: 'Resident services'},
-    pages: {projects: 'Projects', about: 'About', urban: 'Schechter 38 — Urban renewal', media: 'Press', residents: 'Resident services', contact: 'Contact', accessibility: 'Accessibility statement', privacy: 'Privacy policy', sitemap: 'Sitemap', notFound: 'Page not found'}
+    pages: {projects: 'Projects', about: 'About', alex: 'Alex Shechter', urban: 'Schechter 38 — Urban renewal', media: 'Press', residents: 'Resident services', contact: 'Contact', accessibility: 'Accessibility statement', privacy: 'Privacy policy', sitemap: 'Sitemap', notFound: 'Page not found'}
   }
 };

@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {href, useRouter} from '../lib/router.jsx';
 import {strings, contact, press} from '../data/site.js';
+import {alexProfile} from '../data/seo.js';
 import {completedProjects, bySlug, byId} from '../data/projects.js';
 import {aboutStory, urbanStory} from '../data/recovered.js';
 import media from '../data/media.json';
@@ -23,7 +24,10 @@ export function About() {
     <figure className="wide-figure"><div className="clip-reveal"><Picture name="knafei-garden" alt={he ? 'הדמיה — שכטר בכנפי נשרים, רמת גן' : 'Rendering — Schechter Knafei Nesharim, Ramat Gan'} sizes="100vw" className="parallax-inner"/></div></figure>
     <section className="split wrap">
       <Label n="01">{he ? 'החברה' : 'The company'}</Label>
-      <div className="prose"><p className="lede rv">{p1}</p><p className="rv">{p2}</p></div>
+      <div className="prose"><p className="lede rv">{p1}</p><p className="rv">{p2}</p>
+        <p>{he ? 'לפניות בנוגע לחברה ולתיאום פגישה, ניתן לפנות לאלכס שכטר.' : 'For company inquiries and to arrange a meeting, contact Alex Shechter.'}</p>
+        <Link to={href(lang, 'alex-shechter')} className="link-arrow">{he ? 'אלכס שכטר — פרטים ויצירת קשר' : 'Alex Shechter — details and contact'}<Arrow size={18}/></Link>
+      </div>
     </section>
     <section className="split wrap">
       <Label n="02">{he ? 'הערכים' : 'Values'}</Label>
@@ -39,6 +43,43 @@ export function About() {
         <Link to={href(lang, 'projects')} className="btn btn-solid rv">{strings[lang].allProjects}<Arrow size={20}/></Link></div>
     </section>
     <PressList limit/>
+  </>;
+}
+
+export function Alex() {
+  const {route: {lang}} = useRouter();
+  const he = lang === 'he', t = strings[lang];
+  return <>
+    <PageHero label={he ? 'שכטר נדל״ן · יצירת קשר אישית' : 'Schechter Real Estate · Personal contact'}
+      lines={he ? ['אלכס', 'שכטר.'] : ['Alex', 'Shechter.']} lede={alexProfile.summary[lang]}/>
+    <section className="split wrap" aria-labelledby="alex-details">
+      <Label>{he ? 'פרטים ויצירת קשר' : 'Details and contact'}</Label>
+      <div className="prose">
+        <h2 id="alex-details" className="display-3">{alexProfile.name[lang]}</h2>
+        <p>{he ? <><span lang="en" dir="ltr">Alex Shechter · Alex Schechter</span> — אלכס שכטר, שכטר נדל״ן.</> : 'The name Alex Shechter is also written Alex Schechter. This page provides his business contact details at Schechter Real Estate.'}</p>
+        <p>{he ? 'לשאלות על פרויקטי החברה, להתעניינות בהתחדשות עירונית או לתיאום פגישה במשרד, ניתן לפנות בדואר האלקטרוני או בטלפון שלהלן. מומלץ לציין את שם הפרויקט או את כתובת הבניין ואת נושא הפנייה.' : 'For questions about company projects, urban renewal inquiries or an office meeting, use the email or phone below. Include the project name or building address and the subject of your inquiry so the company can direct it to the appropriate team.'}</p>
+        <ul className="contact-lines" role="list">
+          <li><a href={`mailto:${contact.alex.email}`}><Mail size={20}/><span dir="ltr">{contact.alex.email}</span></a></li>
+          <li><a href={contact.alex.phoneHref}><Phone size={20}/><span dir="ltr">{contact.alex.phone}</span></a></li>
+          <li><span><Pin size={20}/>{contact.address[lang]}</span></li>
+          <li><span>{contact.hours[lang]}</span></li>
+        </ul>
+        <Link to={href(lang, 'contact')} className="btn btn-solid">{he ? 'לתיאום פגישה ולפנייה לחברה' : 'Arrange a meeting or send an inquiry'}<Arrow size={20}/></Link>
+      </div>
+    </section>
+    <section className="split wrap" aria-labelledby="alex-company">
+      <Label>{t.brand}</Label>
+      <div className="prose">
+        <h2 id="alex-company" className="display-3">{he ? 'החברה והפרויקטים' : 'The company and its projects'}</h2>
+        <p>{he ? 'שכטר נדל״ן היא חברה משפחתית הפועלת בישראל מאז 2006 בתחומי יזמות, בנייה למגורים והתחדשות עירונית. תיק הפרויקטים המאוכלסים כולל בנייני בוטיק ופרויקטי מגורים ברמת גן, גבעתיים, הרצליה, רחובות, פתח תקווה וגבעת זאב.' : 'Schechter Real Estate is a family-owned company active in Israel since 2006 in residential development, construction and urban renewal. Its completed portfolio includes boutique buildings and residential projects in Ramat Gan, Givatayim, Herzliya, Rehovot, Petah Tikva and Givat Ze’ev.'}</p>
+        <p>{he ? 'כל הדירות בפרויקטים המאוכלסים המוצגים באתר נמכרו. לשאלות על פרויקט קיים או על אפשרות להתחדשות הבניין שלכם, פנו לחברה לקבלת מידע עדכני.' : 'All apartments in the occupied projects shown on this website are sold out. For questions about an existing project or renewing your building, contact the company for current information.'}</p>
+        <ul className="profile-links" role="list">
+          <li><Link to={href(lang, 'about')} className="link-arrow">{he ? 'אודות שכטר נדל״ן' : 'About Schechter Real Estate'}<Arrow size={18}/></Link></li>
+          <li><Link to={href(lang, 'projects')} className="link-arrow">{t.categoriesLong.completed}<Arrow size={18}/></Link></li>
+          <li><Link to={href(lang, 'urban-renewal')} className="link-arrow">{t.pages.urban}<Arrow size={18}/></Link></li>
+        </ul>
+      </div>
+    </section>
   </>;
 }
 
@@ -140,7 +181,7 @@ export function Contact() {
         <a href={`mailto:${contact.email}`} className="contact-row"><Mail size={22}/><span><small>{he ? 'כתבו לנו' : 'Write to us'}</small><strong>{contact.email}</strong></span></a>
         <div className="contact-row"><Pin size={22}/><span><small>{he ? 'בואו לבקר' : 'Visit us'}</small><strong>{contact.address[lang]}</strong><span>{contact.hours[lang]}</span>
           <span className="contact-nav"><a href={contact.maps} target="_blank" rel="noopener noreferrer">Google Maps<ArrowDiag size={14}/></a><a href={contact.waze} target="_blank" rel="noopener noreferrer">Waze<ArrowDiag size={14}/></a></span></span></div>
-        <div className="contact-row contact-alex" id="alex-schechter"><span><small>{he ? 'אלכס שכטר · Alex Schechter' : 'Alex Schechter'}</small><a href={`mailto:${contact.alex.email}`}>{contact.alex.email}</a><a href={contact.alex.phoneHref} dir="ltr">{contact.alex.phone}</a></span></div>
+        <div className="contact-row contact-alex" id="alex-schechter"><span><Link to={href(lang, 'alex-shechter')}>{he ? 'אלכס שכטר · Alex Shechter' : 'Alex Shechter (Alex Schechter)'}</Link><a href={`mailto:${contact.alex.email}`}>{contact.alex.email}</a><a href={contact.alex.phoneHref} dir="ltr">{contact.alex.phone}</a></span></div>
       </aside>
     </section>
     <section className="map wrap" aria-label={he ? 'מפת הגעה' : 'Map'}>
@@ -279,7 +320,7 @@ export function Privacy() {
 export function SiteMap() {
   const {route: {lang}} = useRouter();
   const t = strings[lang];
-  const pages = [['home', t.home], ['projects', t.pages.projects], ['about', t.pages.about], ['urban-renewal', t.pages.urban], ['press', t.pages.media], ['residents', t.pages.residents], ['contact', t.pages.contact], ['accessibility', t.pages.accessibility], ['privacy', t.pages.privacy]];
+  const pages = [['home', t.home], ['projects', t.pages.projects], ['about', t.pages.about], ['alex-shechter', t.pages.alex], ['urban-renewal', t.pages.urban], ['press', t.pages.media], ['residents', t.pages.residents], ['contact', t.pages.contact], ['accessibility', t.pages.accessibility], ['privacy', t.pages.privacy]];
   return <section className="sitemap wrap">
     <Label>{t.pages.sitemap}</Label>
     <h1 className="display-2">{t.pages.sitemap}</h1>

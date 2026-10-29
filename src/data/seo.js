@@ -11,6 +11,14 @@ export const brandAliases = [
 ];
 export const siteNames = ['Schechter Real Estate', 'שכטר נדלן', 's-nadlan.com'];
 export const alexAliases = ['Alex Schechter', 'Alex Shechter', 'Alex Schachter', 'Alex Shecter', 'Alex Schecter'];
+// Only confirmed business contact information; do not infer a title or biography.
+export const alexProfile = {
+  name: {he: 'אלכס שכטר', en: 'Alex Shechter'},
+  summary: {
+    he: 'אלכס שכטר — איש קשר בשכטר נדל״ן לפניות בנושא פרויקטי מגורים, התחדשות עירונית ותיאום פגישה עם החברה.',
+    en: 'Alex Shechter is a contact at Schechter Real Estate for inquiries about residential projects, urban renewal and meetings with the company.'
+  }
+};
 
 export const searchTitles = {
   he: {
@@ -18,13 +26,15 @@ export const searchTitles = {
     projects: 'פרויקטים מאוכלסים | שכטר נדל״ן',
     about: 'אודות שכטר נדל״ן | יזמות ובנייה מאז 2006',
     contact: 'אלכס שכטר — יצירת קשר | שכטר נדל״ן',
+    'alex-shechter': 'אלכס שכטר | שכטר נדל״ן — פרטים ויצירת קשר',
     'urban-renewal': 'התחדשות עירונית ופינוי בינוי | שכטר 38 — שכטר נדל״ן'
   },
   en: {
     home: 'Schechter Real Estate | Development & Urban Renewal',
     projects: 'Completed Residential Projects | Schechter Real Estate',
     about: 'About Schechter Real Estate | Developing Homes Since 2006',
-    contact: 'Contact Alex Schechter | Schechter Real Estate',
+    contact: 'Contact Alex Shechter | Schechter Real Estate',
+    'alex-shechter': 'Alex Shechter (Alex Schechter) | Schechter Real Estate',
     'urban-renewal': 'Urban Renewal & Redevelopment | Schechter Real Estate'
   }
 };

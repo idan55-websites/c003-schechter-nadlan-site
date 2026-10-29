@@ -6,10 +6,10 @@ import {bySlug} from './data/projects.js';
 import {Header, Menu, Footer, AccessibilityTools} from './components/layout.jsx';
 import Home from './pages/home.jsx';
 import {Projects, Project} from './pages/projects.jsx';
-import {About, Urban, Media, Residents, Contact, Accessibility, Privacy, SiteMap, NotFound} from './pages/content.jsx';
+import {About, Alex, Urban, Media, Residents, Contact, Accessibility, Privacy, SiteMap, NotFound} from './pages/content.jsx';
 import {startMotion} from './motion/core.js';
 
-const views = {home: Home, projects: Projects, project: Project, about: About, 'urban-renewal': Urban, press: Media, residents: Residents,
+const views = {home: Home, projects: Projects, project: Project, about: About, 'alex-shechter': Alex, 'urban-renewal': Urban, press: Media, residents: Residents,
   contact: Contact, accessibility: Accessibility, privacy: Privacy, sitemap: SiteMap, 'not-found': NotFound};
 const useIsoLayout = typeof window === 'undefined' ? useEffect : useLayoutEffect;
 const reduced = () => document.documentElement.classList.contains('reduce-motion');

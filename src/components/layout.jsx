@@ -122,6 +122,7 @@ export function Footer() {
         <Link to={href(lang, 'residents')}>{t.footer.residents}</Link>
       </nav>
       <div className="footer-col"><h2>{t.footer.contactTitle}</h2>
+        <Link to={href(lang, 'alex-shechter')}>{t.pages.alex}</Link>
         <a href={contact.phoneHref} dir="ltr">{contact.phone}</a>
         <a href={`mailto:${contact.email}`}>{contact.email}</a>
         <address>{contact.address[lang]}<br/>{contact.hours[lang]}</address>

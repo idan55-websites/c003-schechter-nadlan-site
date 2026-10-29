@@ -30,9 +30,14 @@ function head(meta) {
     `<meta property="og:type" content="website">`, `<meta property="og:site_name" content="שכטר נדל״ן">`,
     `<meta property="og:title" content="${esc(meta.title)}">`, `<meta property="og:description" content="${esc(meta.description)}">`,
     `<meta property="og:image" content="${meta.image}">`, `<meta property="og:locale" content="${meta.lang === 'he' ? 'he_IL' : 'en_US'}">`,
+    `<meta property="og:locale:alternate" content="${meta.lang === 'he' ? 'en_US' : 'he_IL'}">`,
     `<meta property="og:image:alt" content="${esc(meta.title)}">`,
     meta.canonical && `<meta property="og:url" content="${meta.canonical}">`,
     `<meta name="twitter:card" content="summary_large_image">`,
+    `<meta name="twitter:title" content="${esc(meta.title)}">`,
+    `<meta name="twitter:description" content="${esc(meta.description)}">`,
+    `<meta name="twitter:image" content="${meta.image}">`,
+    `<meta name="twitter:image:alt" content="${esc(meta.title)}">`,
     `<script type="application/ld+json" id="ld">${JSON.stringify(meta.jsonLd).replace(/</g, '\\u003c')}</script>`
   ];
   return tags.filter(Boolean).join('\n');
