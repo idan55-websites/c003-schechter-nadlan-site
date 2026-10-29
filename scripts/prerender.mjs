@@ -1,5 +1,5 @@
 // Renders every route to static HTML after `vite build` + `vite build --ssr`.
-// SITE_INDEX=true allows indexing (production); otherwise pages carry noindex (preview).
+// Production is indexable by default; SITE_INDEX=false excludes a preview.
 import fs from 'node:fs';
 import path from 'node:path';
 import {pathToFileURL} from 'node:url';
@@ -10,7 +10,7 @@ const dist = path.join(root, 'dist');
 const {render, routes} = await import(pathToFileURL(path.join(root, 'dist-ssr/entry-server.js')));
 const template = fs.readFileSync(path.join(dist, 'index.html'), 'utf8');
 const base = (process.env.BASE_PATH || '/').replace(/\/?$/, '/');
-const index = process.env.SITE_INDEX === 'true';
+const index = (process.env.SITE_INDEX ?? 'true') === 'true';
 const site = (process.env.VITE_SITE_URL || 'https://s-nadlan.com').replace(/\/$/, '');
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 const csp = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; font-src 'self'; connect-src 'self'; frame-src https://maps.google.com https://www.google.com; object-src 'none'; base-uri 'self'; form-action 'self' mailto:";

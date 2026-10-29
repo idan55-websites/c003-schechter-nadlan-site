@@ -25,10 +25,11 @@ jobs:
       - uses: actions/configure-pages@v5
         id: pages
       - run: npm ci
-      # Preview build: SITE_INDEX is intentionally unset, so every page stays noindex.
+      # Keep this duplicate preview out of search; the business domain is canonical.
       - run: npm run build
         env:
           BASE_PATH: ${{ steps.pages.outputs.base_path }}/
+          SITE_INDEX: 'false'
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

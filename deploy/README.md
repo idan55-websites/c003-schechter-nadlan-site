@@ -8,11 +8,11 @@ The site is fully static (`npm run build` → `dist/`). The client requested sea
 | --- | --- | --- |
 | `BASE_PATH` | `/` | Sub-path when not served at a domain root (GitHub Pages preview uses `/c003-schechter-nadlan-site/`). |
 | `VITE_SITE_URL` | `https://s-nadlan.com` | Origin for canonical URLs, hreflang, sitemap and structured data. |
-| `SITE_INDEX` | unset | `true` enables indexing for the production build; other values retain preview `noindex`. |
+| `SITE_INDEX` | `true` | Production builds allow indexing by default. Set `false` explicitly for duplicate previews. |
 | `GOOGLE_SITE_VERIFICATION` | unset | Optional Search Console HTML verification token; emitted only in a production build. |
 | `BING_SITE_VERIFICATION` | unset | Optional Bing Webmaster Tools HTML verification token; emitted only in a production build. |
 
-Production: `npm run build:production`, then `SITE_INDEX=true npm run test:seo`.
+Production: `npm run build`, then `npm run test:seo`. `build:production` also explicitly enables indexing.
 
 ## Cloudflare Workers
 
@@ -25,7 +25,7 @@ Use these Cloudflare Git build settings:
 - Root directory: repository root
 - `BASE_PATH`: `/` (or leave unset)
 
-Keep `SITE_INDEX` unset for previews. For the approved production launch, set `SITE_INDEX=true` and `VITE_SITE_URL` to the production origin before building.
+The standard Cloudflare build now allows indexing without requiring a hosting variable. Set `VITE_SITE_URL` to the production origin if it differs from `https://s-nadlan.com`. For duplicate preview deployments, explicitly set `SITE_INDEX=false`; the GitHub Pages workflow already does this.
 
 The explicit Wrangler configuration avoids automatic Vite setup during deployment. The existing client build and build-time SSR prerender produce the complete static site; no Cloudflare Vite plugin is required. See [Cloudflare's static site configuration](https://developers.cloudflare.com/workers/static-assets/routing/static-site-generation/).
 

@@ -8,6 +8,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {createHash} from 'node:crypto';
 import {images, emblems, clips, film} from './media.config.mjs';
+import {buildIcons} from './build-icons.mjs';
 
 const root = path.resolve(import.meta.dirname, '..');
 const originals = path.join(root, 'recovery/wp-originals');
@@ -60,12 +61,7 @@ await brand('logo-light', 'local-2022/logo-light-489.png', 489).png({compression
   }
   const mark = sharp(rgba, {raw: {width: info.width, height: info.height, channels: 4}}).trim();
   await mark.clone().png({compressionLevel: 9}).toFile(path.join(out, 'brand/s-mark.png'));
-  const markPng = await mark.clone().resize({height: 360}).png().toBuffer();
-  // Favicons and touch icon: the original S on the original graphite.
-  for (const [size, fileName] of [[32, 'favicon-32.png'], [180, 'apple-touch-icon.png'], [512, 'icon-512.png']]) {
-    const inner = await sharp(markPng).resize({height: Math.round(size * .7)}).png().toBuffer();
-    await sharp({create: {width: size, height: size, channels: 4, background: '#404040'}}).composite([{input: inner, gravity: 'center'}]).png().toFile(path.join(root, 'public', fileName));
-  }
+  await buildIcons();
 }
 for (const [name, file] of Object.entries(emblems)) {
   const target = path.join(out, 'brand', `emblem-${name}.webp`);

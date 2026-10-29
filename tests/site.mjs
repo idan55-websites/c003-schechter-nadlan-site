@@ -82,7 +82,7 @@ await check('client navigation: transition, title, focus, back button', async ()
   await page.goto(SITE + '/', {waitUntil: 'networkidle'});
   await page.click('.header-nav a[href$="/projects/"]');
   await page.waitForURL(/\/projects\/$/);
-  await page.waitForFunction(() => document.title.startsWith('הפרויקטים'));
+  await page.waitForFunction(() => document.title === 'פרויקטים מאוכלסים | שכטר נדל״ן');
   assert.equal(await page.evaluate(() => document.activeElement.id), 'main');
   await page.locator('.card-link').first().click();
   await page.waitForURL(/\/projects\/[a-z0-9-]+\/$/);

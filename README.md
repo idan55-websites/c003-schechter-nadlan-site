@@ -11,10 +11,10 @@ Bilingual (Hebrew RTL / English LTR) website for Schechter Real Estate, rebuilt 
 ```sh
 npm install
 npm run dev        # development server, http://localhost:5173
-npm run build      # client build + SSR prerender of all 44 routes → dist/
+npm run build      # S icons + indexable static HTML for all 44 routes → dist/
 npm run build:production # indexable build for s-nadlan.com → dist/
-npm run test:seo   # validate crawler-facing HTML, sitemap, schema and preview noindex
-# After build:production, use SITE_INDEX=true npm run test:seo instead.
+npm run test:seo   # validate crawler-facing HTML, sitemap, schema and production indexing
+# For a duplicate preview: SITE_INDEX=false npm run build, then SITE_INDEX=false npm run test:seo.
 npm run preview    # serve dist/ on http://localhost:4173
 npm test           # end-to-end checks against the preview (BROWSER=webkit for Safari's engine)
 npm run media      # regenerate public/media from recovery/wp-originals (needs the local archive)
@@ -52,7 +52,7 @@ The portfolio and home statistics cover 12 occupied, sold-out projects. Per the 
 - **Images**: 100 image records / 80 published project-gallery images, including two client-supplied aerial photographs of Nofei Nehalim (29 October 2026). Cards and large headers choose suitable views separately; small originals are contained at native limits. Responsive selection accounts for image cropping, with variants up to 3840px where the original supports them. `MEDIA_REVIEW.md` lists remaining gaps.
 - **Contact form**: there is no server endpoint. The form validates, then opens a prepared email to info@s-nadlan.com in the visitor's mail app, and says so. Connecting a real form backend or CRM requires updating the privacy policy first.
 - **Privacy**: no cookies, analytics or trackers. Accessibility preferences are kept in `localStorage`. Google Maps loads only after the visitor clicks “Show map”.
-- **SEO**: bilingual service titles and individual project descriptions, canonical and hreflang links, Open Graph, JSON-LD (Organization, WebSite, WebPage, BreadcrumbList, ApartmentComplex, Service, ItemList), project images in `sitemap.xml`, and `robots.txt`. The preview is `noindex`; `npm run build:production` enables indexing for the business domain. See `deploy/SEO_LAUNCH.md` for publishing and Search Console setup.
+- **SEO**: bilingual service titles and individual project descriptions, canonical and hreflang links, Open Graph, JSON-LD (Organization, Person, WebSite, WebPage, BreadcrumbList, ApartmentComplex, Service, ItemList), project images in `sitemap.xml`, and `robots.txt`. Regular builds enable indexing for the business domain; the GitHub Pages workflow explicitly sets `SITE_INDEX=false` for its duplicate preview. Original S favicons are generated on every build, including `/favicon.ico` and a 96px search icon. Company transliterations and Alex Schechter's bilingual contact identity connect name searches to the business. See `deploy/SEO_LAUNCH.md` for publishing and Search Console setup.
 
 ## Preview deployment
 

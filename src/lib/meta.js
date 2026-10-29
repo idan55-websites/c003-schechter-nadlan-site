@@ -1,7 +1,7 @@
 import {strings, contact} from '../data/site.js';
 import {bySlug, completedProjects} from '../data/projects.js';
 import {href} from './router.jsx';
-import {brandAliases, searchTitles, projectDescriptions} from '../data/seo.js';
+import {brandAliases, siteNames, alexAliases, searchTitles, projectDescriptions} from '../data/seo.js';
 
 // Production origin used for canonical URLs, sitemap and structured data.
 export const SITE = (import.meta.env.VITE_SITE_URL || 'https://s-nadlan.com').replace(/\/$/, '');
@@ -10,13 +10,13 @@ const imageUrl = image => abs(`${import.meta.env.BASE_URL}media/img/${image.name
 
 const descriptions = {
   he: {
-    home: 'שכטר נדל״ן — יזמות, בנייה והתחדשות עירונית מאז 2006. פרויקטי מגורים ברמת גן, גבעתיים, הרצליה, רחובות, פתח תקווה וגבעת זאב. הכירו את החברה והפרויקטים.',
+    home: 'שכטר נדל״ן היא חברה משפחתית ליזמות, בנייה והתחדשות עירונית בישראל מאז 2006. בנייני בוטיק ופרויקטי מגורים ברמת גן, גבעתיים, הרצליה, רחובות, פתח תקווה וגבעת זאב.',
     projects: 'הפרויקטים המאוכלסים של שכטר נדל״ן ברמת גן, גבעתיים, הרצליה, רחובות, פתח תקווה וגבעת זאב. כל הדירות בפרויקטים המאוכלסים נמכרו.',
     about: 'שכטר נדל״ן בבעלות משפחת שכטר, הפועלים באירופה ובישראל ומשקיעים בנדל״ן בארץ מאז 2006. סטנדרט בנייה גבוה, יושרה, אמינות וליווי אישי.',
     'urban-renewal': 'שכטר 38 מבית שכטר נדל״ן — התחדשות עירונית, תמ״א 38/2 ופינוי בינוי. ליווי בעלי דירות, שותפות ושקיפות לאורך הפרויקט. צרו קשר בנוגע לבניין שלכם.',
     press: 'כתבות נבחרות על שכטר נדל״ן ועל פעילות החברה בהתחדשות עירונית, מתוך ארכיון החברה.',
     residents: 'שירות לדיירים של שכטר נדל״ן — פנייה לצוות החברה בנושא הדירה והפרויקט.',
-    contact: `צרו קשר עם שכטר נדל״ן לתיאום פגישה אישית: ${contact.phone}, ${contact.email}. מגדל ב.ס.ר, כנרת 5.`,
+    contact: `אלכס שכטר וצוות שכטר נדל״ן — לתיאום פגישה ולפרטים על פרויקטי מגורים והתחדשות עירונית: ${contact.phone}, ${contact.email}. מגדל ב.ס.ר, כנרת 5.`,
     accessibility: 'הצהרת הנגישות של אתר שכטר נדל״ן והסדרי הנגישות במשרדי החברה.',
     privacy: 'מדיניות הפרטיות של אתר שכטר נדל״ן: איזה מידע נאסף, למה, ומהן זכויותיכם.',
     sitemap: 'מפת האתר של שכטר נדל״ן — כל העמודים והפרויקטים.',
@@ -29,7 +29,7 @@ const descriptions = {
     'urban-renewal': 'Schechter 38 — urban renewal, TAMA 38/2 and vacate-and-rebuild in partnership and full transparency with residents.',
     press: 'Selected press coverage of Schechter Real Estate and its urban renewal work, from the company archive.',
     residents: 'Resident services — contact the Schechter Real Estate team about your apartment or project.',
-    contact: `Contact Schechter Real Estate to book a personal meeting: ${contact.phone}, ${contact.email}. B.S.R. Tower, 5 Kineret St.`,
+    contact: `Contact Alex Schechter and the Schechter Real Estate team about residential projects and urban renewal: ${contact.phone}, ${contact.email}. B.S.R. Tower, 5 Kineret St.`,
     accessibility: 'Accessibility statement for the Schechter Real Estate website and office accessibility arrangements.',
     privacy: 'Privacy policy of the Schechter Real Estate website: what we collect, why, and your rights.',
     sitemap: 'Sitemap of the Schechter Real Estate website.',
@@ -53,16 +53,24 @@ export function getMeta(route) {
   const alternates = path ? {he: abs(href('he', page, slug)), en: abs(href('en', page, slug))} : null;
   const org = {
     '@type': 'Organization', '@id': SITE + '/#organization', name: strings.he.brand, alternateName: brandAliases, url: SITE + '/',
-    logo: SITE + '/media/brand/logo-dark.png', image: SITE + '/og-image.jpg', telephone: contact.phoneE164, email: contact.email,
+    description: descriptions[lang].home,
+    logo: SITE + '/icon-512.png', image: SITE + '/og-image.jpg', telephone: contact.phoneE164, email: contact.email,
     address: {'@type': 'PostalAddress', streetAddress: lang === 'he' ? 'כנרת 5, מגדל ב.ס.ר' : '5 Kineret St., B.S.R. Tower', addressLocality: lang === 'he' ? 'רמת גן' : 'Ramat Gan', postalCode: '5158219', addressCountry: 'IL'},
     foundingDate: '2006', areaServed: {'@type': 'Country', name: 'Israel'},
     contactPoint: {'@type': 'ContactPoint', telephone: contact.phoneE164, email: contact.email, contactType: 'customer service', availableLanguage: ['Hebrew', 'English']}
   };
-  const graph = [org, {'@type': 'WebSite', '@id': SITE + '/#website', url: SITE + '/', name: strings.he.brand, alternateName: brandAliases, inLanguage: ['he-IL', 'en'], publisher: {'@id': org['@id']}}];
+  const alex = {
+    '@type': 'Person', '@id': SITE + '/#alex-schechter',
+    name: 'אלכס שכטר', alternateName: alexAliases,
+    url: abs(href(lang, 'contact')) + '#alex-schechter',
+    email: contact.alex.email, telephone: contact.phoneE164,
+    affiliation: {'@id': org['@id']}
+  };
+  const graph = [org, alex, {'@type': 'WebSite', '@id': SITE + '/#website', url: SITE + '/', name: strings.he.brand, alternateName: siteNames, description: descriptions.he.home, inLanguage: ['he-IL', 'en'], publisher: {'@id': org['@id']}}];
   if (path) graph.push({'@type': page === 'contact' ? 'ContactPage' : page === 'about' ? 'AboutPage' : page === 'projects' ? 'CollectionPage' : 'WebPage',
     '@id': canonical + '#webpage', url: canonical, name: title, description, inLanguage: lang === 'he' ? 'he-IL' : 'en',
     isPartOf: {'@id': SITE + '/#website'}, about: {'@id': org['@id']},
-    ...(p ? {mainEntity: {'@id': canonical + '#project'}} : page === 'urban-renewal' ? {mainEntity: {'@id': canonical + '#service'}} : {}),
+    ...(p ? {mainEntity: {'@id': canonical + '#project'}} : page === 'urban-renewal' ? {mainEntity: {'@id': canonical + '#service'}} : page === 'contact' ? {mainEntity: {'@id': alex['@id']}} : {}),
     ...(page !== 'home' ? {breadcrumb: {'@id': canonical + '#breadcrumbs'}} : {}),
     primaryImageOfPage: {'@type': 'ImageObject', url: image}});
   if (path && page !== 'home') graph.push({'@type': 'BreadcrumbList', '@id': canonical + '#breadcrumbs', itemListElement: [
@@ -75,6 +83,7 @@ export function getMeta(route) {
     image: images, subjectOf: {'@id': canonical + '#webpage'},
     additionalProperty: [
       {'@type': 'PropertyValue', name: t.status, value: `${t.categories[p.category]}${p.soldOut ? ` — ${t.soldOut}` : ''}`},
+      ...p.facts[lang].map(([name, value]) => ({'@type': 'PropertyValue', name, value})),
       ...(p.architect ? [{'@type': 'PropertyValue', name: t.architect, value: p.architect[lang]}] : [])
     ]});
   if (page === 'urban-renewal') graph.push({'@type': 'Service', '@id': canonical + '#service',

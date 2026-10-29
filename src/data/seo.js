@@ -1,18 +1,30 @@
 // Search descriptions summarize the published project records and recovered copy.
 // Keep the occupied / sold-out status explicit; these are portfolio pages.
-export const brandAliases = ['Schechter Real Estate', 'שכטר נדלן', 'שכטר נדל"ן'];
+// Common transliterations identify the same company without adding keyword lists
+// to the visible copy or inventing separate pages for spelling variations.
+export const brandAliases = [
+  'Schechter Real Estate', 'Schechter Nadlan',
+  'Shechter Real Estate', 'Shechter Nadlan',
+  'Schachter Real Estate', 'Schachter Nadlan',
+  'Shecter Real Estate', 'Shecter Nadlan', 'Schecter Nadlan',
+  'שכטר נדלן', 'שכטר נדל"ן', 'S Nadlan', 's-nadlan.com'
+];
+export const siteNames = ['Schechter Real Estate', 'שכטר נדלן', 's-nadlan.com'];
+export const alexAliases = ['Alex Schechter', 'Alex Shechter', 'Alex Schachter', 'Alex Shecter', 'Alex Schecter'];
 
 export const searchTitles = {
   he: {
     home: 'שכטר נדל״ן | יזמות, בנייה והתחדשות עירונית',
     projects: 'פרויקטים מאוכלסים | שכטר נדל״ן',
     about: 'אודות שכטר נדל״ן | יזמות ובנייה מאז 2006',
+    contact: 'אלכס שכטר — יצירת קשר | שכטר נדל״ן',
     'urban-renewal': 'התחדשות עירונית ופינוי בינוי | שכטר 38 — שכטר נדל״ן'
   },
   en: {
     home: 'Schechter Real Estate | Development & Urban Renewal',
     projects: 'Completed Residential Projects | Schechter Real Estate',
     about: 'About Schechter Real Estate | Developing Homes Since 2006',
+    contact: 'Contact Alex Schechter | Schechter Real Estate',
     'urban-renewal': 'Urban Renewal & Redevelopment | Schechter Real Estate'
   }
 };
@@ -63,7 +75,7 @@ export const projectDescriptions = {
     en: 'Nofei Emek HaAyalot in New Givat Ze’ev. A Schechter development of 76 cottage units, garden apartments and rooftop duplexes. The project is occupied and sold out.'
   },
   12: {
-    he: 'נופי נחלים בפתח תקווה — פרויקט של שכטר נדל״ן הכולל 3 בנייני בוטיק בני 6 קומות ו־74 יחידות דיור. תמונות ופרטי הפרויקט המאוכלס; כל הדירות נמכרו.',
-    en: 'Nofei Nehalim, Petah Tikva. A Schechter development of three six-storey boutique buildings and 74 homes. View photographs of the occupied, sold-out project.'
+    he: 'נופי נחלים בפתח תקווה — פרויקט של שכטר נדל״ן הכולל כ־100 יחידות דיור ב־5 בנייני בוטיק. תמונות ופרטי הפרויקט המאוכלס; כל הדירות נמכרו.',
+    en: 'Nofei Nehalim, Petah Tikva. A Schechter development of approximately 100 homes in five boutique buildings. View photographs of the occupied, sold-out project.'
   }
 };

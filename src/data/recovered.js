@@ -114,8 +114,9 @@ export const recovered = {
   12: {
     slug: 'nofei-nehalim', key: 'nehalim', emblem: 'nehalim', gallery: ['nehalim-aerial-1', 'nehalim-aerial-2'],
     soldOut: 'original',
-    facts: {he: [['מבנים', '3 בנייני בוטיק'], ['קומות', '6'], ['יחידות דיור', '74']], en: [['Buildings', '3 boutique buildings'], ['Floors', '6'], ['Homes', '74']]},
-    story: {he: ['3 בנייני בוטיק בני 6 קומות, היוצרים מתחם מגורים שקט ואקסקלוסיבי הכולל 74 יחידות דיור.'], en: ['Three 6-storey boutique buildings forming a quiet, exclusive residential complex of 74 homes.']}
+    // Client correction, 29 Oct 2026: five buildings and approximately 100 homes.
+    facts: {he: [['מבנים', '5 בנייני בוטיק'], ['קומות', '6'], ['יחידות דיור', 'כ־100']], en: [['Buildings', '5 boutique buildings'], ['Floors', '6'], ['Homes', 'Approximately 100']]},
+    story: {he: ['נופי נחלים בפתח תקווה — כ־100 יחידות דיור ב־5 בנייני בוטיק, היוצרים מתחם מגורים שקט ואקסקלוסיבי.'], en: ['Nofei Nehalim in Petah Tikva — approximately 100 homes in five boutique buildings, forming a quiet, exclusive residential complex.']}
   },
   21: {slug: 'sirkin-19'},
   22: {slug: 'schechter-rishonim', gallery: ['rishonim-render']},

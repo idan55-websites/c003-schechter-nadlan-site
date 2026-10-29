@@ -19,7 +19,7 @@ export function About() {
   const he = lang === 'he';
   const [p1, p2, p3, p4] = aboutStory[lang];
   return <>
-    <PageHero label={he ? 'אודות' : 'About'} lines={he ? ['בונים', 'איכות חיים.'] : ['Building', 'quality living.']} lede={he ? 'משפחה אירופאית, מסורת בנייה מוקפדת ומחויבות ארוכת שנים ללקוחות — מאז 2006.' : 'A European family, a meticulous building tradition and a long-term commitment to clients — since 2006.'}/>
+    <PageHero label={he ? 'אודות שכטר נדל״ן · Schechter Real Estate' : 'About Schechter Real Estate'} lines={he ? ['בונים', 'איכות חיים.'] : ['Building', 'quality living.']} lede={he ? 'משפחה אירופאית, מסורת בנייה מוקפדת ומחויבות ארוכת שנים ללקוחות — מאז 2006.' : 'A European family, a meticulous building tradition and a long-term commitment to clients — since 2006.'}/>
     <figure className="wide-figure"><div className="clip-reveal"><Picture name="knafei-garden" alt={he ? 'הדמיה — שכטר בכנפי נשרים, רמת גן' : 'Rendering — Schechter Knafei Nesharim, Ramat Gan'} sizes="100vw" className="parallax-inner"/></div></figure>
     <section className="split wrap">
       <Label n="01">{he ? 'החברה' : 'The company'}</Label>
@@ -140,7 +140,7 @@ export function Contact() {
         <a href={`mailto:${contact.email}`} className="contact-row"><Mail size={22}/><span><small>{he ? 'כתבו לנו' : 'Write to us'}</small><strong>{contact.email}</strong></span></a>
         <div className="contact-row"><Pin size={22}/><span><small>{he ? 'בואו לבקר' : 'Visit us'}</small><strong>{contact.address[lang]}</strong><span>{contact.hours[lang]}</span>
           <span className="contact-nav"><a href={contact.maps} target="_blank" rel="noopener noreferrer">Google Maps<ArrowDiag size={14}/></a><a href={contact.waze} target="_blank" rel="noopener noreferrer">Waze<ArrowDiag size={14}/></a></span></span></div>
-        <div className="contact-row contact-alex"><span><small>{he ? 'אלכס שכטר' : 'Alex Schechter'}</small><a href={`mailto:${contact.alex.email}`}>{contact.alex.email}</a><a href={contact.alex.phoneHref} dir="ltr">{contact.alex.phone}</a></span></div>
+        <div className="contact-row contact-alex" id="alex-schechter"><span><small>{he ? 'אלכס שכטר · Alex Schechter' : 'Alex Schechter'}</small><a href={`mailto:${contact.alex.email}`}>{contact.alex.email}</a><a href={contact.alex.phoneHref} dir="ltr">{contact.alex.phone}</a></span></div>
       </aside>
     </section>
     <section className="map wrap" aria-label={he ? 'מפת הגעה' : 'Map'}>
